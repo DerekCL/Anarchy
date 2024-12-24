@@ -3,12 +3,18 @@ using Discord.WebSocket;
 
 namespace Bot;
 
-sealed class Program : IDisposable
+sealed class DiscordBot : IDisposable
 {
+    public static async Task Main()
+    {
+        using var bot = new DiscordBot();
+        await bot.RunAsync().ConfigureAwait(false);
+    }
+
     private readonly DiscordSocketClient _client;
     private bool _disposed;
 
-    public Program()
+    private DiscordBot()
     {
         _client = new DiscordSocketClient(
             new DiscordSocketConfig
@@ -18,13 +24,7 @@ sealed class Program : IDisposable
         );
     }
 
-    public static async Task Main()
-    {
-        using var program = new Program();
-        await program.MainAsync().ConfigureAwait(false);
-    }
-
-    public async Task MainAsync()
+    private async Task RunAsync()
     {
         _client.Log += Log;
         _client.Ready += Ready;
