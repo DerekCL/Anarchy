@@ -3,34 +3,44 @@ using Discord.WebSocket;
 
 namespace Bot;
 
-class Program
+sealed class Program : IDisposable
 {
-    private DiscordSocketClient _client;
-    
-    public static Task Main(string[] args) => new Program().MainAsync();
+    private readonly DiscordSocketClient _client;
+    private bool _disposed;
+
+    public Program()
+    {
+        _client = new DiscordSocketClient(
+            new DiscordSocketConfig
+            {
+                GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent,
+            }
+        );
+    }
+
+    public static async Task Main()
+    {
+        using var program = new Program();
+        await program.MainAsync().ConfigureAwait(false);
+    }
 
     public async Task MainAsync()
     {
-        _client = new DiscordSocketClient(new DiscordSocketConfig
-        {
-            GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent
-        });
-
         _client.Log += Log;
         _client.Ready += Ready;
         _client.MessageReceived += MessageReceived;
 
-        // Replace "YOUR_BOT_TOKEN" with your bot's token
-        string token = Environment.GetEnvironmentVariable("DISCORD_TOKEN") ?? throw new Exception("Please set your bot token in the DISCORD_TOKEN environment variable");
-        
-        await _client.LoginAsync(TokenType.Bot, token);
-        await _client.StartAsync();
+        var token =
+            Environment.GetEnvironmentVariable("DISCORD_TOKEN")
+            ?? throw new InvalidOperationException("DISCORD_TOKEN environment variable is not set");
 
-        // Block the program until it is closed.
-        await Task.Delay(Timeout.Infinite);
+        await _client.LoginAsync(TokenType.Bot, token).ConfigureAwait(false);
+        await _client.StartAsync().ConfigureAwait(false);
+
+        await Task.Delay(Timeout.Infinite).ConfigureAwait(false);
     }
 
-    private Task Log(LogMessage msg)
+    private static Task Log(LogMessage msg)
     {
         Console.WriteLine(msg.ToString());
         return Task.CompletedTask;
@@ -42,16 +52,32 @@ class Program
         return Task.CompletedTask;
     }
 
-    private async Task MessageReceived(SocketMessage message)
+    private static async Task MessageReceived(SocketMessage message)
     {
-        // Ignore system messages and messages from bots
-        if (!(message is SocketUserMessage userMessage) || message.Author.IsBot)
+        if (message.Author.IsBot || message is not SocketUserMessage)
             return;
 
-        // Check if the message starts with "!ping"
         if (message.Content.Equals("!ping", StringComparison.OrdinalIgnoreCase))
         {
-            await message.Channel.SendMessageAsync("Pong! 🏓");
+            await message.Channel.SendMessageAsync("Pong! 🏓").ConfigureAwait(false);
         }
+    }
+
+    private void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                _client?.Dispose();
+            }
+            _disposed = true;
+        }
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }
