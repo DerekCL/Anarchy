@@ -1,5 +1,6 @@
 ﻿using Discord;
 using Discord.WebSocket;
+using Microsoft.Extensions.Configuration;
 
 namespace Bot;
 
@@ -12,6 +13,7 @@ sealed class DiscordBot : IDisposable
     }
 
     private readonly DiscordSocketClient _client;
+    private readonly IConfiguration _configuration;
     private bool _disposed;
 
     private DiscordBot()
@@ -22,6 +24,24 @@ sealed class DiscordBot : IDisposable
                 GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent,
             }
         );
+
+        var environment =
+            Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+
+        var builder = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+        if (environment.Equals("Development", StringComparison.OrdinalIgnoreCase))
+        {
+            builder.AddJsonFile(
+                $"appsettings.Development.json",
+                optional: true,
+                reloadOnChange: true
+            );
+        }
+
+        _configuration = builder.Build();
     }
 
     private async Task RunAsync()
@@ -31,8 +51,10 @@ sealed class DiscordBot : IDisposable
         _client.MessageReceived += MessageReceived;
 
         var token =
-            Environment.GetEnvironmentVariable("DISCORD_TOKEN")
-            ?? throw new InvalidOperationException("DISCORD_TOKEN environment variable is not set");
+            _configuration.GetSection("Discord")["Token"]
+            ?? throw new InvalidOperationException(
+                "Discord:Token is not configured in appsettings.Development.json"
+            );
 
         await _client.LoginAsync(TokenType.Bot, token).ConfigureAwait(false);
         await _client.StartAsync().ConfigureAwait(false);
