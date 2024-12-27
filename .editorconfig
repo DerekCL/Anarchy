@@ -1,0 +1,77 @@
+# Root EditorConfig file
+root = true
+
+# General Settings
+[*.{cs,vb}]
+charset = utf-8
+indent_style = space
+indent_size = 4
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# File-specific C# rules
+[*.cs]
+
+# Code Block and Spacing Preferences
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+csharp_new_line_before_open_brace = all
+csharp_preserve_single_line_blocks = false
+csharp_preserve_single_line_statements = false
+csharp_space_around_binary_operators = ignore
+csharp_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:suggestion
+
+# File-Scoped Namespace Preference
+csharp_style_namespace_declarations = file_scoped:suggestion
+
+# Expression-bodied Members
+csharp_style_expression_bodied_methods = when_possible:suggestion
+csharp_style_expression_bodied_properties = when_possible:suggestion
+csharp_style_expression_bodied_operators = when_possible:suggestion
+
+# Nullable Reference Types
+csharp_style_nullable_reference_types = true:suggestion
+
+# Modern Features
+csharp_style_prefer_implicit_usings = true:suggestion
+csharp_style_prefer_implicit_object_creation_when_type_is_apparent = true:suggestion
+csharp_style_prefer_tuple_over_anonymous_types = true:suggestion
+csharp_style_prefer_inferred_tuple_names = true:suggestion
+csharp_style_prefer_inferred_anonymous_type_member_names = true:suggestion
+
+# Read-only and Performance Preferences
+csharp_style_readonly_field = true:suggestion
+csharp_prefer_readonly_span_array_properties = true:suggestion
+csharp_prefer_stackalloc_initialization = true:suggestion
+
+# Pattern Matching
+csharp_style_prefer_pattern_matching = true:suggestion
+csharp_style_prefer_null_check_over_type_check = true:suggestion
+
+# Attributes and Documentation
+csharp_new_line_before_attributes = true
+dotnet_diagnostic.CS1591.severity = warning
+
+# Naming Conventions
+dotnet_naming_rule.private_fields_with_underscore.severity = suggestion
+dotnet_naming_rule.private_fields_with_underscore.symbols = private_fields
+dotnet_naming_rule.private_fields_with_underscore.style = prefix_underscore
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_symbols.private_fields.required_modifiers = 
+
+dotnet_naming_style.prefix_underscore.capitalization = camel_case
+dotnet_naming_style.prefix_underscore.required_prefix = _
+
+# Optional Documentation Rules
+dotnet_naming_rule.public_methods_must_have_documentation.severity = suggestion
+dotnet_naming_rule.public_methods_must_have_documentation.symbols = public_methods
+dotnet_naming_rule.public_methods_must_have_documentation.style = requires_xml_documentation
+
+dotnet_naming_symbols.public_methods.applicable_kinds = method
+dotnet_naming_symbols.public_methods.applicable_accessibilities = public
+dotnet_naming_symbols.public_methods.required_modifiers = 
+
+dotnet_naming_style.requires_xml_documentation.capitalization = none
+dotnet_naming_style.requires_xml_documentation.required_prefix = 
