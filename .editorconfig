@@ -1,133 +1,84 @@
 # Root EditorConfig file
 root = true
 
-# General Settings for C# and VB
+# ====================================================
+# Basic Encoding, Indentation, and Whitespace Rules
+# ====================================================
+
 [*.{cs,vb}]
-charset = utf-8-bom
+charset = utf-8
 indent_style = space
 indent_size = 4
 end_of_line = lf
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-# File-specific C# rules
-[*.cs]
+max_line_length = 80
 
 # ====================================================
-# Code Block and Spacing Preferences
+# .NET/C# Style Rules
 # ====================================================
+
+# Code Block and Spacing Preferences
+[*.cs]
 csharp_space_between_method_declaration_parameter_list_parentheses = false
 csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
 csharp_preserve_single_line_blocks = false
 csharp_preserve_single_line_statements = false
 csharp_space_around_binary_operators = ignore
 csharp_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:suggestion
 
-# ====================================================
+csharp_indent_switch_labels = true
+csharp_indent_case_contents = true
+csharp_indent_case_contents_when_block = true
+
 # Nullable Reference Types
-# ====================================================
 csharp_style_nullable_reference_types = true:suggestion
 dotnet_analyzer_diagnostic.category-NullableReferenceTypes.severity = warning
 
-# ====================================================
-# Max Line Length
-# ====================================================
-max_line_length = 80
-
-# ====================================================
-# Roslynator Configuration
-# ====================================================
-roslynator_binary_operator_new_line = before
-roslynator_conditional_operator_new_line = before
-roslynator_conditional_operator_condition_parentheses_style = include
-roslynator_configure_await = false
-roslynator_doc_comment_summary_style = multi_line
-roslynator_empty_string_style = literal
-roslynator_enum_flag_value_style = shift_operator
-roslynator_enum_has_flag_style = operator
-roslynator_infinite_loop_style = while
-roslynator_new_line_at_end_of_file = true
-roslynator_new_line_before_while_in_do_statement = true
-roslynator_null_check_style = pattern_matching
-roslynator_null_conditional_operator_new_line = before
-roslynator_object_creation_parentheses_style = include
-roslynator_object_creation_type_style = implicit_when_type_is_obvious
-roslynator_use_block_body_when_declaration_spans_over_multiple_lines = true
-roslynator_use_block_body_when_expression_spans_over_multiple_lines = true
-roslynator_use_collection_expression = true
-
-# ====================================================
-# Additional Roslynator Refactorings and Analyzers
-# ====================================================
-roslynator_refactoring.convert_if_to_switch.enabled = true
-roslynator_refactoring.convert_switch_to_if.enabled = true
-roslynator_refactoring.use_expression_body_for_methods.enabled = true
-roslynator_refactoring.use_expression_body_for_properties.enabled = true
-roslynator_refactoring.use_expression_body_for_indexers.enabled = true
-roslynator_refactoring.use_expression_body_for_accessors.enabled = true
-roslynator_refactoring.convert_property_to_auto_property.enabled = true
-roslynator_refactoring.remove_unused_usings.enabled = true
-roslynator_refactoring.sort_usings.enabled = true
-roslynator_refactoring.convert_local_variable_to_var.enabled = true
-roslynator_refactoring.convert_var_to_explicit_type.enabled = true
-roslynator_refactoring.inline_local.enabled = true
-roslynator_refactoring.extract_method.enabled = true
-roslynator_refactoring.extract_property.enabled = true
-roslynator_refactoring.extract_interface.enabled = true
-roslynator_refactoring.introduce_variable.enabled = true
-
-roslynator_linting.use_null_propagation = true
-roslynator_linting.prefer_is_null_over_comparisons = true
-roslynator_linting.prefer_pattern_matching = true
-roslynator_linting.prefer_string_interpolation = true
-roslynator_linting.prefer_static_methods = true
-roslynator_linting.prefer_readonly_fields = true
-roslynator_linting.prefer_auto_properties = true
-roslynator_linting.prefer_expression_bodied_members = true
-
-# ====================================================
 # C# 12 Specific Rules
-# ====================================================
 csharp_style_namespace_declarations = file_scoped:suggestion
 csharp_style_global_using_directives = true:suggestion
 csharp_style_target_typed_new = true:suggestion
 csharp_style_prefer_nameof = true:suggestion
 csharp_style_prefer_using_static = true:suggestion
 
-# ====================================================
 # .NET 8 Specific Enhancements
-# ====================================================
 dotnet_style_prefer_record_types = true:suggestion
 dotnet_style_prefer_minimal_api = true:suggestion
 dotnet_style_prefer_async_methods = true:suggestion
 csharp_style_prefer_switch_expression = true:suggestion
 csharp_style_prefer_nullable_annotations = true:suggestion
 
-# ====================================================
 # Additional Formatting Rules
-# ====================================================
+dotnet_style_prefer_var_when_type_is_apparent = true:suggestion
+dotnet_style_prefer_var_elsewhere = true:suggestion
+csharp_style_var_elsewhere = false:suggestion # Removed to avoid conflict
 csharp_style_var_for_built_in_types = true:suggestion
 csharp_style_var_when_type_is_apparent = true:suggestion
-csharp_style_var_elsewhere = false:suggestion
 
 csharp_style_expression_bodied_methods = when_possible:suggestion
 csharp_style_expression_bodied_properties = when_possible:suggestion
 csharp_style_expression_bodied_indexers = when_possible:suggestion
 csharp_style_expression_bodied_accessors = when_possible:suggestion
 
-# ====================================================
 # Final Touches
-# ====================================================
 csharp_ordering_of_modifiers = default
 csharp_prefer_single_quotes = true:suggestion
 csharp_style_remove_redundant_casts = true:suggestion
 csharp_style_prefer_is_not_null = true:suggestion
 csharp_style_prefer_is_null = true:suggestion
 csharp_prefer_using_declarations = true:suggestion
+csharp_prefer_foreach = true:suggestion
+csharp_style_prefer_static_local_functions = true:suggestion
 
 # ====================================================
 # Naming Conventions
 # ====================================================
+
 # Namespace PascalCase
 dotnet_naming_rule.namespace_pascal_case.symbols = namespace_symbols
 dotnet_naming_rule.namespace_pascal_case.style = pascal_case_style
@@ -198,36 +149,171 @@ dotnet_naming_symbols.local_variable_symbols.applicable_kinds = local
 dotnet_naming_symbols.local_variable_symbols.applicable_accessibilities = *
 dotnet_naming_symbols.local_variable_symbols.required_modifiers = 
 
+# Constants PascalCase
+dotnet_naming_rule.constants_pascal_case.symbols = constant_symbols
+dotnet_naming_rule.constants_pascal_case.style = pascal_case_style
+dotnet_naming_rule.constants_pascal_case.severity = suggestion
+
+dotnet_naming_symbols.constant_symbols.applicable_kinds = constant
+dotnet_naming_symbols.constant_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.constant_symbols.required_modifiers = 
+
+# Events PascalCase with Event suffix
+dotnet_naming_rule.events_pascal_case.symbols = event_symbols
+dotnet_naming_rule.events_pascal_case.style = event_style
+dotnet_naming_rule.events_pascal_case.severity = suggestion
+
+dotnet_naming_symbols.event_symbols.applicable_kinds = event
+dotnet_naming_symbols.event_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.event_symbols.required_modifiers = 
+
+dotnet_naming_style.event_style.capitalization = PascalCase
+dotnet_naming_style.event_style.required_suffix = Event
+
+# Delegates PascalCase with Delegate suffix
+dotnet_naming_rule.delegates_pascal_case.symbols = delegate_symbols
+dotnet_naming_rule.delegates_pascal_case.style = delegate_style
+dotnet_naming_rule.delegates_pascal_case.severity = suggestion
+
+dotnet_naming_symbols.delegate_symbols.applicable_kinds = delegate
+dotnet_naming_symbols.delegate_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.delegate_symbols.required_modifiers = 
+
+dotnet_naming_style.delegate_style.capitalization = PascalCase
+dotnet_naming_style.delegate_style.required_suffix = Delegate
+
+# Generic Type Parameters - Prefix with T
+dotnet_naming_rule.generic_type_parameters.symbols = generic_type_parameter_symbols
+dotnet_naming_rule.generic_type_parameters.style = generic_type_parameter_style
+dotnet_naming_rule.generic_type_parameters.severity = suggestion
+
+dotnet_naming_symbols.generic_type_parameter_symbols.applicable_kinds = type_parameter
+dotnet_naming_symbols.generic_type_parameter_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.generic_type_parameter_symbols.required_modifiers = 
+
+dotnet_naming_style.generic_type_parameter_style.capitalization = PascalCase
+dotnet_naming_style.generic_type_parameter_style.required_prefix = T
+
+# Async Method Naming Conventions
+dotnet_naming_rule.async_methods_suffix.symbols = async_method_symbols
+dotnet_naming_rule.async_methods_suffix.style = async_methods_style
+dotnet_naming_rule.async_methods_suffix.severity = suggestion
+
+dotnet_naming_symbols.async_method_symbols.applicable_kinds = method
+dotnet_naming_symbols.async_method_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.async_method_symbols.required_modifiers = async
+
+dotnet_naming_style.async_methods_style.capitalization = PascalCase
+dotnet_naming_style.async_methods_style.required_suffix = Async
+
 # ====================================================
 # Member Ordering
 # ====================================================
+
 dotnet_sort_system_directives_first = true
+# Preferred order of members within classes:
+# 1. Constants
+# 2. Fields
+# 3. Constructors
+# 4. Properties
+# 5. Methods
+# 6. Events
+# 7. Delegates
 # Member ordering requires additional analyzers like StyleCop.Analyzers
 
 # ====================================================
-# Documentation Rules
+# Roslynator Configuration
 # ====================================================
+
+roslynator_binary_operator_new_line = before
+roslynator_conditional_operator_new_line = before
+roslynator_conditional_operator_condition_parentheses_style = include
+roslynator_configure_await = false
+roslynator_doc_comment_summary_style = multi_line
+roslynator_empty_string_style = literal
+roslynator_enum_flag_value_style = shift_operator
+roslynator_enum_has_flag_style = operator
+roslynator_infinite_loop_style = while
+roslynator_new_line_at_end_of_file = true
+roslynator_new_line_before_while_in_do_statement = true
+roslynator_null_check_style = pattern_matching
+roslynator_null_conditional_operator_new_line = before
+roslynator_object_creation_parentheses_style = include
+roslynator_object_creation_type_style = implicit_when_type_is_obvious
+roslynator_use_block_body_when_declaration_spans_over_multiple_lines = true
+roslynator_use_block_body_when_expression_spans_over_multiple_lines = true
+roslynator_use_collection_expression = true
+
+# Additional Roslynator Refactorings and Analyzers
+roslynator_refactoring.convert_if_to_switch.enabled = true
+roslynator_refactoring.convert_switch_to_if.enabled = true
+roslynator_refactoring.use_expression_body_for_methods.enabled = true
+roslynator_refactoring.use_expression_body_for_properties.enabled = true
+roslynator_refactoring.use_expression_body_for_indexers.enabled = true
+roslynator_refactoring.use_expression_body_for_accessors.enabled = true
+roslynator_refactoring.convert_property_to_auto_property.enabled = true
+roslynator_refactoring.remove_unused_usings.enabled = true
+roslynator_refactoring.sort_usings.enabled = true
+roslynator_refactoring.convert_local_variable_to_var.enabled = true
+roslynator_refactoring.convert_var_to_explicit_type.enabled = true
+roslynator_refactoring.inline_local.enabled = true
+roslynator_refactoring.extract_method.enabled = true
+roslynator_refactoring.extract_property.enabled = true
+roslynator_refactoring.extract_interface.enabled = true
+roslynator_refactoring.introduce_variable.enabled = true
+
+roslynator_linting.use_null_propagation = true
+roslynator_linting.prefer_is_null_over_comparisons = true
+roslynator_linting.prefer_pattern_matching = true
+roslynator_linting.prefer_string_interpolation = true
+roslynator_linting.prefer_static_methods = true
+roslynator_linting.prefer_readonly_fields = true
+roslynator_linting.prefer_auto_properties = true
+roslynator_linting.prefer_expression_bodied_members = true
+
+# Advanced Roslynator Configurations
+roslynator_refactoring.optimize_braces.enabled = true
+roslynator_refactoring.reduce_to_conditional_expression.enabled = true
+roslynator_refactoring.remove_unnecessary_usings.enabled = true
+
+roslynator_linting.prefer_single_line_comments = true
+roslynator_linting.prefer_inferred_tuple_names = true
+roslynator_linting.prefer_null_coalescing = true
+roslynator_linting.prefer_throw_expression = true
+
+# ====================================================
+# Analyzer Category Severity
+# ====================================================
+
+dotnet_analyzer_diagnostic.category-Style.severity = suggestion
+dotnet_analyzer_diagnostic.category-Design.severity = warning
+dotnet_analyzer_diagnostic.category-Maintainability.severity = warning
+dotnet_analyzer_diagnostic.category-Naming.severity = suggestion
+
+# ====================================================
+# Accessibility Modifiers Enforcement
+# ====================================================
+
+csharp_style_require_accessibility_modifiers = always:suggestion
+
+# ====================================================
+# XML Documentation Rules
+# ====================================================
+
 dotnet_diagnostic.CS1591.severity = warning
 csharp_style_documentation_comments = true:suggestion
 
 # ====================================================
 # Code Analysis and Quality Rules
 # ====================================================
+
 dotnet_style_prefer_var_when_type_is_apparent = true:suggestion
-dotnet_style_prefer_var_elsewhere = false:suggestion
-csharp_style_expression_bodied_methods = when_possible:suggestion
-csharp_style_expression_bodied_properties = when_possible:suggestion
-csharp_style_expression_bodied_indexers = when_possible:suggestion
-csharp_style_expression_bodied_accessors = when_possible:suggestion
-csharp_style_prefer_switch_expression = true:suggestion
-csharp_style_prefer_nullable_annotations = true:suggestion
-csharp_style_prefer_static_local_functions = true:suggestion
-csharp_prefer_foreach = true:suggestion
-csharp_prefer_using_declarations = true:suggestion
+dotnet_style_prefer_var_elsewhere = true:suggestion
 
 # ====================================================
 # Performance and Security Rules
 # ====================================================
+
 dotnet_diagnostic.AwaitTask_AsyncVoid.severity = error
 dotnet_style_prefer_async_methods = true:suggestion
 dotnet_style_prefer_readonly_fields = true:suggestion
@@ -238,6 +324,7 @@ dotnet_diagnostic.SecureCoding.severity = warning
 # ====================================================
 # Exception Handling Rules
 # ====================================================
+
 dotnet_diagnostic.EXC0001.severity = error
 dotnet_diagnostic.EXC0002.severity = warning
 dotnet_diagnostic.EXC0003.severity = suggestion
@@ -245,6 +332,7 @@ dotnet_diagnostic.EXC0003.severity = suggestion
 # ====================================================
 # LINQ Optimization Rules
 # ====================================================
+
 csharp_style_prefer_method_syntax_over_query_syntax = true:suggestion
 dotnet_diagnostic.LINQ0001.severity = suggestion
 dotnet_diagnostic.LINQ0002.severity = suggestion
@@ -252,13 +340,98 @@ dotnet_diagnostic.LINQ0002.severity = suggestion
 # ====================================================
 # Dependency Injection Best Practices
 # ====================================================
+
 dotnet_diagnostic.DI0001.severity = warning
 dotnet_diagnostic.DI0002.severity = error
 
 # ====================================================
-# Additional Formatting Rules
+# Final Formatting Rules
 # ====================================================
+
 csharp_style_remove_redundant_casts = true:suggestion
 csharp_style_prefer_is_not_null = true:suggestion
 csharp_style_prefer_is_null = true:suggestion
 csharp_prefer_single_quotes = true:suggestion
+
+# ====================================================
+# Enhanced Naming Conventions
+# ====================================================
+
+# Constants PascalCase
+dotnet_naming_rule.constants_pascal_case.symbols = constant_symbols
+dotnet_naming_rule.constants_pascal_case.style = pascal_case_style
+dotnet_naming_rule.constants_pascal_case.severity = suggestion
+
+dotnet_naming_symbols.constant_symbols.applicable_kinds = constant
+dotnet_naming_symbols.constant_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.constant_symbols.required_modifiers = 
+
+# Events PascalCase with Event suffix
+dotnet_naming_rule.events_pascal_case.symbols = event_symbols
+dotnet_naming_rule.events_pascal_case.style = event_style
+dotnet_naming_rule.events_pascal_case.severity = suggestion
+
+dotnet_naming_symbols.event_symbols.applicable_kinds = event
+dotnet_naming_symbols.event_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.event_symbols.required_modifiers = 
+
+dotnet_naming_style.event_style.capitalization = PascalCase
+dotnet_naming_style.event_style.required_suffix = Event
+
+# Delegates PascalCase with Delegate suffix
+dotnet_naming_rule.delegates_pascal_case.symbols = delegate_symbols
+dotnet_naming_rule.delegates_pascal_case.style = delegate_style
+dotnet_naming_rule.delegates_pascal_case.severity = suggestion
+
+dotnet_naming_symbols.delegate_symbols.applicable_kinds = delegate
+dotnet_naming_symbols.delegate_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.delegate_symbols.required_modifiers = 
+
+dotnet_naming_style.delegate_style.capitalization = PascalCase
+dotnet_naming_style.delegate_style.required_suffix = Delegate
+
+# Generic Type Parameters - Prefix with T
+dotnet_naming_rule.generic_type_parameters.symbols = generic_type_parameter_symbols
+dotnet_naming_rule.generic_type_parameters.style = generic_type_parameter_style
+dotnet_naming_rule.generic_type_parameters.severity = suggestion
+
+dotnet_naming_symbols.generic_type_parameter_symbols.applicable_kinds = type_parameter
+dotnet_naming_symbols.generic_type_parameter_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.generic_type_parameter_symbols.required_modifiers = 
+
+dotnet_naming_style.generic_type_parameter_style.capitalization = PascalCase
+dotnet_naming_style.generic_type_parameter_style.required_prefix = T
+
+# Async Method Naming Conventions
+dotnet_naming_rule.async_methods_suffix.symbols = async_method_symbols
+dotnet_naming_rule.async_methods_suffix.style = async_methods_style
+dotnet_naming_rule.async_methods_suffix.severity = suggestion
+
+dotnet_naming_symbols.async_method_symbols.applicable_kinds = method
+dotnet_naming_symbols.async_method_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.async_method_symbols.required_modifiers = async
+
+dotnet_naming_style.async_methods_style.capitalization = PascalCase
+dotnet_naming_style.async_methods_style.required_suffix = Async
+
+# ====================================================
+# Accessibility Modifiers Enforcement
+# ====================================================
+
+csharp_style_require_accessibility_modifiers = always:suggestion
+
+# ====================================================
+# XML Documentation Rules
+# ====================================================
+
+dotnet_diagnostic.CS1591.severity = warning
+csharp_style_documentation_comments = true:suggestion
+
+# ====================================================
+# Pattern Matching and Modern C# Features
+# ====================================================
+
+csharp_style_pattern_matching_over_type_cast = true:suggestion
+csharp_style_prefer_is_not_pattern = true:suggestion
+csharp_style_prefer_null_coalescing_assignment = true:suggestion
+csharp_style_prefer_collection_expressions = true:suggestion
