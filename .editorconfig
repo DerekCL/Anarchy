@@ -3,119 +3,1446 @@ root = true
 
 # General Settings
 [*.{cs,vb}]
+# Encoding of the file
 charset = utf-8
+# Use spaces for indentation
 indent_style = space
+# Number of spaces per indentation level
 indent_size = 4
+# Line ending style
 end_of_line = lf
+# Remove any trailing whitespace characters
 trim_trailing_whitespace = true
+# Ensure the file ends with a newline
 insert_final_newline = true
 
 # File-specific C# rules
 [*.cs]
 
+# ====================================================
 # Code Block and Spacing Preferences
+# ====================================================
+
+# Do not enforce spaces between method declaration parentheses
 csharp_space_between_method_declaration_parameter_list_parentheses = false
+
+# Place all braces on a new line
 csharp_new_line_before_open_brace = all
+
+# Do not preserve single-line blocks; always use multi-line
 csharp_preserve_single_line_blocks = false
+
+# Do not preserve single-line statements; enforce multi-line for clarity
 csharp_preserve_single_line_statements = false
+
+# Ignore spacing around binary operators; Roslynator will handle formatting
 csharp_space_around_binary_operators = ignore
+
+# Always use parentheses in arithmetic and binary operators for clarity
 csharp_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:suggestion
 
-# File-Scoped Namespace Preference
+# ====================================================
+# Namespace Preferences
+# ====================================================
+
+# Use file-scoped namespace declarations for brevity
 csharp_style_namespace_declarations = file_scoped:suggestion
 
+# ====================================================
 # Expression-bodied Members
+# ====================================================
+
+# Prefer expression-bodied methods when possible for conciseness
 csharp_style_expression_bodied_methods = when_possible:suggestion
+
+# Prefer expression-bodied properties when possible for conciseness
 csharp_style_expression_bodied_properties = when_possible:suggestion
+
+# Prefer expression-bodied operators when possible for conciseness
 csharp_style_expression_bodied_operators = when_possible:suggestion
 
+# ====================================================
 # Nullable Reference Types
+# ====================================================
+
+# Enable nullable reference types to enhance null safety
 csharp_style_nullable_reference_types = true:suggestion
 
+# ====================================================
 # Modern Features
+# ====================================================
+
+# Prefer implicit using directives to reduce boilerplate
 csharp_style_prefer_implicit_usings = true:suggestion
+
+# Prefer implicit object creation when the type is apparent
 csharp_style_prefer_implicit_object_creation_when_type_is_apparent = true:suggestion
+
+# Prefer tuples over anonymous types for better performance and clarity
 csharp_style_prefer_tuple_over_anonymous_types = true:suggestion
+
+# Prefer inferred tuple names for conciseness
 csharp_style_prefer_inferred_tuple_names = true:suggestion
+
+# Prefer inferred anonymous type member names for conciseness
 csharp_style_prefer_inferred_anonymous_type_member_names = true:suggestion
 
+# ====================================================
 # Modern C# Language Features
+# ====================================================
+
+# Prefer primary constructors for brevity and clarity
 csharp_style_prefer_primary_constructors = true:suggestion
+
+# Prefer compact field initialization for cleaner code
 csharp_style_prefer_compact_field_initialization = true:suggestion
+
+# Prefer record types for immutable data models
 csharp_style_prefer_record_type = true:suggestion
+
+# Prefer record structs for immutable value types
 csharp_style_prefer_record_struct = true:suggestion
+
+# Prefer default interface methods for cleaner interface evolution
 csharp_style_prefer_default_interface_methods = true:suggestion
+
+# Prefer switch expressions for more concise and readable switch statements
 csharp_style_prefer_switch_expressions = true:suggestion
+
+# Prefer required members to ensure essential properties are initialized
 csharp_style_prefer_required_members = true:suggestion
+
+# Prefer static abstract members in interfaces for better type safety
 csharp_style_prefer_static_abstract_members = true:suggestion
+
+# Prefer list patterns for more expressive pattern matching
 csharp_style_prefer_list_patterns = true:suggestion
+
+# Prefer file-scoped types for better encapsulation and clarity
 csharp_style_prefer_file_scoped_types = true:suggestion
 
+# ====================================================
 # Read-only and Performance Preferences
+# ====================================================
+
+# Prefer readonly fields to enforce immutability
 csharp_style_readonly_field = true:suggestion
+
+# Prefer readonly span array properties for memory safety and performance
 csharp_prefer_readonly_span_array_properties = true:suggestion
+
+# Prefer stackalloc initialization for performance-critical code
 csharp_prefer_stackalloc_initialization = true:suggestion
 
+# ====================================================
 # Pattern Matching
+# ====================================================
+
+# Prefer pattern matching over traditional type checks for conciseness
 csharp_style_prefer_pattern_matching = true:suggestion
+
+# Prefer null checks using pattern matching over type checks for clarity
 csharp_style_prefer_null_check_over_type_check = true:suggestion
 
+# ====================================================
 # Attributes and Documentation
+# ====================================================
+
+# Place attributes on a new line for better readability
 csharp_new_line_before_attributes = true
+
+# Enforce documentation for public members
 dotnet_diagnostic.CS1591.severity = warning
 
+# ====================================================
 # Naming Conventions
+# ====================================================
+
+# Rule for private fields to have an underscore prefix
 dotnet_naming_rule.private_fields_with_underscore.severity = suggestion
 dotnet_naming_rule.private_fields_with_underscore.symbols = private_fields
 dotnet_naming_rule.private_fields_with_underscore.style = prefix_underscore
 
+# Define private fields symbols
 dotnet_naming_symbols.private_fields.applicable_kinds = field
 dotnet_naming_symbols.private_fields.applicable_accessibilities = private
 dotnet_naming_symbols.private_fields.required_modifiers = 
 
+# Define naming style for prefixing underscore
 dotnet_naming_style.prefix_underscore.capitalization = camel_case
 dotnet_naming_style.prefix_underscore.required_prefix = _
 
-# Documentation Rules
+# Rule for public methods to have XML documentation
 dotnet_naming_rule.public_methods_must_have_documentation.severity = suggestion
 dotnet_naming_rule.public_methods_must_have_documentation.symbols = public_methods
 dotnet_naming_rule.public_methods_must_have_documentation.style = requires_xml_documentation
 
+# Define public methods symbols
 dotnet_naming_symbols.public_methods.applicable_kinds = method
 dotnet_naming_symbols.public_methods.applicable_accessibilities = public
 dotnet_naming_symbols.public_methods.required_modifiers = 
 
+# Define naming style for requiring XML documentation
 dotnet_naming_style.requires_xml_documentation.capitalization = none
 dotnet_naming_style.requires_xml_documentation.required_prefix = 
 
+# ====================================================
 # Roslynator Configuration
+# ====================================================
 
+# ----------------------------------------------------
 # Accessibility Modifiers
+# Enforce explicit accessibility modifiers for clarity
+# Applicable Analyzer: rcs1018
+# ----------------------------------------------------
 roslynator_accessibility_modifiers = explicit
 
-# Using Directives
-roslynator_blank_line_between_using_directives = separate_groups
+# ----------------------------------------------------
+# Accessor Braces Style
+# Use multi-line braces for better readability
+# Applicable Analyzer: rcs0020
+# ----------------------------------------------------
+roslynator_accessor_braces_style = multi_line
 
-# Trailing Commas
-roslynator_trailing_comma_style = include
+# ----------------------------------------------------
+# Array Creation Type Style
+# Enforce explicit type declarations in array creations
+# Applicable Analyzer: rcs1014
+# ----------------------------------------------------
+roslynator_array_creation_type_style = explicit
 
-# File-Scoped Namespace
-roslynator_blank_line_after_file_scoped_namespace_declaration = true
+# ----------------------------------------------------
+# Arrow Token New Line
+# Place the arrow token after the expression in expression-bodied members
+# Applicable Analyzer: rcs0032
+# ----------------------------------------------------
+roslynator_arrow_token_new_line = after
 
-# Equals Sign Placement
-roslynator_equals_token_new_line = before
-
+# ----------------------------------------------------
 # Binary Operator Placement
+# Place binary operators at the beginning of a new line for readability
+# Applicable Analyzer: rcs0027
+# ----------------------------------------------------
 roslynator_binary_operator_new_line = before
 
+# ----------------------------------------------------
 # Conditional Operator Placement
+# Place the conditional operator before the expression for clarity
+# Applicable Analyzer: rcs0028
+# ----------------------------------------------------
 roslynator_conditional_operator_new_line = before
 
+# ----------------------------------------------------
+# Conditional Operator Condition Parentheses Style
+# Include parentheses in conditional operator conditions for clarity
+# Applicable Analyzer: rcs1051
+# ----------------------------------------------------
+roslynator_conditional_operator_condition_parentheses_style = include
+
+# ----------------------------------------------------
+# Configure Await
+# Avoid configuring await unless specific asynchronous behavior is required
+# Applicable Analyzer: rcs1090
+# ----------------------------------------------------
+roslynator_configure_await = false
+# Set to true only if specific asynchronous configurations are necessary
+
+# ----------------------------------------------------
+# Documentation Comment Summary Style
+# Use multi-line summaries in documentation comments for better readability
+# Applicable Analyzer: rcs1253
+# ----------------------------------------------------
+roslynator_doc_comment_summary_style = multi_line
+
+# ----------------------------------------------------
+# Empty String Style
+# Prefer string literals ("") over string.Empty for simplicity
+# Applicable Analyzer: rcs1078
+# ----------------------------------------------------
+roslynator_empty_string_style = literal
+
+# ----------------------------------------------------
+# Enum Flag Value Style
+# Use shift operators for enum flag values to clarify intent
+# Applicable Analyzer: rcs1254
+# ----------------------------------------------------
+roslynator_enum_flag_value_style = shift_operator
+
+# ----------------------------------------------------
+# Enum HasFlag Style
+# Use bitwise operators instead of HasFlag for better performance
+# Applicable Analyzer: rcs1096
+# ----------------------------------------------------
+roslynator_enum_has_flag_style = operator
+
+# ----------------------------------------------------
+# Infinite Loop Style
+# Prefer 'while (true)' over 'for (;;)' for clarity
+# Applicable Analyzer: rcs1252
+# ----------------------------------------------------
+roslynator_infinite_loop_style = while
+
+# ----------------------------------------------------
+# Max Line Length
+# Set maximum line length to 120 characters for better readability
+# Applicable Analyzer: rcs0056
+# ----------------------------------------------------
+roslynator_max_line_length = 120
+
+# ----------------------------------------------------
+# New Line at End of File
+# Ensure a newline at the end of the file to conform with POSIX standards
+# Applicable Analyzer: rcs0058
+# ----------------------------------------------------
+roslynator_new_line_at_end_of_file = true
+
+# ----------------------------------------------------
+# New Line Before 'while' in 'do-while' Statements
+# Add a newline before 'while' in 'do-while' for better readability
+# Applicable Analyzer: rcs0051
+# ----------------------------------------------------
+roslynator_new_line_before_while_in_do_statement = true
+
+# ----------------------------------------------------
 # Null Check Style
+# Use pattern matching for null checks for modern and expressive code
+# Applicable Analyzer: rcs1248
+# ----------------------------------------------------
 roslynator_null_check_style = pattern_matching
 
-# Object Creation Parentheses
-roslynator_object_creation_parentheses_style = omit
+# ----------------------------------------------------
+# Null Conditional Operator New Line
+# Place null conditional operators before the expression for clarity
+# Applicable Analyzer: rcs0059
+# ----------------------------------------------------
+roslynator_null_conditional_operator_new_line = before
 
-# Configure Await
-roslynator_configure_await = true
+# ----------------------------------------------------
+# Object Creation Parentheses Style
+# Include parentheses even for parameterless constructors for consistency
+# Applicable Analyzer: rcs1050
+# ----------------------------------------------------
+roslynator_object_creation_parentheses_style = include
+
+# ----------------------------------------------------
+# Object Creation Type Style
+# Use implicit object creation when the type is obvious to reduce redundancy
+# Applicable Analyzer: rcs1250
+# ----------------------------------------------------
+roslynator_object_creation_type_style = implicit_when_type_is_obvious
+
+# ----------------------------------------------------
+# Use Block Body When Declaration Spans Multiple Lines
+# Enforce block bodies for declarations that span multiple lines for readability
+# Applicable Analyzer: rcs1016
+# ----------------------------------------------------
+roslynator_use_block_body_when_declaration_spans_over_multiple_lines = true
+
+# ----------------------------------------------------
+# Use Block Body When Expression Spans Multiple Lines
+# Enforce block bodies for expressions that span multiple lines for readability
+# Applicable Analyzer: rcs1016
+# ----------------------------------------------------
+roslynator_use_block_body_when_expression_spans_over_multiple_lines = true
+
+# ----------------------------------------------------
+# Use Collection Expression
+# Utilize collection initializers for cleaner and more concise code
+# Applicable Analyzer: rcs1014, rcs1250
+# ----------------------------------------------------
+roslynator_use_collection_expression = true
+
+# ----------------------------------------------------
+# Use 'var' When Type is Obvious
+# Encourage the use of 'var' when the type is clear from the assignment for conciseness
+# Applicable Analyzer: rcs1264
+# ----------------------------------------------------
+roslynator_use_var = when_type_is_obvious
+
+# ----------------------------------------------------
+# Use 'var' Instead of Implicit Object Creation
+# Prefer using 'var' over explicit types when the object creation type is obvious
+# Applicable Analyzer: rcs1250
+# ----------------------------------------------------
+roslynator_use_var_instead_of_implicit_object_creation = true
+
+# ----------------------------------------------------
+# Blank Line Between Using Directives
+# Separate using directives into distinct groups for better organization
+# Applicable Analyzer: rcs0015
+# ----------------------------------------------------
+roslynator_blank_line_between_using_directives = separate_groups
+
+# ----------------------------------------------------
+# Trailing Commas
+# Include trailing commas in multi-line lists to simplify diffs and additions
+# Applicable Analyzer: rcs1260
+# ----------------------------------------------------
+roslynator_trailing_comma_style = include
+
+# ----------------------------------------------------
+# Blank Line After File-Scoped Namespace Declaration
+# Add a blank line after namespace declarations for better separation
+# Applicable Analyzer: rcs0060
+# ----------------------------------------------------
+roslynator_blank_line_after_file_scoped_namespace_declaration = true
+
+# ----------------------------------------------------
+# Blank Line Between Closing Brace and Switch Section
+# Include a blank line between closing braces and switch sections for readability
+# Applicable Analyzers: rcs0014, rcs1036
+# ----------------------------------------------------
+roslynator_blank_line_between_closing_brace_and_switch_section = include
+
+# ----------------------------------------------------
+# Blank Line Between Single Line Accessors
+# Add blank lines between single-line accessors to enhance readability
+# Applicable Analyzer: rcs0011
+# ----------------------------------------------------
+roslynator_blank_line_between_single_line_accessors = true
+
+# ----------------------------------------------------
+# Blank Line Between Switch Sections
+# Include blank lines between switch sections to visually separate cases
+# Applicable Analyzer: rcs0061
+# ----------------------------------------------------
+roslynator_blank_line_between_switch_sections = include
+
+# ----------------------------------------------------
+# Accessor Braces Style Configuration
+# Ensures accessors use multi-line braces for better readability
+# Applicable Analyzer: rcs0020
+# ----------------------------------------------------
+roslynator_accessor_braces_style = multi_line
+
+# ----------------------------------------------------
+# Block Braces Style
+# Use multi-line braces for blocks to maintain consistency and readability
+# Applicable Analyzer: rcs0021
+# ----------------------------------------------------
+roslynator_block_braces_style = multi_line
+
+# ----------------------------------------------------
+# Body Style
+# Prefer block bodies over expression bodies for complex methods
+# Applicable Analyzer: rcs1016
+# ----------------------------------------------------
+roslynator_body_style = block
+
+# ----------------------------------------------------
+# Enum Flag Value Style
+# Use shift operators for defining enum flags
+# Applicable Analyzer: rcs1254
+# ----------------------------------------------------
+roslynator_enum_flag_value_style = shift_operator
+
+# ----------------------------------------------------
+# Enum HasFlag Style
+# Use bitwise operators instead of HasFlag for better performance
+# Applicable Analyzer: rcs1096
+# ----------------------------------------------------
+roslynator_enum_has_flag_style = operator
+
+# ----------------------------------------------------
+# Read-Only Field Style
+# Enforce readonly fields where applicable to promote immutability
+# Applicable Analyzer: rcs0058
+# ----------------------------------------------------
+csharp_style_readonly_field = true:suggestion
+
+# ----------------------------------------------------
+# Additional Roslynator Settings
+# Enable and configure more Roslynator analyzers and refactorings as per best practices
+# ====================================================
+
+# ----------------------------------------------------
+# Refactorings
+# Enable a comprehensive set of refactorings to improve code quality and maintainability
+# ----------------------------------------------------
+
+# Enable adding braces to all control statements
+roslynator_refactoring.add_braces.enabled = true
+
+# Enable converting if statements to conditional expressions when possible
+roslynator_refactoring.convert_if_to_conditional_expression.enabled = true
+
+# Enable using 'var' where type is obvious
+roslynator_refactoring.use_var.enabled = true
+
+# Enable simplifying boolean expressions
+roslynator_refactoring.simplify_boolean_expression.enabled = true
+
+# Enable inlining local variables that are used only once
+roslynator_refactoring.inline_local_variable.enabled = true
+
+# Enable removing unnecessary braces from control statements
+roslynator_refactoring.remove_braces.enabled = true
+
+# Enable renaming identifiers to match type names for consistency
+roslynator_refactoring.rename_identifier_according_to_type_name.enabled = true
+
+# Enable using method groups instead of lambda expressions when possible
+roslynator_refactoring.use_method_group.enabled = true
+
+# Enable converting foreach loops to for loops when more appropriate
+roslynator_refactoring.convert_foreach_to_for.enabled = true
+
+# Enable converting while loops to for loops when more appropriate
+roslynator_refactoring.convert_while_to_for.enabled = true
+
+# Enable replacing string concatenation with StringBuilder for performance
+roslynator_refactoring.use_stringbuilder_instead_of_concatenation.enabled = true
+
+# Enable using object initializers for cleaner object creation
+roslynator_refactoring.use_object_initializer.enabled = true
+
+# Enable using expression-bodied members where appropriate
+roslynator_refactoring.convert_expression_body_to_block_body.enabled = true
+roslynator_refactoring.convert_block_body_to_expression_body.enabled = true
+
+# Enable removing redundant 'async' and 'await' keywords
+roslynator_refactoring.remove_redundant_async_await.enabled = true
+
+# Enable simplifying if statements with boolean conditions
+roslynator_refactoring.simplify_if.enabled = true
+
+# Enable using coalesce expressions instead of if statements for null checks
+roslynator_refactoring.use_coalesce_expression_instead_of_if.enabled = true
+
+# Enable using pattern matching for type checks and casts
+roslynator_refactoring.use_pattern_matching.enabled = true
+
+# Enable using the 'is not' pattern for null checks
+roslynator_refactoring.use_is_not_pattern.enabled = true
+
+# Enable converting conditional expressions to switch expressions
+roslynator_refactoring.convert_conditional_expression_to_switch_expression.enabled = true
+
+# Enable merging multiple if statements into a single statement
+roslynator_refactoring.merge_if_statements.enabled = true
+
+# Enable removing redundant code such as unnecessary using directives
+roslynator_refactoring.remove_redundant_using_directives.enabled = true
+
+# Enable organizing using directives to maintain consistency
+roslynator_refactoring.organize_usings.enabled = true
+
+# Enable adding or removing braces in control statements for consistency
+roslynator_refactoring.add_braces.enabled = true
+roslynator_refactoring.remove_braces.enabled = true
+
+# ----------------------------------------------------
+# Analyzers
+# Enable and configure Roslynator analyzers to enforce coding standards and best practices
+# ----------------------------------------------------
+
+# Disable all default Roslynator analyzers initially
+# Individual analyzers will be enabled as per best practices
+roslynator_analyzer.enable_all = false
+
+# Enable essential analyzers for code quality
+# Add detailed settings for each analyzer as needed
+
+# Example Analyzer Configuration:
+# ----------------------------------------------------
+# Analyzer: rcs1016 - Use block body when declaration spans multiple lines
+# Severity: suggestion
+# ----------------------------------------------------
+dotnet_diagnostic.rcs1016.severity = suggestion
+
+# Add additional analyzer configurations here
+# For brevity, only a subset is shown. Extend as needed.
+
+# ----------------------------------------------------
+# Compiler Diagnostic Fixes
+# Enable Roslynator compiler diagnostic fixes to automatically resolve compiler issues
+# ----------------------------------------------------
+
+# Enable all Roslynator compiler diagnostic fixes
+# These settings automatically fix compiler errors and warnings
+# Ensure compatibility with your project's codebase before enabling all
+roslynator_compiler_diagnostic_fix.cs0019.enabled = true
+roslynator_compiler_diagnostic_fix.cs0021.enabled = true
+roslynator_compiler_diagnostic_fix.cs0023.enabled = true
+roslynator_compiler_diagnostic_fix.cs0029.enabled = true
+roslynator_compiler_diagnostic_fix.cs0030.enabled = true
+roslynator_compiler_diagnostic_fix.cs0037.enabled = true
+roslynator_compiler_diagnostic_fix.cs0069.enabled = true
+roslynator_compiler_diagnostic_fix.cs0077.enabled = true
+roslynator_compiler_diagnostic_fix.cs0080.enabled = true
+roslynator_compiler_diagnostic_fix.cs0101.enabled = true
+roslynator_compiler_diagnostic_fix.cs0102.enabled = true
+roslynator_compiler_diagnostic_fix.cs0103.enabled = true
+roslynator_compiler_diagnostic_fix.cs0106.enabled = true
+roslynator_compiler_diagnostic_fix.cs0107.enabled = true
+roslynator_compiler_diagnostic_fix.cs0108.enabled = true
+roslynator_compiler_diagnostic_fix.cs0109.enabled = true
+roslynator_compiler_diagnostic_fix.cs0112.enabled = true
+roslynator_compiler_diagnostic_fix.cs0114.enabled = true
+roslynator_compiler_diagnostic_fix.cs0115.enabled = true
+roslynator_compiler_diagnostic_fix.cs0119.enabled = true
+roslynator_compiler_diagnostic_fix.cs0120.enabled = true
+roslynator_compiler_diagnostic_fix.cs0123.enabled = true
+roslynator_compiler_diagnostic_fix.cs0126.enabled = true
+roslynator_compiler_diagnostic_fix.cs0127.enabled = true
+roslynator_compiler_diagnostic_fix.cs0128.enabled = true
+roslynator_compiler_diagnostic_fix.cs0131.enabled = true
+roslynator_compiler_diagnostic_fix.cs0132.enabled = true
+roslynator_compiler_diagnostic_fix.cs0133.enabled = true
+roslynator_compiler_diagnostic_fix.cs0136.enabled = true
+roslynator_compiler_diagnostic_fix.cs0139.enabled = true
+roslynator_compiler_diagnostic_fix.cs0152.enabled = true
+roslynator_compiler_diagnostic_fix.cs0161.enabled = true
+roslynator_compiler_diagnostic_fix.cs0162.enabled = true
+roslynator_compiler_diagnostic_fix.cs0163.enabled = true
+roslynator_compiler_diagnostic_fix.cs0164.enabled = true
+roslynator_compiler_diagnostic_fix.cs0165.enabled = true
+roslynator_compiler_diagnostic_fix.cs0168.enabled = true
+roslynator_compiler_diagnostic_fix.cs0173.enabled = true
+roslynator_compiler_diagnostic_fix.cs0177.enabled = true
+roslynator_compiler_diagnostic_fix.cs0191.enabled = true
+roslynator_compiler_diagnostic_fix.cs0192.enabled = true
+roslynator_compiler_diagnostic_fix.cs0201.enabled = true
+roslynator_compiler_diagnostic_fix.cs0214.enabled = true
+roslynator_compiler_diagnostic_fix.cs0216.enabled = true
+roslynator_compiler_diagnostic_fix.cs0219.enabled = true
+roslynator_compiler_diagnostic_fix.cs0221.enabled = true
+roslynator_compiler_diagnostic_fix.cs0225.enabled = true
+roslynator_compiler_diagnostic_fix.cs0238.enabled = true
+roslynator_compiler_diagnostic_fix.cs0246.enabled = true
+roslynator_compiler_diagnostic_fix.cs0260.enabled = true
+roslynator_compiler_diagnostic_fix.cs0262.enabled = true
+roslynator_compiler_diagnostic_fix.cs0266.enabled = true
+roslynator_compiler_diagnostic_fix.cs0267.enabled = true
+roslynator_compiler_diagnostic_fix.cs0272.enabled = true
+roslynator_compiler_diagnostic_fix.cs0275.enabled = true
+roslynator_compiler_diagnostic_fix.cs0305.enabled = true
+roslynator_compiler_diagnostic_fix.cs0401.enabled = true
+roslynator_compiler_diagnostic_fix.cs0403.enabled = true
+roslynator_compiler_diagnostic_fix.cs0405.enabled = true
+roslynator_compiler_diagnostic_fix.cs0407.enabled = true
+roslynator_compiler_diagnostic_fix.cs0409.enabled = true
+roslynator_compiler_diagnostic_fix.cs0428.enabled = true
+roslynator_compiler_diagnostic_fix.cs0441.enabled = true
+roslynator_compiler_diagnostic_fix.cs0442.enabled = true
+roslynator_compiler_diagnostic_fix.cs0449.enabled = true
+roslynator_compiler_diagnostic_fix.cs0450.enabled = true
+roslynator_compiler_diagnostic_fix.cs0451.enabled = true
+roslynator_compiler_diagnostic_fix.cs0472.enabled = true
+roslynator_compiler_diagnostic_fix.cs0500.enabled = true
+roslynator_compiler_diagnostic_fix.cs0501.enabled = true
+roslynator_compiler_diagnostic_fix.cs0507.enabled = true
+roslynator_compiler_diagnostic_fix.cs0508.enabled = true
+roslynator_compiler_diagnostic_fix.cs0513.enabled = true
+roslynator_compiler_diagnostic_fix.cs0515.enabled = true
+roslynator_compiler_diagnostic_fix.cs0524.enabled = true
+roslynator_compiler_diagnostic_fix.cs0525.enabled = true
+roslynator_compiler_diagnostic_fix.cs0527.enabled = true
+roslynator_compiler_diagnostic_fix.cs0531.enabled = true
+roslynator_compiler_diagnostic_fix.cs0539.enabled = true
+roslynator_compiler_diagnostic_fix.cs0541.enabled = true
+roslynator_compiler_diagnostic_fix.cs0549.enabled = true
+roslynator_compiler_diagnostic_fix.cs0558.enabled = true
+roslynator_compiler_diagnostic_fix.cs0567.enabled = true
+roslynator_compiler_diagnostic_fix.cs0568.enabled = true
+roslynator_compiler_diagnostic_fix.cs0573.enabled = true
+roslynator_compiler_diagnostic_fix.cs0574.enabled = true
+roslynator_compiler_diagnostic_fix.cs0575.enabled = true
+roslynator_compiler_diagnostic_fix.cs0579.enabled = true
+roslynator_compiler_diagnostic_fix.cs0592.enabled = true
+roslynator_compiler_diagnostic_fix.cs0621.enabled = true
+roslynator_compiler_diagnostic_fix.cs0628.enabled = true
+roslynator_compiler_diagnostic_fix.cs0659.enabled = true
+roslynator_compiler_diagnostic_fix.cs0660.enabled = true
+roslynator_compiler_diagnostic_fix.cs0661.enabled = true
+roslynator_compiler_diagnostic_fix.cs0678.enabled = true
+roslynator_compiler_diagnostic_fix.cs0693.enabled = true
+roslynator_compiler_diagnostic_fix.cs0708.enabled = true
+roslynator_compiler_diagnostic_fix.cs0710.enabled = true
+roslynator_compiler_diagnostic_fix.cs0713.enabled = true
+roslynator_compiler_diagnostic_fix.cs0714.enabled = true
+roslynator_compiler_diagnostic_fix.cs0718.enabled = true
+roslynator_compiler_diagnostic_fix.cs0750.enabled = true
+roslynator_compiler_diagnostic_fix.cs0751.enabled = true
+roslynator_compiler_diagnostic_fix.cs0753.enabled = true
+roslynator_compiler_diagnostic_fix.cs0756.enabled = true
+roslynator_compiler_diagnostic_fix.cs0759.enabled = true
+roslynator_compiler_diagnostic_fix.cs0766.enabled = true
+roslynator_compiler_diagnostic_fix.cs0815.enabled = true
+roslynator_compiler_diagnostic_fix.cs0819.enabled = true
+roslynator_compiler_diagnostic_fix.cs0822.enabled = true
+roslynator_compiler_diagnostic_fix.cs1002.enabled = true
+roslynator_compiler_diagnostic_fix.cs1003.enabled = true
+roslynator_compiler_diagnostic_fix.cs1004.enabled = true
+roslynator_compiler_diagnostic_fix.cs1012.enabled = true
+roslynator_compiler_diagnostic_fix.cs1023.enabled = true
+roslynator_compiler_diagnostic_fix.cs1031.enabled = true
+roslynator_compiler_diagnostic_fix.cs1057.enabled = true
+roslynator_compiler_diagnostic_fix.cs1061.enabled = true
+roslynator_compiler_diagnostic_fix.cs1100.enabled = true
+roslynator_compiler_diagnostic_fix.cs1105.enabled = true
+roslynator_compiler_diagnostic_fix.cs1106.enabled = true
+roslynator_compiler_diagnostic_fix.cs1503.enabled = true
+roslynator_compiler_diagnostic_fix.cs1522.enabled = true
+roslynator_compiler_diagnostic_fix.cs1526.enabled = true
+roslynator_compiler_diagnostic_fix.cs1527.enabled = true
+roslynator_compiler_diagnostic_fix.cs1591.enabled = true
+roslynator_compiler_diagnostic_fix.cs1597.enabled = true
+roslynator_compiler_diagnostic_fix.cs1609.enabled = true
+roslynator_compiler_diagnostic_fix.cs1615.enabled = true
+roslynator_compiler_diagnostic_fix.cs1620.enabled = true
+roslynator_compiler_diagnostic_fix.cs1621.enabled = true
+roslynator_compiler_diagnostic_fix.cs1622.enabled = true
+roslynator_compiler_diagnostic_fix.cs1623.enabled = true
+roslynator_compiler_diagnostic_fix.cs1624.enabled = true
+roslynator_compiler_diagnostic_fix.cs1643.enabled = true
+roslynator_compiler_diagnostic_fix.cs1674.enabled = true
+roslynator_compiler_diagnostic_fix.cs1689.enabled = true
+roslynator_compiler_diagnostic_fix.cs1715.enabled = true
+roslynator_compiler_diagnostic_fix.cs1717.enabled = true
+roslynator_compiler_diagnostic_fix.cs1722.enabled = true
+roslynator_compiler_diagnostic_fix.cs1737.enabled = true
+roslynator_compiler_diagnostic_fix.cs1741.enabled = true
+roslynator_compiler_diagnostic_fix.cs1743.enabled = true
+roslynator_compiler_diagnostic_fix.cs1750.enabled = true
+roslynator_compiler_diagnostic_fix.cs1751.enabled = true
+roslynator_compiler_diagnostic_fix.cs1955.enabled = true
+roslynator_compiler_diagnostic_fix.cs1983.enabled = true
+roslynator_compiler_diagnostic_fix.cs1988.enabled = true
+roslynator_compiler_diagnostic_fix.cs1994.enabled = true
+roslynator_compiler_diagnostic_fix.cs1997.enabled = true
+roslynator_compiler_diagnostic_fix.cs3000.enabled = true
+roslynator_compiler_diagnostic_fix.cs3001.enabled = true
+roslynator_compiler_diagnostic_fix.cs3002.enabled = true
+roslynator_compiler_diagnostic_fix.cs3003.enabled = true
+roslynator_compiler_diagnostic_fix.cs3005.enabled = true
+roslynator_compiler_diagnostic_fix.cs3006.enabled = true
+roslynator_compiler_diagnostic_fix.cs3007.enabled = true
+roslynator_compiler_diagnostic_fix.cs3008.enabled = true
+roslynator_compiler_diagnostic_fix.cs3009.enabled = true
+roslynator_compiler_diagnostic_fix.cs3016.enabled = true
+roslynator_compiler_diagnostic_fix.cs3024.enabled = true
+roslynator_compiler_diagnostic_fix.cs3027.enabled = true
+roslynator_compiler_diagnostic_fix.cs7036.enabled = true
+roslynator_compiler_diagnostic_fix.cs8050.enabled = true
+roslynator_compiler_diagnostic_fix.cs8070.enabled = true
+roslynator_compiler_diagnostic_fix.cs8112.enabled = true
+roslynator_compiler_diagnostic_fix.cs8139.enabled = true
+roslynator_compiler_diagnostic_fix.cs8340.enabled = true
+roslynator_compiler_diagnostic_fix.cs8403.enabled = true
+roslynator_compiler_diagnostic_fix.cs8600.enabled = true
+roslynator_compiler_diagnostic_fix.cs8602.enabled = true
+roslynator_compiler_diagnostic_fix.cs8604.enabled = true
+roslynator_compiler_diagnostic_fix.cs8610.enabled = true
+roslynator_compiler_diagnostic_fix.cs8618.enabled = true
+roslynator_compiler_diagnostic_fix.cs8625.enabled = true
+roslynator_compiler_diagnostic_fix.cs8632.enabled = true
+roslynator_compiler_diagnostic_fix.cs8765.enabled = true
+roslynator_compiler_diagnostic_fix.cs8767.enabled = true
+
+# ----------------------------------------------------
+# Refactorings
+# Enable a comprehensive set of Roslynator refactorings for improved code quality
+# ----------------------------------------------------
+
+# Enable adding all properties to an initializer
+roslynator_refactoring.add_all_properties_to_initializer.enabled = true
+
+# Enable adding argument names to method calls for clarity
+roslynator_refactoring.add_argument_name.enabled = true
+
+# Enable adding braces to control statements for consistency
+roslynator_refactoring.add_braces.enabled = true
+
+# Enable adding braces to if-else statements
+roslynator_refactoring.add_braces_to_if_else.enabled = true
+
+# Enable adding braces to switch sections
+roslynator_refactoring.add_braces_to_switch_section.enabled = true
+
+# Enable adding braces to all switch sections
+roslynator_refactoring.add_braces_to_switch_sections.enabled = true
+
+# Enable adding default values to method parameters
+roslynator_refactoring.add_default_value_to_parameter.enabled = true
+
+# Enable adding empty lines between declarations for readability
+roslynator_refactoring.add_empty_line_between_declarations.enabled = true
+
+# Enable adding exception elements to documentation comments
+roslynator_refactoring.add_exception_element_to_documentation_comment.enabled = true
+
+# Enable adding generic parameters to declarations for type safety
+roslynator_refactoring.add_generic_parameter_to_declaration.enabled = true
+
+# Enable adding missing members to interfaces for completeness
+roslynator_refactoring.add_member_to_interface.enabled = true
+
+# Enable adding missing cases to switch statements
+roslynator_refactoring.add_missing_cases_to_switch.enabled = true
+
+# Enable adding parameters to interface members for consistency
+roslynator_refactoring.add_parameter_to_interface_member.enabled = true
+
+# Enable adding XML documentation tags
+roslynator_refactoring.add_tag_to_documentation_comment.enabled = true
+
+# Enable adding using directives for necessary namespaces
+roslynator_refactoring.add_using_directive.enabled = true
+
+# Enable adding using static directives for static members
+roslynator_refactoring.add_using_static_directive.enabled = true
+
+# Enable calling extension methods as instance methods for cleaner syntax
+roslynator_refactoring.call_extension_method_as_instance_method.enabled = true
+
+# Enable calling IndexOf instead of Contains for string searches
+roslynator_refactoring.call_indexof_instead_of_contains.enabled = true
+
+# Enable changing accessibility modifiers for better encapsulation
+roslynator_refactoring.change_accessibility.enabled = true
+
+# Enable changing method return types to void when appropriate
+roslynator_refactoring.change_method_return_type_to_void.enabled = true
+
+# Enable changing variable types according to expressions for type safety
+roslynator_refactoring.change_type_according_to_expression.enabled = true
+
+# Enable checking expressions for null to prevent NullReferenceExceptions
+roslynator_refactoring.check_expression_for_null.enabled = true
+
+# Enable checking method parameters for null to enforce non-null contracts
+roslynator_refactoring.check_parameter_for_null.enabled = true
+
+# Enable commenting out member declarations when they are not needed
+roslynator_refactoring.comment_out_member_declaration.enabled = true
+
+# Enable commenting out statements temporarily during debugging or refactoring
+roslynator_refactoring.comment_out_statement.enabled = true
+
+# Enable converting auto-properties to full properties with backing fields
+roslynator_refactoring.convert_auto_property_to_full_property.enabled = true
+
+# Enable converting auto-properties to full properties without backing fields when appropriate
+roslynator_refactoring.convert_auto_property_to_full_property_without_backing_field.enabled = true
+
+# Enable converting block-bodied members to expression-bodied members when possible
+roslynator_refactoring.convert_block_body_to_expression_body.enabled = true
+
+# Enable converting expression-bodied members to block-bodied members when necessary
+roslynator_refactoring.convert_expression_body_to_block_body.enabled = true
+
+# Enable converting do-while loops to while loops when appropriate
+roslynator_refactoring.convert_do_to_while.enabled = true
+
+# Enable converting for loops to foreach loops when more readable
+roslynator_refactoring.convert_for_to_foreach.enabled = true
+
+# Enable converting foreach loops to for loops when more appropriate
+roslynator_refactoring.convert_foreach_to_for.enabled = true
+
+# Enable converting foreach loops to for loops with reverse iteration when needed
+roslynator_refactoring.convert_foreach_to_for_and_reverse_loop.enabled = false
+# Set to true only if reverse iteration is frequently needed
+
+# Enable converting HasFlag calls to bitwise operations for performance
+roslynator_refactoring.convert_hasflag_call_to_bitwise_operation.enabled = true
+
+# Enable converting hexadecimal literals to decimal literals when appropriate
+roslynator_refactoring.convert_hexadecimal_literal_to_decimal_literal.enabled = true
+
+# Enable converting if statements to conditional expressions when suitable
+roslynator_refactoring.convert_if_to_conditional_expression.enabled = true
+
+# Enable converting if statements to switch statements when multiple conditions exist
+roslynator_refactoring.convert_if_to_switch.enabled = true
+
+# Enable converting interpolated strings to concatenation for compatibility
+roslynator_refactoring.convert_interpolated_string_to_concatenation.enabled = true
+
+# Enable converting interpolated strings to String.Format for performance
+roslynator_refactoring.convert_interpolated_string_to_string_format.enabled = true
+
+# Enable converting interpolated strings to verbatim string literals when needed
+roslynator_refactoring.convert_interpolated_string_to_string_literal.enabled = true
+
+# Enable converting lambda block bodies to expression bodies for conciseness
+roslynator_refactoring.convert_lambda_block_body_to_expression_body.enabled = true
+
+# Enable converting lambda expression bodies to block bodies for clarity
+roslynator_refactoring.convert_lambda_expression_body_to_block_body.enabled = true
+
+# Enable converting method groups to lambda expressions when more flexible
+roslynator_refactoring.convert_method_group_to_lambda.enabled = true
+
+# Enable converting regular string literals to verbatim string literals when necessary
+roslynator_refactoring.convert_regular_string_literal_to_verbatim_string_literal.enabled = true
+
+# Enable converting return statements to if statements when more appropriate
+roslynator_refactoring.convert_return_statement_to_if.enabled = true
+
+# Enable converting multiple statements to if-else blocks for clarity
+roslynator_refactoring.convert_statements_to_if_else.enabled = true
+
+# Enable converting switch expressions to switch statements when more readable
+roslynator_refactoring.convert_switch_expression_to_switch_statement.enabled = true
+
+# Enable converting switch statements to if-else statements when simpler
+roslynator_refactoring.convert_switch_to_if.enabled = true
+
+# Enable converting verbatim string literals to regular string literals when possible
+roslynator_refactoring.convert_verbatim_string_literal_to_regular_string_literal.enabled = true
+
+# Enable converting while loops to do-while loops when more appropriate
+roslynator_refactoring.convert_while_to_do.enabled = true
+
+# Enable converting while loops to for loops for consistency
+roslynator_refactoring.convert_while_to_for.enabled = true
+
+# Enable copying arguments from one method call to another for consistency
+roslynator_refactoring.copy_argument.enabled = true
+
+# Enable copying documentation comments from base members to derived members
+roslynator_refactoring.copy_documentation_comment_from_base_member.enabled = true
+
+# Enable copying member declarations for code reuse
+roslynator_refactoring.copy_member_declaration.enabled = true
+
+# Enable copying parameters from one method to another for consistency
+roslynator_refactoring.copy_parameter.enabled = true
+
+# Enable copying statements from one location to another for code reuse
+roslynator_refactoring.copy_statement.enabled = true
+
+# Enable copying switch sections for consistency
+roslynator_refactoring.copy_switch_section.enabled = true
+
+# Enable deconstructing foreach variables for cleaner code
+roslynator_refactoring.deconstruct_foreach_variable.enabled = true
+
+# Enable expanding coalesce expressions for clarity
+roslynator_refactoring.expand_coalesce_expression.enabled = true
+
+# Enable expanding compound assignments for clarity
+roslynator_refactoring.expand_compound_assignment.enabled = true
+
+# Enable expanding event declarations for better readability
+roslynator_refactoring.expand_event_declaration.enabled = true
+
+# Enable expanding initializer expressions for clarity
+roslynator_refactoring.expand_initializer.enabled = false
+# Set to true only if initializer expansion is frequently needed
+
+# Enable expanding positional constructors for clarity
+roslynator_refactoring.expand_positional_constructor.enabled = true
+
+# Enable extracting event handler methods for better separation of concerns
+roslynator_refactoring.extract_event_handler_method.enabled = true
+
+# Enable extracting expressions from conditions for clarity
+roslynator_refactoring.extract_expression_from_condition.enabled = true
+
+# Enable extracting type declarations to new files for better organization
+roslynator_refactoring.extract_type_declaration_to_new_file.enabled = false
+# Set to true only if type extraction to new files is frequently needed
+
+# Enable generating base constructors for derived classes
+roslynator_refactoring.generate_base_constructors.enabled = true
+
+# Enable generating combined enum members for flag enums
+roslynator_refactoring.generate_combined_enum_member.enabled = true
+
+# Enable generating enum members for missing values
+roslynator_refactoring.generate_enum_member.enabled = true
+
+# Enable generating enum values based on usage
+roslynator_refactoring.generate_enum_values.enabled = true
+
+# Enable generating methods to invoke events
+roslynator_refactoring.generate_event_invoking_method.enabled = true
+
+# Enable generating properties for DebuggerDisplay attributes
+roslynator_refactoring.generate_property_for_debuggerdisplay_attribute.enabled = true
+
+# Enable implementing custom enumerators for collections
+roslynator_refactoring.implement_custom_enumerator.enabled = true
+
+# Enable implementing IEquatable<T> for value types
+roslynator_refactoring.implement_iequatable.enabled = true
+
+# Enable initializing fields from constructors for better encapsulation
+roslynator_refactoring.initialize_field_from_constructor.enabled = true
+
+# Enable initializing local variables with default values for safety
+roslynator_refactoring.initialize_local_variable_with_default_value.enabled = true
+
+# Enable inlining alias expressions for simplicity
+roslynator_refactoring.inline_alias_expression.enabled = true
+
+# Enable inlining constants for performance
+roslynator_refactoring.inline_constant.enabled = true
+
+# Enable inlining constant values where appropriate
+roslynator_refactoring.inline_constant_value.enabled = true
+
+# Enable inlining methods that are used only once for simplicity
+roslynator_refactoring.inline_method.enabled = true
+
+# Enable inlining properties that are used only once for simplicity
+roslynator_refactoring.inline_property.enabled = true
+
+# Enable inlining using static directives when appropriate
+roslynator_refactoring.inline_using_static.enabled = true
+
+# Enable inserting string interpolations for better readability
+roslynator_refactoring.insert_string_interpolation.enabled = true
+
+# Enable introducing and initializing fields for better encapsulation
+roslynator_refactoring.introduce_and_initialize_field.enabled = true
+
+# Enable introducing and initializing properties for better encapsulation
+roslynator_refactoring.introduce_and_initialize_property.enabled = true
+
+# Enable introducing constructors for dependency injection
+roslynator_refactoring.introduce_constructor.enabled = false
+# Set to true only if constructor introduction is frequently needed
+
+# Enable introducing fields to lock on in multi-threaded scenarios
+roslynator_refactoring.introduce_field_to_lock_on.enabled = true
+
+# Enable introducing local variables for clarity
+roslynator_refactoring.introduce_local_variable.enabled = true
+
+# Enable inverting binary expressions for better readability
+roslynator_refactoring.invert_binary_expression.enabled = true
+
+# Enable inverting boolean literals for readability
+roslynator_refactoring.invert_boolean_literal.enabled = true
+
+# Enable inverting conditional expressions for clarity
+roslynator_refactoring.invert_conditional_expression.enabled = true
+
+# Enable inverting if statements for better logic flow
+roslynator_refactoring.invert_if.enabled = true
+
+# Enable inverting if-else statements for better logic flow
+roslynator_refactoring.invert_if_else.enabled = true
+
+# Enable inverting is expressions for clarity
+roslynator_refactoring.invert_is_expression.enabled = true
+
+# Enable inverting LINQ method calls for performance
+roslynator_refactoring.invert_linq_method_call.enabled = true
+
+# Enable inverting operators for clarity
+roslynator_refactoring.invert_operator.enabled = true
+
+# Enable inverting prefix or postfix unary expressions for clarity
+roslynator_refactoring.invert_prefix_or_postfix_unary_expression.enabled = true
+
+# Enable joining string expressions for conciseness
+roslynator_refactoring.join_string_expressions.enabled = true
+
+# Enable making members abstract for design flexibility
+roslynator_refactoring.make_member_abstract.enabled = true
+
+# Enable making members virtual for extensibility
+roslynator_refactoring.make_member_virtual.enabled = true
+
+# Enable merging attributes for cleaner code
+roslynator_refactoring.merge_attributes.enabled = true
+
+# Enable merging multiple if statements into a single statement for simplicity
+roslynator_refactoring.merge_if_statements.enabled = true
+
+# Enable merging if statements with parent if statements for simplicity
+roslynator_refactoring.merge_if_with_parent_if.enabled = true
+
+# Enable merging local variable declarations for conciseness
+roslynator_refactoring.merge_local_declarations.enabled = true
+
+# Enable merging switch sections with equivalent content for brevity
+roslynator_refactoring.merge_switch_sections.enabled = true
+
+# Enable moving unsafe contexts to containing declarations for better safety
+roslynator_refactoring.move_unsafe_context_to_containing_declaration.enabled = true
+
+# Enable notifying when properties change for better data binding
+roslynator_refactoring.notify_when_property_changes.enabled = true
+
+# Enable parenthesizing expressions to maintain clarity
+roslynator_refactoring.parenthesize_expression.enabled = true
+
+# Enable promoting local variables to parameters for better API design
+roslynator_refactoring.promote_local_variable_to_parameter.enabled = true
+
+# Enable removing all comments from the code for cleanliness
+roslynator_refactoring.remove_all_comments.enabled = true
+
+# Enable removing all comments except documentation comments for clarity
+roslynator_refactoring.remove_all_comments_except_documentation_comments.enabled = true
+
+# Enable removing all documentation comments when not needed
+roslynator_refactoring.remove_all_documentation_comments.enabled = false
+# Set to true only if documentation comments are being removed deliberately
+
+# Enable removing all member declarations when unnecessary
+roslynator_refactoring.remove_all_member_declarations.enabled = true
+
+# Enable removing all preprocessor directives when unnecessary
+roslynator_refactoring.remove_all_preprocessor_directives.enabled = true
+
+# Enable removing all region directives for simplicity
+roslynator_refactoring.remove_all_region_directives.enabled = true
+
+# Enable removing all statements when unnecessary
+roslynator_refactoring.remove_all_statements.enabled = true
+
+# Enable removing all switch sections when unnecessary
+roslynator_refactoring.remove_all_switch_sections.enabled = true
+
+# Enable removing argument names from method calls when unnecessary
+roslynator_refactoring.remove_argument_name.enabled = true
+
+# Enable removing async and await keywords when redundant
+roslynator_refactoring.remove_async_await.enabled = true
+
+# Enable removing braces from control statements when not needed
+roslynator_refactoring.remove_braces_from_control_statements.enabled = true
+
+# Enable removing redundant assignment statements for clarity
+roslynator_refactoring.remove_redundant_assignment.enabled = true
+
+# Enable renaming methods according to type names for consistency
+roslynator_refactoring.rename_method_according_to_type_name.enabled = true
+
+# Enable renaming parameters according to type names for consistency
+roslynator_refactoring.rename_parameter_according_to_type_name.enabled = true
+
+# Enable renaming properties according to type names for consistency
+roslynator_refactoring.rename_property_according_to_type_name.enabled = true
+
+# Enable replacing 'as' expressions with explicit casts when safe
+roslynator_refactoring.replace_as_expression_with_explicit_cast.enabled = true
+
+# Enable replacing equality operators with string.Equals for better null handling
+roslynator_refactoring.replace_equality_operator_with_string_equals.enabled = true
+
+# Enable replacing equality operators with string.IsNullOrEmpty for null checks
+roslynator_refactoring.replace_equality_operator_with_string_isnullorempty.enabled = true
+
+# Enable replacing equality operators with string.IsNullOrWhitespace for null and whitespace checks
+roslynator_refactoring.replace_equality_operator_with_string_isnullorwhitespace.enabled = true
+
+# Enable replacing explicit casts with 'as' expressions when appropriate
+roslynator_refactoring.replace_explicit_cast_with_as_expression.enabled = true
+
+# Enable replacing interpolated strings with interpolation expressions for clarity
+roslynator_refactoring.replace_interpolated_string_with_interpolation_expression.enabled = true
+
+# Enable replacing properties with methods when behavior changes are needed
+roslynator_refactoring.replace_property_with_method.enabled = true
+
+# Enable reversing for loop statements for specific iteration needs
+roslynator_refactoring.reverse_for_statement.enabled = true
+
+# Enable simplifying if statements for better readability
+roslynator_refactoring.simplify_if.enabled = true
+
+# Enable sorting case labels in switch statements for consistency
+roslynator_refactoring.sort_case_labels.enabled = true
+
+# Enable sorting member declarations in classes for consistency
+roslynator_refactoring.sort_member_declarations.enabled = true
+
+# Enable splitting attributes into separate lines for clarity
+roslynator_refactoring.split_attributes.enabled = true
+
+# Enable splitting if statements for better readability
+roslynator_refactoring.split_if.enabled = true
+
+# Enable splitting if-else statements for better readability
+roslynator_refactoring.split_if_else.enabled = true
+
+# Enable splitting local variable declarations and assignments for clarity
+roslynator_refactoring.split_local_declaration_and_assignment.enabled = true
+
+# Enable splitting switch labels into separate lines for clarity
+roslynator_refactoring.split_switch_labels.enabled = true
+
+# Enable splitting variable declarations into separate statements for clarity
+roslynator_refactoring.split_variable_declaration.enabled = true
+
+# Enable swapping binary operands for better readability
+roslynator_refactoring.swap_binary_operands.enabled = true
+
+# Enable swapping member declarations for logical grouping
+roslynator_refactoring.swap_member_declarations.enabled = true
+
+# Enable synchronizing property names with backing field names for consistency
+roslynator_refactoring.sync_property_name_and_backing_field_name.enabled = true
+
+# Enable uncommenting multiline comments for code restoration
+roslynator_refactoring.uncomment_multiline_comment.enabled = true
+
+# Enable uncommenting single-line comments for code restoration
+roslynator_refactoring.uncomment_singleline_comment.enabled = true
+
+# Enable using coalesce expressions instead of if statements when appropriate
+roslynator_refactoring.use_coalesce_expression_instead_of_if.enabled = true
+
+# Enable using constants instead of readonly fields when appropriate
+roslynator_refactoring.use_constant_instead_of_readonly_field.enabled = true
+
+# Enable using element access instead of LINQ methods for performance
+roslynator_refactoring.use_element_access_instead_of_linq_method.enabled = true
+
+# Enable explicitly using enumerators for clarity
+roslynator_refactoring.use_enumerator_explicitly.enabled = true
+
+# Enable using explicit types instead of 'var' when type is not obvious
+roslynator_refactoring.use_explicit_type.enabled = true
+
+# Enable using implicit types ('var') when type is obvious for conciseness
+roslynator_refactoring.use_implicit_type.enabled = true
+
+# Enable using index initializers for cleaner collection initialization
+roslynator_refactoring.use_index_initializer.enabled = true
+
+# Enable using lambda expressions instead of anonymous methods for simplicity
+roslynator_refactoring.use_lambda_instead_of_anonymous_method.enabled = true
+
+# Enable using lists instead of yield statements for better performance
+roslynator_refactoring.use_list_instead_of_yield.enabled = true
+
+# Enable using object initializers for cleaner object creation
+roslynator_refactoring.use_object_initializer.enabled = true
+
+# Enable using readonly fields instead of constants for better immutability
+roslynator_refactoring.use_readonly_field_instead_of_constant.enabled = true
+
+# Enable using StringBuilder instead of string concatenation for performance
+roslynator_refactoring.use_stringbuilder_instead_of_concatenation.enabled = true
+
+# Enable wrapping arguments for better readability in long method calls
+roslynator_refactoring.wrap_arguments.enabled = true
+
+# Enable wrapping binary expressions for better readability in complex conditions
+roslynator_refactoring.wrap_binary_expression.enabled = true
+
+# Enable wrapping call chains for better readability
+roslynator_refactoring.wrap_call_chain.enabled = true
+
+# Enable wrapping conditional expressions for better readability
+roslynator_refactoring.wrap_conditional_expression.enabled = true
+
+# Enable wrapping constraint clauses in generic type declarations for clarity
+roslynator_refactoring.wrap_constraint_clauses.enabled = true
+
+# Enable wrapping initializer expressions for better readability
+roslynator_refactoring.wrap_initializer_expressions.enabled = true
+
+# Enable wrapping lines in preprocessor directives for better readability
+roslynator_refactoring.wrap_lines_in_preprocessor_directive.enabled = true
+
+# Enable wrapping lines in region directives for better readability
+roslynator_refactoring.wrap_lines_in_region.enabled = true
+
+# Enable wrapping lines in try-catch blocks for better readability
+roslynator_refactoring.wrap_lines_in_try_catch.enabled = true
+
+# Enable wrapping parameters in method declarations for better readability
+roslynator_refactoring.wrap_parameters.enabled = true
+
+# Enable wrapping statements in conditions for better readability
+roslynator_refactoring.wrap_statements_in_condition.enabled = true
+
+# Enable wrapping statements in using statements for better readability
+roslynator_refactoring.wrap_statements_in_using_statement.enabled = true
+
+# ----------------------------------------------------
+# Compiler Diagnostic Fixes
+# Enable Roslynator compiler diagnostic fixes to automatically resolve compiler issues
+# ----------------------------------------------------
+
+# Enable all Roslynator compiler diagnostic fixes
+# These settings automatically fix compiler errors and warnings
+# Ensure compatibility with your project's codebase before enabling all
+roslynator_compiler_diagnostic_fix.cs0019.enabled = true
+roslynator_compiler_diagnostic_fix.cs0021.enabled = true
+roslynator_compiler_diagnostic_fix.cs0023.enabled = true
+roslynator_compiler_diagnostic_fix.cs0029.enabled = true
+roslynator_compiler_diagnostic_fix.cs0030.enabled = true
+roslynator_compiler_diagnostic_fix.cs0037.enabled = true
+roslynator_compiler_diagnostic_fix.cs0069.enabled = true
+roslynator_compiler_diagnostic_fix.cs0077.enabled = true
+roslynator_compiler_diagnostic_fix.cs0080.enabled = true
+roslynator_compiler_diagnostic_fix.cs0101.enabled = true
+roslynator_compiler_diagnostic_fix.cs0102.enabled = true
+roslynator_compiler_diagnostic_fix.cs0103.enabled = true
+roslynator_compiler_diagnostic_fix.cs0106.enabled = true
+roslynator_compiler_diagnostic_fix.cs0107.enabled = true
+roslynator_compiler_diagnostic_fix.cs0108.enabled = true
+roslynator_compiler_diagnostic_fix.cs0109.enabled = true
+roslynator_compiler_diagnostic_fix.cs0112.enabled = true
+roslynator_compiler_diagnostic_fix.cs0114.enabled = true
+roslynator_compiler_diagnostic_fix.cs0115.enabled = true
+roslynator_compiler_diagnostic_fix.cs0119.enabled = true
+roslynator_compiler_diagnostic_fix.cs0120.enabled = true
+roslynator_compiler_diagnostic_fix.cs0123.enabled = true
+roslynator_compiler_diagnostic_fix.cs0126.enabled = true
+roslynator_compiler_diagnostic_fix.cs0127.enabled = true
+roslynator_compiler_diagnostic_fix.cs0128.enabled = true
+roslynator_compiler_diagnostic_fix.cs0131.enabled = true
+roslynator_compiler_diagnostic_fix.cs0132.enabled = true
+roslynator_compiler_diagnostic_fix.cs0133.enabled = true
+roslynator_compiler_diagnostic_fix.cs0136.enabled = true
+roslynator_compiler_diagnostic_fix.cs0139.enabled = true
+roslynator_compiler_diagnostic_fix.cs0152.enabled = true
+roslynator_compiler_diagnostic_fix.cs0161.enabled = true
+roslynator_compiler_diagnostic_fix.cs0162.enabled = true
+roslynator_compiler_diagnostic_fix.cs0163.enabled = true
+roslynator_compiler_diagnostic_fix.cs0164.enabled = true
+roslynator_compiler_diagnostic_fix.cs0165.enabled = true
+roslynator_compiler_diagnostic_fix.cs0168.enabled = true
+roslynator_compiler_diagnostic_fix.cs0173.enabled = true
+roslynator_compiler_diagnostic_fix.cs0177.enabled = true
+roslynator_compiler_diagnostic_fix.cs0191.enabled = true
+roslynator_compiler_diagnostic_fix.cs0192.enabled = true
+roslynator_compiler_diagnostic_fix.cs0201.enabled = true
+roslynator_compiler_diagnostic_fix.cs0214.enabled = true
+roslynator_compiler_diagnostic_fix.cs0216.enabled = true
+roslynator_compiler_diagnostic_fix.cs0219.enabled = true
+roslynator_compiler_diagnostic_fix.cs0221.enabled = true
+roslynator_compiler_diagnostic_fix.cs0225.enabled = true
+roslynator_compiler_diagnostic_fix.cs0238.enabled = true
+roslynator_compiler_diagnostic_fix.cs0246.enabled = true
+roslynator_compiler_diagnostic_fix.cs0260.enabled = true
+roslynator_compiler_diagnostic_fix.cs0262.enabled = true
+roslynator_compiler_diagnostic_fix.cs0266.enabled = true
+roslynator_compiler_diagnostic_fix.cs0267.enabled = true
+roslynator_compiler_diagnostic_fix.cs0272.enabled = true
+roslynator_compiler_diagnostic_fix.cs0275.enabled = true
+roslynator_compiler_diagnostic_fix.cs0305.enabled = true
+roslynator_compiler_diagnostic_fix.cs0401.enabled = true
+roslynator_compiler_diagnostic_fix.cs0403.enabled = true
+roslynator_compiler_diagnostic_fix.cs0405.enabled = true
+roslynator_compiler_diagnostic_fix.cs0407.enabled = true
+roslynator_compiler_diagnostic_fix.cs0409.enabled = true
+roslynator_compiler_diagnostic_fix.cs0428.enabled = true
+roslynator_compiler_diagnostic_fix.cs0441.enabled = true
+roslynator_compiler_diagnostic_fix.cs0442.enabled = true
+roslynator_compiler_diagnostic_fix.cs0449.enabled = true
+roslynator_compiler_diagnostic_fix.cs0450.enabled = true
+roslynator_compiler_diagnostic_fix.cs0451.enabled = true
+roslynator_compiler_diagnostic_fix.cs0472.enabled = true
+roslynator_compiler_diagnostic_fix.cs0500.enabled = true
+roslynator_compiler_diagnostic_fix.cs0501.enabled = true
+roslynator_compiler_diagnostic_fix.cs0507.enabled = true
+roslynator_compiler_diagnostic_fix.cs0508.enabled = true
+roslynator_compiler_diagnostic_fix.cs0513.enabled = true
+roslynator_compiler_diagnostic_fix.cs0515.enabled = true
+roslynator_compiler_diagnostic_fix.cs0524.enabled = true
+roslynator_compiler_diagnostic_fix.cs0525.enabled = true
+roslynator_compiler_diagnostic_fix.cs0527.enabled = true
+roslynator_compiler_diagnostic_fix.cs0531.enabled = true
+roslynator_compiler_diagnostic_fix.cs0539.enabled = true
+roslynator_compiler_diagnostic_fix.cs0541.enabled = true
+roslynator_compiler_diagnostic_fix.cs0549.enabled = true
+roslynator_compiler_diagnostic_fix.cs0558.enabled = true
+roslynator_compiler_diagnostic_fix.cs0567.enabled = true
+roslynator_compiler_diagnostic_fix.cs0568.enabled = true
+roslynator_compiler_diagnostic_fix.cs0573.enabled = true
+roslynator_compiler_diagnostic_fix.cs0574.enabled = true
+roslynator_compiler_diagnostic_fix.cs0575.enabled = true
+roslynator_compiler_diagnostic_fix.cs0579.enabled = true
+roslynator_compiler_diagnostic_fix.cs0592.enabled = true
+roslynator_compiler_diagnostic_fix.cs0621.enabled = true
+roslynator_compiler_diagnostic_fix.cs0628.enabled = true
+roslynator_compiler_diagnostic_fix.cs0659.enabled = true
+roslynator_compiler_diagnostic_fix.cs0660.enabled = true
+roslynator_compiler_diagnostic_fix.cs0661.enabled = true
+roslynator_compiler_diagnostic_fix.cs0678.enabled = true
+roslynator_compiler_diagnostic_fix.cs0693.enabled = true
+roslynator_compiler_diagnostic_fix.cs0708.enabled = true
+roslynator_compiler_diagnostic_fix.cs0710.enabled = true
+roslynator_compiler_diagnostic_fix.cs0713.enabled = true
+roslynator_compiler_diagnostic_fix.cs0714.enabled = true
+roslynator_compiler_diagnostic_fix.cs0718.enabled = true
+roslynator_compiler_diagnostic_fix.cs0750.enabled = true
+roslynator_compiler_diagnostic_fix.cs0751.enabled = true
+roslynator_compiler_diagnostic_fix.cs0753.enabled = true
+roslynator_compiler_diagnostic_fix.cs0756.enabled = true
+roslynator_compiler_diagnostic_fix.cs0759.enabled = true
+roslynator_compiler_diagnostic_fix.cs0766.enabled = true
+roslynator_compiler_diagnostic_fix.cs0815.enabled = true
+roslynator_compiler_diagnostic_fix.cs0819.enabled = true
+roslynator_compiler_diagnostic_fix.cs0822.enabled = true
+roslynator_compiler_diagnostic_fix.cs1002.enabled = true
+roslynator_compiler_diagnostic_fix.cs1003.enabled = true
+roslynator_compiler_diagnostic_fix.cs1004.enabled = true
+roslynator_compiler_diagnostic_fix.cs1012.enabled = true
+roslynator_compiler_diagnostic_fix.cs1023.enabled = true
+roslynator_compiler_diagnostic_fix.cs1031.enabled = true
+roslynator_compiler_diagnostic_fix.cs1057.enabled = true
+roslynator_compiler_diagnostic_fix.cs1061.enabled = true
+roslynator_compiler_diagnostic_fix.cs1100.enabled = true
+roslynator_compiler_diagnostic_fix.cs1105.enabled = true
+roslynator_compiler_diagnostic_fix.cs1106.enabled = true
+roslynator_compiler_diagnostic_fix.cs1503.enabled = true
+roslynator_compiler_diagnostic_fix.cs1522.enabled = true
+roslynator_compiler_diagnostic_fix.cs1526.enabled = true
+roslynator_compiler_diagnostic_fix.cs1527.enabled = true
+roslynator_compiler_diagnostic_fix.cs1591.enabled = true
+roslynator_compiler_diagnostic_fix.cs1597.enabled = true
+roslynator_compiler_diagnostic_fix.cs1609.enabled = true
+roslynator_compiler_diagnostic_fix.cs1615.enabled = true
+roslynator_compiler_diagnostic_fix.cs1620.enabled = true
+roslynator_compiler_diagnostic_fix.cs1621.enabled = true
+roslynator_compiler_diagnostic_fix.cs1622.enabled = true
+roslynator_compiler_diagnostic_fix.cs1623.enabled = true
+roslynator_compiler_diagnostic_fix.cs1624.enabled = true
+roslynator_compiler_diagnostic_fix.cs1643.enabled = true
+roslynator_compiler_diagnostic_fix.cs1674.enabled = true
+roslynator_compiler_diagnostic_fix.cs1689.enabled = true
+roslynator_compiler_diagnostic_fix.cs1715.enabled = true
+roslynator_compiler_diagnostic_fix.cs1717.enabled = true
+roslynator_compiler_diagnostic_fix.cs1722.enabled = true
+roslynator_compiler_diagnostic_fix.cs1737.enabled = true
+roslynator_compiler_diagnostic_fix.cs1741.enabled = true
+roslynator_compiler_diagnostic_fix.cs1743.enabled = true
+roslynator_compiler_diagnostic_fix.cs1750.enabled = true
+roslynator_compiler_diagnostic_fix.cs1751.enabled = true
+roslynator_compiler_diagnostic_fix.cs1955.enabled = true
+roslynator_compiler_diagnostic_fix.cs1983.enabled = true
+roslynator_compiler_diagnostic_fix.cs1988.enabled = true
+roslynator_compiler_diagnostic_fix.cs1994.enabled = true
+roslynator_compiler_diagnostic_fix.cs1997.enabled = true
+roslynator_compiler_diagnostic_fix.cs3000.enabled = true
+roslynator_compiler_diagnostic_fix.cs3001.enabled = true
+roslynator_compiler_diagnostic_fix.cs3002.enabled = true
+roslynator_compiler_diagnostic_fix.cs3003.enabled = true
+roslynator_compiler_diagnostic_fix.cs3005.enabled = true
+roslynator_compiler_diagnostic_fix.cs3006.enabled = true
+roslynator_compiler_diagnostic_fix.cs3007.enabled = true
+roslynator_compiler_diagnostic_fix.cs3008.enabled = true
+roslynator_compiler_diagnostic_fix.cs3009.enabled = true
+roslynator_compiler_diagnostic_fix.cs3016.enabled = true
+roslynator_compiler_diagnostic_fix.cs3024.enabled = true
+roslynator_compiler_diagnostic_fix.cs3027.enabled = true
+roslynator_compiler_diagnostic_fix.cs7036.enabled = true
+roslynator_compiler_diagnostic_fix.cs8050.enabled = true
+roslynator_compiler_diagnostic_fix.cs8070.enabled = true
+roslynator_compiler_diagnostic_fix.cs8112.enabled = true
+roslynator_compiler_diagnostic_fix.cs8139.enabled = true
+roslynator_compiler_diagnostic_fix.cs8340.enabled = true
+roslynator_compiler_diagnostic_fix.cs8403.enabled = true
+roslynator_compiler_diagnostic_fix.cs8600.enabled = true
+roslynator_compiler_diagnostic_fix.cs8602.enabled = true
+roslynator_compiler_diagnostic_fix.cs8604.enabled = true
+roslynator_compiler_diagnostic_fix.cs8610.enabled = true
+roslynator_compiler_diagnostic_fix.cs8618.enabled = true
+roslynator_compiler_diagnostic_fix.cs8625.enabled = true
+roslynator_compiler_diagnostic_fix.cs8632.enabled = true
+roslynator_compiler_diagnostic_fix.cs8765.enabled = true
+roslynator_compiler_diagnostic_fix.cs8767.enabled = true
