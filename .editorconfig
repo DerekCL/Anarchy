@@ -263,7 +263,7 @@ roslynator_empty_string_style = literal
 
 # ----------------------------------------------------
 # Enum Flag Value Style
-# Use shift operators for enum flag values to clarify intent
+# Use shift operators for defining enum flags
 # Applicable Analyzer: rcs1254
 # ----------------------------------------------------
 roslynator_enum_flag_value_style = shift_operator
@@ -457,287 +457,1429 @@ csharp_style_readonly_field = true:suggestion
 
 # ----------------------------------------------------
 # Refactorings
-# Enable a comprehensive set of refactorings to improve code quality and maintainability
+# Enable a comprehensive set of Roslynator refactorings for improved code quality
+# Applicable Analyzer: Various (Refer to individual refactoring comments)
 # ----------------------------------------------------
 
-# Enable adding braces to all control statements
+# ----------------------------------------------------
+# Adding Braces to All Control Statements
+# Ensures that all control statements have braces for consistency and readability
+# Applicable Analyzer: rcs1016
+# ----------------------------------------------------
 roslynator_refactoring.add_braces.enabled = true
 
-# Enable converting if statements to conditional expressions when possible
+# ----------------------------------------------------
+# Converting If Statements to Conditional Expressions
+# Converts simple if statements to conditional expressions for conciseness
+# Applicable Analyzer: rcs1020
+# ----------------------------------------------------
 roslynator_refactoring.convert_if_to_conditional_expression.enabled = true
 
-# Enable using 'var' where type is obvious
+# ----------------------------------------------------
+# Using 'var' Where Type is Obvious
+# Encourages the use of 'var' when the type is clear from the assignment for conciseness
+# Applicable Analyzer: rcs1264
+# ----------------------------------------------------
 roslynator_refactoring.use_var.enabled = true
 
-# Enable simplifying boolean expressions
+# ----------------------------------------------------
+# Simplifying Boolean Expressions
+# Simplifies complex boolean expressions for better readability
+# Applicable Analyzer: rcs1018
+# ----------------------------------------------------
 roslynator_refactoring.simplify_boolean_expression.enabled = true
 
-# Enable inlining local variables that are used only once
+# ----------------------------------------------------
+# Inlining Local Variables Used Only Once
+# Inlines local variables that are assigned only once to reduce redundancy
+# Applicable Analyzer: rcs1035
+# ----------------------------------------------------
 roslynator_refactoring.inline_local_variable.enabled = true
 
-# Enable removing unnecessary braces from control statements
+# ----------------------------------------------------
+# Removing Unnecessary Braces from Control Statements
+# Removes braces from control statements when they are not needed
+# Applicable Analyzer: rcs1016
+# ----------------------------------------------------
 roslynator_refactoring.remove_braces.enabled = true
 
-# Enable renaming identifiers to match type names for consistency
+# ----------------------------------------------------
+# Renaming Identifiers to Match Type Names
+# Renames methods, parameters, and properties to align with their type names for consistency
+# Applicable Analyzer: rcs1024
+# ----------------------------------------------------
 roslynator_refactoring.rename_identifier_according_to_type_name.enabled = true
 
-# Enable using method groups instead of lambda expressions when possible
+# ----------------------------------------------------
+# Using Method Groups Instead of Lambdas
+# Replaces lambda expressions with method groups when possible for simplicity
+# Applicable Analyzer: rcs1021
+# ----------------------------------------------------
 roslynator_refactoring.use_method_group.enabled = true
 
-# Enable converting foreach loops to for loops when more appropriate
+# ----------------------------------------------------
+# Converting Foreach Loops to For Loops When Appropriate
+# Converts foreach loops to for loops when it enhances readability or performance
+# Applicable Analyzer: rcs1031
+# ----------------------------------------------------
 roslynator_refactoring.convert_foreach_to_for.enabled = true
 
-# Enable converting while loops to for loops when more appropriate
+# ----------------------------------------------------
+# Converting While Loops to For Loops for Consistency
+# Converts while loops to for loops to maintain consistent loop structures
+# Applicable Analyzer: rcs1032
+# ----------------------------------------------------
 roslynator_refactoring.convert_while_to_for.enabled = true
 
-# Enable replacing string concatenation with StringBuilder for performance
+# ----------------------------------------------------
+# Replacing String Concatenation with StringBuilder
+# Uses StringBuilder instead of string concatenation for performance benefits
+# Applicable Analyzer: rcs1045
+# ----------------------------------------------------
 roslynator_refactoring.use_stringbuilder_instead_of_concatenation.enabled = true
 
-# Enable using object initializers for cleaner object creation
+# ----------------------------------------------------
+# Using Object Initializers for Cleaner Object Creation
+# Utilizes object initializers to make object creation more concise and readable
+# Applicable Analyzer: rcs1040
+# ----------------------------------------------------
 roslynator_refactoring.use_object_initializer.enabled = true
 
-# Enable using expression-bodied members where appropriate
+# ----------------------------------------------------
+# Converting Expression-Bodied Members to Block Bodies When Necessary
+# Converts expression-bodied members to block bodies for clarity in complex methods
+# Applicable Analyzer: rcs1016
+# ----------------------------------------------------
 roslynator_refactoring.convert_expression_body_to_block_body.enabled = true
+
+# ----------------------------------------------------
+# Converting Block-Bodied Members to Expression-Bodied Members When Possible
+# Converts block-bodied members to expression bodies for conciseness in simple methods
+# Applicable Analyzer: rcs1016
+# ----------------------------------------------------
 roslynator_refactoring.convert_block_body_to_expression_body.enabled = true
 
-# Enable removing redundant 'async' and 'await' keywords
+# ----------------------------------------------------
+# Removing Redundant 'async' and 'await' Keywords
+# Eliminates unnecessary 'async' and 'await' keywords to simplify asynchronous code
+# Applicable Analyzer: rcs1048
+# ----------------------------------------------------
 roslynator_refactoring.remove_redundant_async_await.enabled = true
 
-# Enable simplifying if statements with boolean conditions
+# ----------------------------------------------------
+# Simplifying If Statements with Boolean Conditions
+# Simplifies if statements that have redundant boolean conditions
+# Applicable Analyzer: rcs1050
+# ----------------------------------------------------
 roslynator_refactoring.simplify_if.enabled = true
 
-# Enable using coalesce expressions instead of if statements for null checks
+# ----------------------------------------------------
+# Using Coalesce Expressions Instead of If Statements for Null Checks
+# Replaces if statements that perform null checks with coalesce expressions for brevity
+# Applicable Analyzer: rcs1051
+# ----------------------------------------------------
 roslynator_refactoring.use_coalesce_expression_instead_of_if.enabled = true
 
-# Enable using pattern matching for type checks and casts
+# ----------------------------------------------------
+# Using Pattern Matching for Type Checks and Casts
+# Utilizes pattern matching to perform type checks and casts more expressively
+# Applicable Analyzer: rcs1052
+# ----------------------------------------------------
 roslynator_refactoring.use_pattern_matching.enabled = true
 
-# Enable using the 'is not' pattern for null checks
+# ----------------------------------------------------
+# Using the 'is not' Pattern for Null Checks
+# Replaces traditional null checks with the 'is not' pattern for modern syntax
+# Applicable Analyzer: rcs1053
+# ----------------------------------------------------
 roslynator_refactoring.use_is_not_pattern.enabled = true
 
-# Enable converting conditional expressions to switch expressions
+# ----------------------------------------------------
+# Converting Conditional Expressions to Switch Expressions
+# Transforms conditional expressions into switch expressions for enhanced readability
+# Applicable Analyzer: rcs1054
+# ----------------------------------------------------
 roslynator_refactoring.convert_conditional_expression_to_switch_expression.enabled = true
 
-# Enable merging multiple if statements into a single statement
+# ----------------------------------------------------
+# Merging Multiple If Statements into a Single Statement
+# Combines multiple if statements into a single statement to reduce redundancy
+# Applicable Analyzer: rcs1055
+# ----------------------------------------------------
 roslynator_refactoring.merge_if_statements.enabled = true
 
-# Enable removing redundant code such as unnecessary using directives
+# ----------------------------------------------------
+# Removing Redundant Code Such as Unnecessary Using Directives
+# Eliminates unused or unnecessary using directives to clean up the codebase
+# Applicable Analyzer: rcs1056
+# ----------------------------------------------------
 roslynator_refactoring.remove_redundant_using_directives.enabled = true
 
-# Enable organizing using directives to maintain consistency
+# ----------------------------------------------------
+# Organizing Using Directives to Maintain Consistency
+# Sorts and organizes using directives to follow a consistent structure
+# Applicable Analyzer: rcs1057
+# ----------------------------------------------------
 roslynator_refactoring.organize_usings.enabled = true
 
-# Enable adding or removing braces in control statements for consistency
+# ----------------------------------------------------
+# Adding or Removing Braces in Control Statements for Consistency
+# Ensures that control statements consistently use or omit braces as configured
+# Applicable Analyzer: rcs1058
+# ----------------------------------------------------
 roslynator_refactoring.add_braces.enabled = true
 roslynator_refactoring.remove_braces.enabled = true
-
-# ----------------------------------------------------
-# Analyzers
-# Enable and configure Roslynator analyzers to enforce coding standards and best practices
-# ----------------------------------------------------
-
-# Disable all default Roslynator analyzers initially
-# Individual analyzers will be enabled as per best practices
-roslynator_analyzer.enable_all = false
-
-# Enable essential analyzers for code quality
-# Add detailed settings for each analyzer as needed
-
-# Example Analyzer Configuration:
-# ----------------------------------------------------
-# Analyzer: rcs1016 - Use block body when declaration spans multiple lines
-# Severity: suggestion
-# ----------------------------------------------------
-dotnet_diagnostic.rcs1016.severity = suggestion
-
-# Add additional analyzer configurations here
-# For brevity, only a subset is shown. Extend as needed.
 
 # ----------------------------------------------------
 # Compiler Diagnostic Fixes
 # Enable Roslynator compiler diagnostic fixes to automatically resolve compiler issues
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix Analyzers
 # ----------------------------------------------------
 
-# Enable all Roslynator compiler diagnostic fixes
-# These settings automatically fix compiler errors and warnings
-# Ensure compatibility with your project's codebase before enabling all
+# ----------------------------------------------------
+# CS0019: Operator 'operator' cannot be applied to operands of type 'type1' and 'type2'
+# Automatically fixes operator precedence and type mismatch issues
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0019.enabled = true
+
+# ----------------------------------------------------
+# CS0021: Cannot apply indexing with [] to an expression of type 'type'
+# Automatically fixes incorrect indexing operations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0021.enabled = true
+
+# ----------------------------------------------------
+# CS0023: Operator '+' cannot be applied to operands of type 'type1' and 'type2'
+# Automatically fixes operator overload conflicts
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0023.enabled = true
+
+# ----------------------------------------------------
+# CS0029: Cannot implicitly convert type 'type1' to 'type2'
+# Automatically fixes type conversion errors
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0029.enabled = true
+
+# ----------------------------------------------------
+# CS0030: Cannot convert type 'type1' to 'type2'
+# Automatically fixes explicit type conversion issues
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0030.enabled = true
+
+# ----------------------------------------------------
+# CS0037: Cannot derive from sealed type 'type'
+# Automatically fixes invalid class inheritance
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0037.enabled = true
+
+# ----------------------------------------------------
+# CS0069: The event 'event' is never used
+# Automatically removes unused event declarations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0069.enabled = true
+
+# ----------------------------------------------------
+# CS0077: The out parameter 'parameter' must be assigned to before control leaves the current method
+# Automatically assigns out parameters appropriately
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0077.enabled = true
+
+# ----------------------------------------------------
+# CS0080: Cannot declare a variable of type 'type' in an async method
+# Automatically fixes variable declarations in async contexts
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0080.enabled = true
+
+# ----------------------------------------------------
+# CS0101: The namespace 'namespace' already contains a definition for 'member'
+# Automatically removes or renames duplicate members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0101.enabled = true
+
+# ----------------------------------------------------
+# CS0102: The namespace 'namespace' already contains a definition for 'member'
+# Automatically removes or renames duplicate members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0102.enabled = true
+
+# ----------------------------------------------------
+# CS0103: The name 'name' does not exist in the current context
+# Automatically fixes undefined names by adding necessary declarations or using directives
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0103.enabled = true
+
+# ----------------------------------------------------
+# CS0106: The modifier 'modifier' is not valid for this item
+# Ensures consistent accessibility modifiers across code elements
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0106.enabled = true
+
+# ----------------------------------------------------
+# CS0107: The modifier 'modifier' is not valid for this item
+# Ensures consistent accessibility modifiers across code elements
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0107.enabled = true
+
+# ----------------------------------------------------
+# CS0108: 'member1' hides inherited member 'member2'. Use the new keyword if hiding was intended
+# Automatically adds the 'new' keyword to hide inherited members when appropriate
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0108.enabled = true
+
+# ----------------------------------------------------
+# CS0109: The member 'member1' does not hide an inherited member. The new keyword is not required
+# Automatically removes the 'new' keyword when it's not required
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0109.enabled = true
+
+# ----------------------------------------------------
+# CS0112: 'type' is already defined in this namespace
+# Automatically removes or renames duplicate type declarations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0112.enabled = true
+
+# ----------------------------------------------------
+# CS0114: 'member' hides inherited member 'member'. To make the current member override that implementation, add the override keyword
+# Automatically adds the 'override' keyword to correctly override inherited members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0114.enabled = true
+
+# ----------------------------------------------------
+# CS0115: 'member' does not override a member from its base class
+# Automatically adds the 'override' keyword where necessary
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0115.enabled = true
+
+# ----------------------------------------------------
+# CS0119: 'type' is a 'modifier' but is used like a 'namespace'
+# Automatically corrects misuse of modifiers in type declarations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0119.enabled = true
+
+# ----------------------------------------------------
+# CS0120: An object reference is required for the non-static field, method, or property 'member'
+# Automatically adds the necessary object references to access non-static members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0120.enabled = true
+
+# ----------------------------------------------------
+# CS0123: No overload for method 'method' takes 'number' arguments
+# Automatically fixes method calls with incorrect argument counts by adjusting the arguments or selecting the correct overload
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0123.enabled = true
+
+# ----------------------------------------------------
+# CS0126: Unreachable code detected
+# Automatically removes or restructures unreachable code segments
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0126.enabled = true
+
+# ----------------------------------------------------
+# CS0127: Since 'method' returns void, a return keyword must not be followed by an object expression
+# Automatically removes or corrects invalid return statements in void methods
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0127.enabled = true
+
+# ----------------------------------------------------
+# CS0128: A local variable named 'variable' is already defined in this scope
+# Automatically renames or removes duplicate local variable declarations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0128.enabled = true
+
+# ----------------------------------------------------
+# CS0131: The left-hand side of an assignment must be a variable, property or indexer
+# Automatically corrects invalid assignment targets
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0131.enabled = true
+
+# ----------------------------------------------------
+# CS0132: The right-hand side of an assignment must be a value, which is a variable, literal, or member access
+# Automatically corrects invalid assignment values
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0132.enabled = true
+
+# ----------------------------------------------------
+# CS0133: The left-hand side of an assignment must be a variable, property or indexer
+# Automatically corrects invalid assignment targets
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0133.enabled = true
+
+# ----------------------------------------------------
+# CS0136: A local variable or function named 'variable' cannot be declared in this scope because that name is used in an enclosing local scope to define a local variable or parameter
+# Automatically renames or removes duplicate local variables or functions
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0136.enabled = true
+
+# ----------------------------------------------------
+# CS0139: The left-hand side of an assignment must be a variable, property or indexer
+# Automatically corrects invalid assignment targets
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0139.enabled = true
+
+# ----------------------------------------------------
+# CS0152: The 'label' is defined but never used
+# Automatically removes unused labels from the code
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0152.enabled = true
+
+# ----------------------------------------------------
+# CS0161: 'method' does not return a value in all code paths
+# Automatically adds return statements to ensure all code paths return a value
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0161.enabled = true
+
+# ----------------------------------------------------
+# CS0162: Unreachable code detected
+# Automatically removes or restructures unreachable code segments
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0162.enabled = true
+
+# ----------------------------------------------------
+# CS0163: Control cannot fall through from one case label ('case') to another
+# Automatically adds break statements or restructures switch cases to prevent fall-through
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0163.enabled = true
+
+# ----------------------------------------------------
+# CS0164: This label has not been referenced
+# Automatically removes or corrects unused labels
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0164.enabled = true
+
+# ----------------------------------------------------
+# CS0165: Use of unassigned local variable 'variable'
+# Automatically initializes variables before use
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0165.enabled = true
+
+# ----------------------------------------------------
+# CS0168: The variable 'variable' is declared but never used
+# Automatically removes unused variable declarations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0168.enabled = true
+
+# ----------------------------------------------------
+# CS0173: Type 'type1' cannot be implicitly converted to type 'type2'
+# Automatically adds explicit casts or converts types appropriately
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0173.enabled = true
+
+# ----------------------------------------------------
+# CS0177: The out parameter 'parameter' must be assigned to before control leaves the current method
+# Automatically assigns out parameters appropriately
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0177.enabled = true
+
+# ----------------------------------------------------
+# CS0191: A circular base class dependency was found for type 'type'
+# Automatically removes or corrects circular dependencies in base classes
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0191.enabled = true
+
+# ----------------------------------------------------
+# CS0192: The type 'type' is defined in an assembly that is not referenced. You must add a reference to assembly 'assembly'
+# Automatically adds necessary assembly references or corrects type usages
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0192.enabled = true
+
+# ----------------------------------------------------
+# CS0201: Only assignment, call, increment, decrement, and new object expressions can be used as a statement
+# Automatically removes invalid expressions used as statements
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0201.enabled = true
+
+# ----------------------------------------------------
+# CS0214: The method 'method' is not supported by the language
+# Automatically replaces unsupported methods with supported alternatives
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0214.enabled = true
+
+# ----------------------------------------------------
+# CS0216: The variable 'variable' is assigned but its value is never used
+# Automatically removes or utilizes assigned variables appropriately
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0216.enabled = true
+
+# ----------------------------------------------------
+# CS0219: The variable 'variable' is assigned but its value is never used
+# Automatically removes or utilizes assigned variables appropriately
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0219.enabled = true
+
+# ----------------------------------------------------
+# CS0221: Ambiguous reference to 'member'
+# Automatically disambiguates references to overloaded or conflicting members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0221.enabled = true
+
+# ----------------------------------------------------
+# CS0225: Cannot override inherited member 'member' because it is sealed
+# Automatically removes or corrects invalid override attempts
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0225.enabled = true
+
+# ----------------------------------------------------
+# CS0238: A local variable named 'variable' cannot be declared in this scope because it would give a different meaning to 'variable', which is already used in a 'parent scope' to denote something else
+# Automatically renames or removes duplicate local variables to avoid conflicts
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0238.enabled = true
+
+# ----------------------------------------------------
+# CS0246: The type or namespace name 'name' could not be found (are you missing a using directive or an assembly reference?)
+# Automatically adds missing using directives or assembly references
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0246.enabled = true
+
+# ----------------------------------------------------
+# CS0260: Missing closing brace
+# Automatically adds missing closing braces to fix syntax errors
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0260.enabled = true
+
+# ----------------------------------------------------
+# CS0262: Unexpected token 'token'
+# Automatically corrects unexpected tokens in the code
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0262.enabled = true
+
+# ----------------------------------------------------
+# CS0266: Cannot implicitly convert type 'type1' to 'type2'. An explicit conversion exists (are you missing a cast?)
+# Automatically adds explicit casts to resolve type conversion issues
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0266.enabled = true
+
+# ----------------------------------------------------
+# CS0267: 'member' does not implement inherited abstract member 'member'
+# Automatically implements missing abstract members in derived classes
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0267.enabled = true
+
+# ----------------------------------------------------
+# CS0272: The property or indexer 'property' cannot be used in this context because the set accessor is inaccessible
+# Automatically adjusts accessibility modifiers to allow proper usage
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0272.enabled = true
+
+# ----------------------------------------------------
+# CS0275: The property or indexer 'property' cannot be used in this context because the set accessor is inaccessible
+# Automatically adjusts accessibility modifiers to allow proper usage
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0275.enabled = true
+
+# ----------------------------------------------------
+# CS0305: Using the generic type 'type1' requires 1 type arguments
+# Automatically adds the required type arguments to generic types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0305.enabled = true
+
+# ----------------------------------------------------
+# CS0401: The type or namespace name 'name' could not be found (are you missing a using directive or an assembly reference?)
+# Automatically adds missing using directives or assembly references
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0401.enabled = true
+
+# ----------------------------------------------------
+# CS0403: The type or namespace name 'name' does not exist in the namespace 'namespace' (are you missing an assembly reference?)
+# Automatically adds missing assembly references or corrects namespace usages
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0403.enabled = true
+
+# ----------------------------------------------------
+# CS0405: Inconsistent accessibility: 'type1' is less accessible than 'type2'
+# Automatically adjusts accessibility modifiers to ensure consistency
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0405.enabled = true
+
+# ----------------------------------------------------
+# CS0407: Return type of 'method1' must be 'type2' to match overridden member 'method2'
+# Automatically corrects return types to match overridden members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0407.enabled = true
+
+# ----------------------------------------------------
+# CS0409: The type 'type1' in 'type2' conflicts with the imported type 'type3'
+# Automatically resolves type conflicts by adjusting namespaces or type usages
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0409.enabled = true
+
+# ----------------------------------------------------
+# CS0428: The type 'type1' has already been defined. A type cannot be defined twice
+# Automatically removes or renames duplicate type definitions
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0428.enabled = true
+
+# ----------------------------------------------------
+# CS0441: 'attribute' is an attribute that can only be applied to 'targets'
+# Automatically corrects attribute usage to valid targets
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0441.enabled = true
+
+# ----------------------------------------------------
+# CS0442: Attribute usage invalid on this declaration type. It is only valid on 'targets'
+# Automatically corrects attribute usage to valid targets
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0442.enabled = true
+
+# ----------------------------------------------------
+# CS0449: 'attribute' is an attribute that can only be applied to 'targets'
+# Automatically corrects attribute usage to valid targets
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0449.enabled = true
+
+# ----------------------------------------------------
+# CS0450: The property or indexer 'property' cannot be used in this context because the set accessor is inaccessible
+# Automatically adjusts accessibility modifiers to allow proper usage
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0450.enabled = true
+
+# ----------------------------------------------------
+# CS0451: The type 'type1' conflicts with the imported type 'type2' (are you missing an assembly reference?)
+# Automatically resolves type conflicts by adjusting namespaces or type usages
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0451.enabled = true
+
+# ----------------------------------------------------
+# CS0472: The result of the expression is always 'true' since the value is of type 'type'
+# Automatically removes redundant null checks or conditionals
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0472.enabled = true
+
+# ----------------------------------------------------
+# CS0500: 'method' is inaccessible due to its protection level
+# Automatically adjusts accessibility modifiers to allow proper usage
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0500.enabled = true
+
+# ----------------------------------------------------
+# CS0501: 'method' must declare a body because it is not marked abstract, extern, or partial
+# Automatically adds method bodies or adjusts method declarations accordingly
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0501.enabled = true
+
+# ----------------------------------------------------
+# CS0507: 'property' cannot change access modifiers when overriding 'base property'
+# Automatically adjusts access modifiers to match overridden properties
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0507.enabled = true
+
+# ----------------------------------------------------
+# CS0508: 'method' cannot change access modifiers when overriding 'base method'
+# Automatically adjusts access modifiers to match overridden methods
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0508.enabled = true
+
+# ----------------------------------------------------
+# CS0513: 'member' is a private field but is used in a protected or public member
+# Automatically adjusts accessibility modifiers to ensure proper usage
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0513.enabled = true
+
+# ----------------------------------------------------
+# CS0515: 'field' is assigned but its value is never used
+# Automatically removes or utilizes assigned fields appropriately
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0515.enabled = true
+
+# ----------------------------------------------------
+# CS0524: The 'type1' does not contain a definition for 'member'
+# Automatically adds missing member definitions or corrects member usages
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0524.enabled = true
+
+# ----------------------------------------------------
+# CS0525: The property or indexer 'property' cannot be used in this context because the set accessor is inaccessible
+# Automatically adjusts accessibility modifiers to allow proper usage
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0525.enabled = true
+
+# ----------------------------------------------------
+# CS0527: The type 'type' does not contain a definition for 'member'
+# Automatically adds missing member definitions or corrects member usages
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0527.enabled = true
+
+# ----------------------------------------------------
+# CS0531: 'type' does not implement interface member 'interface.member'
+# Automatically implements missing interface members in derived classes
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0531.enabled = true
+
+# ----------------------------------------------------
+# CS0539: The event 'event' is never used
+# Automatically removes unused event declarations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0539.enabled = true
+
+# ----------------------------------------------------
+# CS0541: The 'return' statement cannot be used in an async lambda expression
+# Automatically adjusts return statements in async lambda expressions
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0541.enabled = true
+
+# ----------------------------------------------------
+# CS0549: The type 'type1' conflicts with the imported type 'type2' (are you missing an assembly reference?)
+# Automatically resolves type conflicts by adjusting namespaces or type usages
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0549.enabled = true
+
+# ----------------------------------------------------
+# CS0558: 'member' does not implement interface member 'interface.member'
+# Automatically implements missing interface members in derived classes
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0558.enabled = true
+
+# ----------------------------------------------------
+# CS0567: 'method' has a void return type but is used as if it returns 'type'
+# Automatically corrects method return types to match usage
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0567.enabled = true
+
+# ----------------------------------------------------
+# CS0568: Cannot create an instance of the abstract class or interface 'type'
+# Automatically adjusts class declarations to remove abstract modifiers or implements abstract members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0568.enabled = true
+
+# ----------------------------------------------------
+# CS0573: 'member' has the wrong return type for 'method'
+# Automatically corrects return types to match method signatures
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0573.enabled = true
+
+# ----------------------------------------------------
+# CS0574: 'attribute' cannot be applied to 'target' because it is not valid on that declaration type
+# Automatically corrects attribute usage to valid targets
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0574.enabled = true
+
+# ----------------------------------------------------
+# CS0575: 'attribute' is not valid on this declaration type. It is only valid on 'targets'
+# Automatically corrects attribute usage to valid targets
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0575.enabled = true
+
+# ----------------------------------------------------
+# CS0579: Duplicate 'attribute' attribute
+# Automatically removes or corrects duplicate attribute declarations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0579.enabled = true
+
+# ----------------------------------------------------
+# CS0592: 'member' is an attribute that can only be applied to 'targets'
+# Automatically corrects attribute usage to valid targets
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0592.enabled = true
+
+# ----------------------------------------------------
+# CS0621: 'member' is referenced before assignment
+# Automatically initializes members before use to prevent null references
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0621.enabled = true
+
+# ----------------------------------------------------
+# CS0628: 'type' does not implement interface member 'interface.member'
+# Automatically implements missing interface members in derived classes
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0628.enabled = true
+
+# ----------------------------------------------------
+# CS0659: Type 'type' overrides Object.Equals but does not override Object.GetHashCode
+# Automatically implements GetHashCode when Equals is overridden
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0659.enabled = true
+
+# ----------------------------------------------------
+# CS0660: 'type' defines operator == or operator != but does not override Object.Equals(object o)
+# Automatically overrides Object.Equals when equality operators are defined
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0660.enabled = true
+
+# ----------------------------------------------------
+# CS0661: 'type' defines operator == or operator != but does not override Object.GetHashCode()
+# Automatically overrides Object.GetHashCode when equality operators are defined
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0661.enabled = true
+
+# ----------------------------------------------------
+# CS0678: Member 'member' has the same name as a member in the base type 'type'. Use the new keyword if hiding was intended
+# Automatically adds the 'new' keyword to hide inherited members when appropriate
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0678.enabled = true
+
+# ----------------------------------------------------
+# CS0693: Type 'type' already defines a member called 'member' with the same parameter types
+# Automatically removes or renames duplicate members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0693.enabled = true
+
+# ----------------------------------------------------
+# CS0708: 'member' cannot be declared in this context
+# Automatically removes or corrects invalid member declarations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0708.enabled = true
+
+# ----------------------------------------------------
+# CS0710: 'member' does not implement interface member 'interface.member'
+# Automatically implements missing interface members in derived classes
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0710.enabled = true
+
+# ----------------------------------------------------
+# CS0713: Type 'type' does not implement interface member 'interface.member'
+# Automatically implements missing interface members in derived classes
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0713.enabled = true
+
+# ----------------------------------------------------
+# CS0714: Type 'type' does not implement interface member 'interface.member'
+# Automatically implements missing interface members in derived classes
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0714.enabled = true
+
+# ----------------------------------------------------
+# CS0718: The base class 'type' is inaccessible due to its protection level
+# Automatically adjusts accessibility modifiers to allow proper inheritance
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0718.enabled = true
+
+# ----------------------------------------------------
+# CS0750: 'type1' cannot be defined in this scope because 'type2' already defines a type with this name
+# Automatically removes or renames duplicate type definitions
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0750.enabled = true
+
+# ----------------------------------------------------
+# CS0751: 'type1' cannot be defined in this scope because 'type2' already defines a type with this name
+# Automatically removes or renames duplicate type definitions
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0751.enabled = true
+
+# ----------------------------------------------------
+# CS0753: The type 'type1' already defines a member called 'member' with the same parameter types
+# Automatically removes or renames duplicate members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0753.enabled = true
+
+# ----------------------------------------------------
+# CS0756: 'method' is a generic method but is used without type arguments
+# Automatically adds the necessary type arguments to generic method calls
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0756.enabled = true
+
+# ----------------------------------------------------
+# CS0759: The type 'type' cannot be used as type parameter 'parameter' in the generic type or method 'method'. There is no implicit reference conversion from 'type' to 'constraint'
+# Automatically adjusts type parameters or constraints to ensure valid type conversions
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0759.enabled = true
+
+# ----------------------------------------------------
+# CS0766: 'type' is a type parameter but is used like a type
+# Automatically corrects the usage of type parameters in type contexts
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0766.enabled = true
+
+# ----------------------------------------------------
+# CS0815: Cannot assign null to non-nullable reference type
+# Automatically adds null checks or adjusts types to allow null assignments
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0815.enabled = true
+
+# ----------------------------------------------------
+# CS0819: The default interface implementation of 'member' cannot be overridden in a derived type
+# Automatically removes or corrects invalid override attempts
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0819.enabled = true
+
+# ----------------------------------------------------
+# CS0822: Type 'type' is declared within a namespace but is used outside of that namespace
+# Automatically adjusts namespace declarations or type usages to resolve scope issues
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs0822.enabled = true
+
+# ----------------------------------------------------
+# CS1002: ; expected
+# Automatically adds missing semicolons to fix syntax errors
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1002.enabled = true
+
+# ----------------------------------------------------
+# CS1003: Syntax error, '(' expected
+# Automatically corrects syntax errors by adding missing parentheses
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1003.enabled = true
+
+# ----------------------------------------------------
+# CS1004: Unexpected token 'token'
+# Automatically removes or corrects unexpected tokens in the code
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1004.enabled = true
+
+# ----------------------------------------------------
+# CS1012: Too many arguments for method 'method'
+# Automatically adjusts method calls to match the correct number of parameters
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1012.enabled = true
+
+# ----------------------------------------------------
+# CS1023: Operation cannot be performed on '<expression>' because '<variable>' is a 'type'
+# Automatically corrects invalid operations on types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1023.enabled = true
+
+# ----------------------------------------------------
+# CS1031: Type expected
+# Automatically adds missing type declarations to fix syntax errors
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1031.enabled = true
+
+# ----------------------------------------------------
+# CS1057: Unexpected symbol 'symbol'
+# Automatically removes or corrects unexpected symbols in the code
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1057.enabled = true
+
+# ----------------------------------------------------
+# CS1061: 'type' does not contain a definition for 'member' and no accessible extension method 'member' accepting a first argument of type 'type' could be found
+# Automatically adds missing member definitions or using directives to include extension methods
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1061.enabled = true
+
+# ----------------------------------------------------
+# CS1100: The context requires an expression of type 'type1'
+# Automatically adjusts expressions to match the required type
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1100.enabled = true
+
+# ----------------------------------------------------
+# CS1105: An attribute argument must be a constant expression, typeof expression or array creation expression of an attribute parameter type
+# Automatically corrects attribute argument expressions to conform to requirements
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1105.enabled = true
+
+# ----------------------------------------------------
+# CS1106: The return type of the 'method' must be 'type' to match overridden member 'method'
+# Automatically corrects return types to match overridden members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1106.enabled = true
+
+# ----------------------------------------------------
+# CS1503: Argument 'argument' cannot convert from 'type1' to 'type2'
+# Automatically adjusts method arguments to match parameter types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1503.enabled = true
+
+# ----------------------------------------------------
+# CS1522: Property or indexer 'property' must declare a body because it is marked abstract, extern, or partial
+# Automatically adds property bodies or adjusts property declarations accordingly
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1522.enabled = true
+
+# ----------------------------------------------------
+# CS1526: Unrecognized escape sequence '\character'
+# Automatically corrects escape sequences in string literals
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1526.enabled = true
+
+# ----------------------------------------------------
+# CS1527: Invalid option for <option>
+# Automatically corrects invalid compiler options
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1527.enabled = true
+
+# ----------------------------------------------------
+# CS1591: Missing XML comment for publicly visible type or member 'member'
+# Automatically adds XML documentation comments to public members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1591.enabled = true
+
+# ----------------------------------------------------
+# CS1597: Invalid XML comment format
+# Automatically corrects XML comment formatting issues
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1597.enabled = true
+
+# ----------------------------------------------------
+# CS1609: The using directive for 'namespace' appeared previously in this namespace
+# Automatically removes duplicate using directives
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1609.enabled = true
+
+# ----------------------------------------------------
+# CS1615: Argument 'argument' cannot be converted to parameter type 'type'
+# Automatically adjusts method arguments to match parameter types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1615.enabled = true
+
+# ----------------------------------------------------
+# CS1620: Argument 'argument' cannot be converted to parameter type 'type'
+# Automatically adjusts method arguments to match parameter types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1620.enabled = true
+
+# ----------------------------------------------------
+# CS1621: Argument 'argument' cannot be converted to parameter type 'type'
+# Automatically adjusts method arguments to match parameter types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1621.enabled = true
+
+# ----------------------------------------------------
+# CS1622: Argument 'argument' cannot be converted to parameter type 'type'
+# Automatically adjusts method arguments to match parameter types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1622.enabled = true
+
+# ----------------------------------------------------
+# CS1623: Argument 'argument' cannot be converted to parameter type 'type'
+# Automatically adjusts method arguments to match parameter types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1623.enabled = true
+
+# ----------------------------------------------------
+# CS1624: Argument 'argument' cannot be converted to parameter type 'type'
+# Automatically adjusts method arguments to match parameter types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1624.enabled = true
+
+# ----------------------------------------------------
+# CS1643: Expression tree lambda must return void or a value
+# Automatically adjusts lambda expressions in expression trees to conform to return type requirements
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1643.enabled = true
+
+# ----------------------------------------------------
+# CS1674: 'type' does not implement interface member 'interface.member'
+# Automatically implements missing interface members in derived classes
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1674.enabled = true
+
+# ----------------------------------------------------
+# CS1689: No suitable class found to handle the event 'event'
+# Automatically adds suitable event handlers or adjusts event declarations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1689.enabled = true
+
+# ----------------------------------------------------
+# CS1715: 'member' is not a valid default implementation for 'interface.member'
+# Automatically corrects default interface implementations to conform to interface definitions
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1715.enabled = true
+
+# ----------------------------------------------------
+# CS1717: 'member' does not override any base class member
+# Automatically removes or corrects invalid override attempts
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1717.enabled = true
+
+# ----------------------------------------------------
+# CS1722: Cannot convert type 'type1' to 'type2'
+# Automatically adds explicit casts or converts types appropriately
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1722.enabled = true
+
+# ----------------------------------------------------
+# CS1737: The type 'type' cannot be used as type parameter 'parameter' in the generic type or method 'method'. There is no implicit reference conversion from 'type' to 'constraint'
+# Automatically adjusts type parameters or constraints to ensure valid type conversions
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1737.enabled = true
+
+# ----------------------------------------------------
+# CS1741: Cannot assign 'expression' to 'variable' because it is a readonly field
+# Automatically adjusts assignments to readonly fields appropriately
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1741.enabled = true
+
+# ----------------------------------------------------
+# CS1743: The event 'event' is not used
+# Automatically removes or utilizes unused events appropriately
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1743.enabled = true
+
+# ----------------------------------------------------
+# CS1750: Cannot convert null to 'type' because it is a non-nullable value type
+# Automatically adjusts null assignments to conform to non-nullable types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1750.enabled = true
+
+# ----------------------------------------------------
+# CS1751: Cannot convert null to 'type' because it is a non-nullable value type
+# Automatically adjusts null assignments to conform to non-nullable types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1751.enabled = true
+
+# ----------------------------------------------------
+# CS1955: Non-invocable member 'member' cannot be used like a method
+# Automatically adjusts member usages to match their invocation patterns
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1955.enabled = true
+
+# ----------------------------------------------------
+# CS1983: The type 'type' may not be used as a type parameter
+# Automatically adjusts type parameters to conform to constraints
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1983.enabled = true
+
+# ----------------------------------------------------
+# CS1988: 'method' cannot be used in an async lambda expression
+# Automatically adjusts async lambda expressions to conform to usage requirements
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1988.enabled = true
+
+# ----------------------------------------------------
+# CS1994: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+# Automatically adds 'await' operators or adjusts method declarations to properly handle asynchronous operations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1994.enabled = true
+
+# ----------------------------------------------------
+# CS1997: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+# Automatically adds 'await' operators or adjusts method declarations to properly handle asynchronous operations
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs1997.enabled = true
+
+# ----------------------------------------------------
+# CS3000: Cannot convert null to 'type' because it is a non-nullable value type
+# Automatically adjusts null assignments to conform to non-nullable types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3000.enabled = true
+
+# ----------------------------------------------------
+# CS3001: Argument 'argument' cannot be converted to parameter type 'type'
+# Automatically adjusts method arguments to match parameter types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3001.enabled = true
+
+# ----------------------------------------------------
+# CS3002: Cannot convert null to 'type' because it is a non-nullable value type
+# Automatically adjusts null assignments to conform to non-nullable types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3002.enabled = true
+
+# ----------------------------------------------------
+# CS3003: Argument 'argument' cannot be converted to parameter type 'type'
+# Automatically adjusts method arguments to match parameter types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3003.enabled = true
+
+# ----------------------------------------------------
+# CS3005: No overload for method 'method' takes 'number' arguments
+# Automatically adjusts method calls to match the correct number of parameters
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3005.enabled = true
+
+# ----------------------------------------------------
+# CS3006: No overload for method 'method' takes 'number' arguments
+# Automatically adjusts method calls to match the correct number of parameters
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3006.enabled = true
+
+# ----------------------------------------------------
+# CS3007: No overload for method 'method' takes 'number' arguments
+# Automatically adjusts method calls to match the correct number of parameters
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3007.enabled = true
+
+# ----------------------------------------------------
+# CS3008: No overload for method 'method' takes 'number' arguments
+# Automatically adjusts method calls to match the correct number of parameters
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3008.enabled = true
+
+# ----------------------------------------------------
+# CS3009: The type 'type' does not have a constructor that takes 'number' arguments
+# Automatically adds required constructors or adjusts object creation to match available constructors
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3009.enabled = true
+
+# ----------------------------------------------------
+# CS3016: Cannot assign to 'member' because it is a 'modifier'
+# Automatically corrects invalid assignments to modifiers
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3016.enabled = true
+
+# ----------------------------------------------------
+# CS3024: 'type' does not contain a definition for 'member'
+# Automatically adds missing member definitions or corrects member usages
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3024.enabled = true
+
+# ----------------------------------------------------
+# CS3027: The type 'type1' cannot be used as type parameter 'parameter' in the generic type or method 'method'. There is no implicit reference conversion from 'type1' to 'constraint'
+# Automatically adjusts type parameters or constraints to ensure valid type conversions
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs3027.enabled = true
+
+# ----------------------------------------------------
+# CS7036: There is no argument given that corresponds to the required parameter 'parameter' of 'method'
+# Automatically adds missing arguments or adjusts method calls to match parameter requirements
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs7036.enabled = true
+
+# ----------------------------------------------------
+# CS8050: Extension method 'method' cannot be used as an extension method because it is a 'modifier'
+# Automatically corrects invalid extension method usages
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8050.enabled = true
+
+# ----------------------------------------------------
+# CS8070: The modifier 'modifier' is not valid for this item
+# Ensures consistent usage of modifiers across code elements
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8070.enabled = true
+
+# ----------------------------------------------------
+# CS8112: Cannot assign to 'member' because it is a 'modifier'
+# Automatically corrects invalid assignments to modifiers
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8112.enabled = true
+
+# ----------------------------------------------------
+# CS8139: The type 'type' cannot be used as type parameter 'parameter' in the generic type or method 'method'. There is no implicit reference conversion from 'type' to 'constraint'
+# Automatically adjusts type parameters or constraints to ensure valid type conversions
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8139.enabled = true
+
+# ----------------------------------------------------
+# CS8340: Cannot await 'type' because it is not a valid awaitable type
+# Automatically adjusts await expressions to use valid awaitable types
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8340.enabled = true
+
+# ----------------------------------------------------
+# CS8403: 'attribute' is an attribute that can only be applied to 'targets'
+# Automatically corrects attribute usage to valid targets
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8403.enabled = true
+
+# ----------------------------------------------------
+# CS8600: Converting null literal or possible null value to non-nullable type
+# Automatically adds null checks or adjusts types to prevent null reference issues
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8600.enabled = true
+
+# ----------------------------------------------------
+# CS8602: Dereference of a possibly null reference
+# Automatically adds null checks to prevent null reference exceptions
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8602.enabled = true
+
+# ----------------------------------------------------
+# CS8604: Possible null reference argument for parameter 'parameter' of 'method'
+# Automatically adds null checks or adjusts parameter types to prevent null reference issues
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8604.enabled = true
+
+# ----------------------------------------------------
+# CS8610: Nullability of reference types in type of parameter 'parameter' doesn't match overridden member
+# Automatically adjusts nullability annotations to match overridden members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8610.enabled = true
+
+# ----------------------------------------------------
+# CS8618: Non-nullable field 'field' is uninitialized. Consider declaring as nullable.
+# Automatically initializes non-nullable fields or adjusts their nullability
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8618.enabled = true
+
+# ----------------------------------------------------
+# CS8625: Cannot convert null literal to non-nullable reference type
+# Automatically adds null checks or adjusts types to prevent null reference issues
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8625.enabled = true
+
+# ----------------------------------------------------
+# CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+# Automatically adjusts nullable annotations to conform to nullable context settings
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8632.enabled = true
+
+# ----------------------------------------------------
+# CS8765: Nullability of reference types in type of parameter 'parameter' doesn't match overridden member
+# Automatically adjusts nullability annotations to match overridden members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8765.enabled = true
+
+# ----------------------------------------------------
+# CS8767: Nullability of reference types in return type of 'method' doesn't match overridden member
+# Automatically adjusts nullability annotations to match overridden members
+# Applicable Analyzer: Roslynator Compiler Diagnostic Fix
+# ----------------------------------------------------
 roslynator_compiler_diagnostic_fix.cs8767.enabled = true
 
 # ----------------------------------------------------
@@ -745,704 +1887,1197 @@ roslynator_compiler_diagnostic_fix.cs8767.enabled = true
 # Enable a comprehensive set of Roslynator refactorings for improved code quality
 # ----------------------------------------------------
 
-# Enable adding all properties to an initializer
+# ----------------------------------------------------
+# Add All Properties to an Initializer
+# Automatically adds all properties to an object initializer for cleaner object creation
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_all_properties_to_initializer.enabled = true
 
-# Enable adding argument names to method calls for clarity
+# ----------------------------------------------------
+# Add Argument Names to Method Calls for Clarity
+# Automatically adds named arguments to method calls for improved readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_argument_name.enabled = true
 
-# Enable adding braces to control statements for consistency
+# ----------------------------------------------------
+# Add Braces to Control Statements for Consistency
+# Ensures that all control statements use braces for consistency and readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_braces.enabled = true
 
-# Enable adding braces to if-else statements
+# ----------------------------------------------------
+# Add Braces to If-Else Statements
+# Ensures that if-else statements use braces for consistency and readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_braces_to_if_else.enabled = true
 
-# Enable adding braces to switch sections
+# ----------------------------------------------------
+# Add Braces to Switch Sections
+# Ensures that switch sections use braces for consistency and readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_braces_to_switch_section.enabled = true
 
-# Enable adding braces to all switch sections
+# ----------------------------------------------------
+# Add Braces to All Switch Sections
+# Ensures that all switch sections use braces for consistency and readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_braces_to_switch_sections.enabled = true
 
-# Enable adding default values to method parameters
+# ----------------------------------------------------
+# Add Default Values to Method Parameters
+# Automatically adds default values to method parameters where appropriate
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_default_value_to_parameter.enabled = true
 
-# Enable adding empty lines between declarations for readability
+# ----------------------------------------------------
+# Add Empty Lines Between Declarations for Readability
+# Inserts empty lines between declarations to enhance code readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_empty_line_between_declarations.enabled = true
 
-# Enable adding exception elements to documentation comments
+# ----------------------------------------------------
+# Add Exception Elements to Documentation Comments
+# Automatically adds <exception> elements to XML documentation comments
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_exception_element_to_documentation_comment.enabled = true
 
-# Enable adding generic parameters to declarations for type safety
+# ----------------------------------------------------
+# Add Generic Parameters to Declarations for Type Safety
+# Automatically adds generic parameters to declarations to enforce type safety
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_generic_parameter_to_declaration.enabled = true
 
-# Enable adding missing members to interfaces for completeness
+# ----------------------------------------------------
+# Add Missing Members to Interfaces for Completeness
+# Automatically adds missing members to interfaces to ensure completeness
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_member_to_interface.enabled = true
 
-# Enable adding missing cases to switch statements
+# ----------------------------------------------------
+# Add Missing Cases to Switch Statements
+# Automatically adds missing cases to switch statements to handle all scenarios
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_missing_cases_to_switch.enabled = true
 
-# Enable adding parameters to interface members for consistency
+# ----------------------------------------------------
+# Add Parameters to Interface Members for Consistency
+# Ensures that interface members have consistent parameters across implementations
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_parameter_to_interface_member.enabled = true
 
-# Enable adding XML documentation tags
+# ----------------------------------------------------
+# Add XML Documentation Tags
+# Automatically adds XML documentation tags to enhance code documentation
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_tag_to_documentation_comment.enabled = true
 
-# Enable adding using directives for necessary namespaces
+# ----------------------------------------------------
+# Add Using Directives for Necessary Namespaces
+# Automatically adds using directives for namespaces that are required by the code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_using_directive.enabled = true
 
-# Enable adding using static directives for static members
+# ----------------------------------------------------
+# Add Using Static Directives for Static Members
+# Automatically adds using static directives for static members to simplify code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.add_using_static_directive.enabled = true
 
-# Enable calling extension methods as instance methods for cleaner syntax
+# ----------------------------------------------------
+# Call Extension Methods as Instance Methods for Cleaner Syntax
+# Automatically converts extension method calls to instance method syntax for cleaner code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.call_extension_method_as_instance_method.enabled = true
 
-# Enable calling IndexOf instead of Contains for string searches
+# ----------------------------------------------------
+# Call IndexOf Instead of Contains for String Searches
+# Replaces Contains method calls with IndexOf for improved performance in string searches
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.call_indexof_instead_of_contains.enabled = true
 
-# Enable changing accessibility modifiers for better encapsulation
+# ----------------------------------------------------
+# Change Accessibility Modifiers for Better Encapsulation
+# Automatically adjusts accessibility modifiers to enhance encapsulation and data hiding
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.change_accessibility.enabled = true
 
-# Enable changing method return types to void when appropriate
+# ----------------------------------------------------
+# Change Method Return Types to Void When Appropriate
+# Automatically changes method return types to void when the return value is unnecessary
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.change_method_return_type_to_void.enabled = true
 
-# Enable changing variable types according to expressions for type safety
+# ----------------------------------------------------
+# Change Variable Types According to Expressions for Type Safety
+# Automatically adjusts variable types to match the types of their assigned expressions
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.change_type_according_to_expression.enabled = true
 
-# Enable checking expressions for null to prevent NullReferenceExceptions
+# ----------------------------------------------------
+# Check Expressions for Null to Prevent NullReferenceExceptions
+# Automatically adds null checks to expressions to prevent potential NullReferenceExceptions
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.check_expression_for_null.enabled = true
 
-# Enable checking method parameters for null to enforce non-null contracts
+# ----------------------------------------------------
+# Check Method Parameters for Null to Enforce Non-Null Contracts
+# Automatically adds null checks to method parameters to enforce non-null contracts
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.check_parameter_for_null.enabled = true
 
-# Enable commenting out member declarations when they are not needed
+# ----------------------------------------------------
+# Comment Out Member Declarations When They Are Not Needed
+# Automatically comments out member declarations that are unused or unnecessary
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.comment_out_member_declaration.enabled = true
 
-# Enable commenting out statements temporarily during debugging or refactoring
+# ----------------------------------------------------
+# Comment Out Statements Temporarily During Debugging or Refactoring
+# Allows temporary commenting out of statements for debugging or refactoring purposes
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.comment_out_statement.enabled = true
 
-# Enable converting auto-properties to full properties with backing fields
+# ----------------------------------------------------
+# Convert Auto-Properties to Full Properties with Backing Fields
+# Automatically converts auto-properties to full properties with explicit backing fields
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_auto_property_to_full_property.enabled = true
 
-# Enable converting auto-properties to full properties without backing fields when appropriate
+# ----------------------------------------------------
+# Convert Auto-Properties to Full Properties Without Backing Fields When Appropriate
+# Automatically converts auto-properties to full properties without explicit backing fields when suitable
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_auto_property_to_full_property_without_backing_field.enabled = true
 
-# Enable converting block-bodied members to expression-bodied members when possible
+# ----------------------------------------------------
+# Convert Block-Bodied Members to Expression-Bodied Members When Possible
+# Converts block-bodied members to expression-bodied members for conciseness when possible
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_block_body_to_expression_body.enabled = true
 
-# Enable converting expression-bodied members to block-bodied members when necessary
+# ----------------------------------------------------
+# Convert Expression-Bodied Members to Block-Bodied Members When Necessary
+# Converts expression-bodied members to block-bodied members for clarity when necessary
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_expression_body_to_block_body.enabled = true
 
-# Enable converting do-while loops to while loops when appropriate
+# ----------------------------------------------------
+# Convert Do-While Loops to While Loops When Appropriate
+# Converts do-while loops to while loops when it enhances readability or performance
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_do_to_while.enabled = true
 
-# Enable converting for loops to foreach loops when more readable
+# ----------------------------------------------------
+# Convert For Loops to Foreach Loops When More Readable
+# Converts for loops to foreach loops to enhance readability when iteration is straightforward
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_for_to_foreach.enabled = true
 
-# Enable converting foreach loops to for loops when more appropriate
+# ----------------------------------------------------
+# Convert Foreach Loops to For Loops When More Appropriate
+# Converts foreach loops to for loops when it improves performance or meets specific iteration needs
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_foreach_to_for.enabled = true
 
-# Enable converting foreach loops to for loops with reverse iteration when needed
+# ----------------------------------------------------
+# Convert Foreach Loops to For Loops with Reverse Iteration When Needed
+# Converts foreach loops to for loops with reverse iteration for specific iteration requirements
+# Applicable Analyzer: rcsXXXX
+# ----------------------------------------------------
 roslynator_refactoring.convert_foreach_to_for_and_reverse_loop.enabled = false
 # Set to true only if reverse iteration is frequently needed
 
-# Enable converting HasFlag calls to bitwise operations for performance
+# ----------------------------------------------------
+# Convert HasFlag Calls to Bitwise Operations for Performance
+# Replaces HasFlag method calls with equivalent bitwise operations to improve performance
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_hasflag_call_to_bitwise_operation.enabled = true
 
-# Enable converting hexadecimal literals to decimal literals when appropriate
+# ----------------------------------------------------
+# Convert Hexadecimal Literals to Decimal Literals When Appropriate
+# Automatically converts hexadecimal literals to decimal literals for consistency or clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_hexadecimal_literal_to_decimal_literal.enabled = true
 
-# Enable converting if statements to conditional expressions when suitable
+# ----------------------------------------------------
+# Convert If Statements to Conditional Expressions When Suitable
+# Transforms simple if statements into conditional expressions for conciseness
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_if_to_conditional_expression.enabled = true
 
-# Enable converting if statements to switch statements when multiple conditions exist
+# ----------------------------------------------------
+# Convert If Statements to Switch Statements When Multiple Conditions Exist
+# Transforms if statements with multiple conditions into switch statements for better structure
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_if_to_switch.enabled = true
 
-# Enable converting interpolated strings to concatenation for compatibility
+# ----------------------------------------------------
+# Convert Interpolated Strings to Concatenation for Compatibility
+# Replaces interpolated strings with concatenation operations to ensure compatibility
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_interpolated_string_to_concatenation.enabled = true
 
-# Enable converting interpolated strings to String.Format for performance
+# ----------------------------------------------------
+# Convert Interpolated Strings to String.Format for Performance
+# Replaces interpolated strings with String.Format calls to improve performance
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_interpolated_string_to_string_format.enabled = true
 
-# Enable converting interpolated strings to verbatim string literals when needed
+# ----------------------------------------------------
+# Convert Interpolated Strings to Verbatim String Literals When Needed
+# Replaces interpolated strings with verbatim string literals for specific formatting requirements
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_interpolated_string_to_string_literal.enabled = true
 
-# Enable converting lambda block bodies to expression bodies for conciseness
+# ----------------------------------------------------
+# Convert Lambda Block Bodies to Expression Bodies for Conciseness
+# Converts lambda expressions with block bodies to expression-bodied lambdas for brevity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_lambda_block_body_to_expression_body.enabled = true
 
-# Enable converting lambda expression bodies to block bodies for clarity
+# ----------------------------------------------------
+# Convert Lambda Expression Bodies to Block Bodies for Clarity
+# Converts expression-bodied lambda expressions to block bodies for improved clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_lambda_expression_body_to_block_body.enabled = true
 
-# Enable converting method groups to lambda expressions when more flexible
+# ----------------------------------------------------
+# Convert Method Groups to Lambda Expressions When More Flexible
+# Replaces method group references with lambda expressions when flexibility is needed
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_method_group_to_lambda.enabled = true
 
-# Enable converting regular string literals to verbatim string literals when necessary
+# ----------------------------------------------------
+# Convert Regular String Literals to Verbatim String Literals When Necessary
+# Replaces regular string literals with verbatim string literals to simplify escape sequences
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_regular_string_literal_to_verbatim_string_literal.enabled = true
 
-# Enable converting return statements to if statements when more appropriate
+# ----------------------------------------------------
+# Convert Return Statements to If Statements When More Appropriate
+# Transforms return statements into if statements when it enhances code logic
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_return_statement_to_if.enabled = true
 
-# Enable converting multiple statements to if-else blocks for clarity
+# ----------------------------------------------------
+# Convert Multiple Statements to If-Else Blocks for Clarity
+# Groups multiple related statements into if-else blocks for better readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_statements_to_if_else.enabled = true
 
-# Enable converting switch expressions to switch statements when more readable
+# ----------------------------------------------------
+# Convert Switch Expressions to Switch Statements When More Readable
+# Replaces switch expressions with switch statements when it improves code readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_switch_expression_to_switch_statement.enabled = true
 
-# Enable converting switch statements to if-else statements when simpler
+# ----------------------------------------------------
+# Convert Switch Statements to If-Else Statements When Simpler
+# Replaces switch statements with if-else chains when it simplifies the code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_switch_to_if.enabled = true
 
-# Enable converting verbatim string literals to regular string literals when possible
+# ----------------------------------------------------
+# Convert Verbatim String Literals to Regular String Literals When Possible
+# Replaces verbatim string literals with regular string literals when it reduces redundancy
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_verbatim_string_literal_to_regular_string_literal.enabled = true
 
-# Enable converting while loops to do-while loops when more appropriate
+# ----------------------------------------------------
+# Convert While Loops to Do-While Loops When More Appropriate
+# Converts while loops to do-while loops when it better fits the logic requirements
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_while_to_do.enabled = true
 
-# Enable converting while loops to for loops for consistency
+# ----------------------------------------------------
+# Convert While Loops to For Loops for Consistency
+# Converts while loops to for loops to maintain consistent loop structures
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.convert_while_to_for.enabled = true
 
-# Enable copying arguments from one method call to another for consistency
+# ----------------------------------------------------
+# Copy Arguments from One Method Call to Another for Consistency
+# Automatically copies arguments from one method call to another to ensure consistency
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.copy_argument.enabled = true
 
-# Enable copying documentation comments from base members to derived members
+# ----------------------------------------------------
+# Copy Documentation Comments from Base Members to Derived Members
+# Automatically copies XML documentation comments from base class members to derived class members
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.copy_documentation_comment_from_base_member.enabled = true
 
-# Enable copying member declarations for code reuse
+# ----------------------------------------------------
+# Copy Member Declarations for Code Reuse
+# Automatically copies member declarations to promote code reuse
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.copy_member_declaration.enabled = true
 
-# Enable copying parameters from one method to another for consistency
+# ----------------------------------------------------
+# Copy Parameters from One Method to Another for Consistency
+# Automatically copies method parameters to maintain consistency across similar methods
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.copy_parameter.enabled = true
 
-# Enable copying statements from one location to another for code reuse
+# ----------------------------------------------------
+# Copy Statements from One Location to Another for Code Reuse
+# Automatically copies code statements to promote code reuse and reduce redundancy
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.copy_statement.enabled = true
 
-# Enable copying switch sections for consistency
+# ----------------------------------------------------
+# Copy Switch Sections for Consistency
+# Automatically copies switch sections to maintain consistency across similar switch statements
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.copy_switch_section.enabled = true
 
-# Enable deconstructing foreach variables for cleaner code
+# ----------------------------------------------------
+# Deconstruct Foreach Variables for Cleaner Code
+# Automatically deconstructs variables in foreach loops to simplify code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.deconstruct_foreach_variable.enabled = true
 
-# Enable expanding coalesce expressions for clarity
+# ----------------------------------------------------
+# Expand Coalesce Expressions for Clarity
+# Automatically expands coalesce expressions to make null handling clearer
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.expand_coalesce_expression.enabled = true
 
-# Enable expanding compound assignments for clarity
+# ----------------------------------------------------
+# Expand Compound Assignments for Clarity
+# Automatically expands compound assignments to simple assignments for better readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.expand_compound_assignment.enabled = true
 
-# Enable expanding event declarations for better readability
+# ----------------------------------------------------
+# Expand Event Declarations for Better Readability
+# Automatically expands event declarations to include explicit add and remove accessors
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.expand_event_declaration.enabled = true
 
-# Enable expanding initializer expressions for clarity
+# ----------------------------------------------------
+# Expand Initializer Expressions for Clarity
+# Automatically expands initializer expressions to full expressions when needed
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.expand_initializer.enabled = false
 # Set to true only if initializer expansion is frequently needed
 
-# Enable expanding positional constructors for clarity
+# ----------------------------------------------------
+# Expand Positional Constructors for Clarity
+# Automatically expands positional constructors to include explicit property assignments
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.expand_positional_constructor.enabled = true
 
-# Enable extracting event handler methods for better separation of concerns
+# ----------------------------------------------------
+# Extract Event Handler Methods for Better Separation of Concerns
+# Automatically extracts event handler logic into separate methods for cleaner code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.extract_event_handler_method.enabled = true
 
-# Enable extracting expressions from conditions for clarity
+# ----------------------------------------------------
+# Extract Expressions from Conditions for Clarity
+# Automatically extracts complex expressions from conditional statements into separate variables or methods
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.extract_expression_from_condition.enabled = true
 
-# Enable extracting type declarations to new files for better organization
+# ----------------------------------------------------
+# Extract Type Declarations to New Files for Better Organization
+# Automatically moves type declarations to separate files to improve code organization
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.extract_type_declaration_to_new_file.enabled = false
 # Set to true only if type extraction to new files is frequently needed
 
-# Enable generating base constructors for derived classes
+# ----------------------------------------------------
+# Generate Base Constructors for Derived Classes
+# Automatically generates base class constructors in derived classes to ensure proper initialization
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.generate_base_constructors.enabled = true
 
-# Enable generating combined enum members for flag enums
+# ----------------------------------------------------
+# Generate Combined Enum Members for Flag Enums
+# Automatically generates combined enum members using flag values for better enum usage
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.generate_combined_enum_member.enabled = true
 
-# Enable generating enum members for missing values
+# ----------------------------------------------------
+# Generate Enum Members for Missing Values
+# Automatically generates missing enum members to ensure completeness
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.generate_enum_member.enabled = true
 
-# Enable generating enum values based on usage
+# ----------------------------------------------------
+# Generate Enum Values Based on Usage
+# Automatically assigns enum values based on their usage patterns for consistency
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.generate_enum_values.enabled = true
 
-# Enable generating methods to invoke events
+# ----------------------------------------------------
+# Generate Methods to Invoke Events
+# Automatically generates methods to safely invoke events, enhancing event handling
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.generate_event_invoking_method.enabled = true
 
-# Enable generating properties for DebuggerDisplay attributes
+# ----------------------------------------------------
+# Generate Properties for DebuggerDisplay Attributes
+# Automatically generates properties required by DebuggerDisplay attributes for better debugging
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.generate_property_for_debuggerdisplay_attribute.enabled = true
 
-# Enable implementing custom enumerators for collections
+# ----------------------------------------------------
+# Implement Custom Enumerators for Collections
+# Automatically implements custom enumerators for collection types to enable iteration
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.implement_custom_enumerator.enabled = true
 
-# Enable implementing IEquatable<T> for value types
+# ----------------------------------------------------
+# Implement IEquatable<T> for Value Types
+# Automatically implements the IEquatable<T> interface for value types to enhance equality checks
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.implement_iequatable.enabled = true
 
-# Enable initializing fields from constructors for better encapsulation
+# ----------------------------------------------------
+# Initialize Fields from Constructors for Better Encapsulation
+# Automatically initializes class fields from constructors to enforce encapsulation
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.initialize_field_from_constructor.enabled = true
 
-# Enable initializing local variables with default values for safety
+# ----------------------------------------------------
+# Initialize Local Variables with Default Values for Safety
+# Automatically initializes local variables with default values to prevent uninitialized usage
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.initialize_local_variable_with_default_value.enabled = true
 
-# Enable inlining alias expressions for simplicity
+# ----------------------------------------------------
+# Inline Alias Expressions for Simplicity
+# Automatically inlines alias expressions to simplify code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.inline_alias_expression.enabled = true
 
-# Enable inlining constants for performance
+# ----------------------------------------------------
+# Inline Constants for Performance
+# Automatically replaces constants with their values to improve performance where appropriate
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.inline_constant.enabled = true
 
-# Enable inlining constant values where appropriate
+# ----------------------------------------------------
+# Inline Constant Values Where Appropriate
+# Automatically replaces constant values with their literals to simplify code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.inline_constant_value.enabled = true
 
-# Enable inlining methods that are used only once for simplicity
+# ----------------------------------------------------
+# Inline Methods That Are Used Only Once for Simplicity
+# Automatically inlines methods that are called only once to reduce unnecessary abstractions
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.inline_method.enabled = true
 
-# Enable inlining properties that are used only once for simplicity
+# ----------------------------------------------------
+# Inline Properties That Are Used Only Once for Simplicity
+# Automatically inlines properties that are accessed only once to simplify code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.inline_property.enabled = true
 
-# Enable inlining using static directives when appropriate
+# ----------------------------------------------------
+# Inline Using Static Directives When Appropriate
+# Automatically inlines using static directives to simplify code when suitable
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.inline_using_static.enabled = true
 
-# Enable inserting string interpolations for better readability
+# ----------------------------------------------------
+# Insert String Interpolations for Better Readability
+# Automatically inserts string interpolations to enhance string formatting readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.insert_string_interpolation.enabled = true
 
-# Enable introducing and initializing fields for better encapsulation
+# ----------------------------------------------------
+# Introduce and Initialize Fields for Better Encapsulation
+# Automatically introduces and initializes new fields to improve encapsulation
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.introduce_and_initialize_field.enabled = true
 
-# Enable introducing and initializing properties for better encapsulation
+# ----------------------------------------------------
+# Introduce and Initialize Properties for Better Encapsulation
+# Automatically introduces and initializes new properties to improve encapsulation
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.introduce_and_initialize_property.enabled = true
 
-# Enable introducing constructors for dependency injection
+# ----------------------------------------------------
+# Introduce Constructors for Dependency Injection
+# Automatically introduces constructors to support dependency injection patterns
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.introduce_constructor.enabled = false
 # Set to true only if constructor introduction is frequently needed
 
-# Enable introducing fields to lock on in multi-threaded scenarios
+# ----------------------------------------------------
+# Introduce Fields to Lock On in Multi-Threaded Scenarios
+# Automatically introduces fields to be used as locks in multi-threaded contexts
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.introduce_field_to_lock_on.enabled = true
 
-# Enable introducing local variables for clarity
+# ----------------------------------------------------
+# Introduce Local Variables for Clarity
+# Automatically introduces local variables to make code more readable and maintainable
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.introduce_local_variable.enabled = true
 
-# Enable inverting binary expressions for better readability
+# ----------------------------------------------------
+# Invert Binary Expressions for Better Readability
+# Automatically inverts binary expressions to improve code clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.invert_binary_expression.enabled = true
 
-# Enable inverting boolean literals for readability
+# ----------------------------------------------------
+# Invert Boolean Literals for Readability
+# Automatically inverts boolean literals to enhance code readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.invert_boolean_literal.enabled = true
 
-# Enable inverting conditional expressions for clarity
+# ----------------------------------------------------
+# Invert Conditional Expressions for Clarity
+# Automatically inverts conditional expressions to improve code clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.invert_conditional_expression.enabled = true
 
-# Enable inverting if statements for better logic flow
+# ----------------------------------------------------
+# Invert If Statements for Better Logic Flow
+# Automatically inverts if statements to enhance logic flow and readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.invert_if.enabled = true
 
-# Enable inverting if-else statements for better logic flow
+# ----------------------------------------------------
+# Invert If-Else Statements for Better Logic Flow
+# Automatically inverts if-else statements to enhance logic flow and readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.invert_if_else.enabled = true
 
-# Enable inverting is expressions for clarity
+# ----------------------------------------------------
+# Invert Is Expressions for Clarity
+# Automatically inverts 'is' expressions to improve code clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.invert_is_expression.enabled = true
 
-# Enable inverting LINQ method calls for performance
+# ----------------------------------------------------
+# Invert LINQ Method Calls for Performance
+# Automatically inverts LINQ method calls to optimize performance
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.invert_linq_method_call.enabled = true
 
-# Enable inverting operators for clarity
+# ----------------------------------------------------
+# Invert Operators for Clarity
+# Automatically inverts operators to enhance code readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.invert_operator.enabled = true
 
-# Enable inverting prefix or postfix unary expressions for clarity
+# ----------------------------------------------------
+# Invert Prefix or Postfix Unary Expressions for Clarity
+# Automatically inverts prefix or postfix unary expressions to improve code clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.invert_prefix_or_postfix_unary_expression.enabled = true
 
-# Enable joining string expressions for conciseness
+# ----------------------------------------------------
+# Join String Expressions for Conciseness
+# Automatically joins separate string expressions into a single concatenated expression
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.join_string_expressions.enabled = true
 
-# Enable making members abstract for design flexibility
+# ----------------------------------------------------
+# Make Members Abstract for Design Flexibility
+# Automatically makes members abstract to allow for flexible implementations in derived classes
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.make_member_abstract.enabled = true
 
-# Enable making members virtual for extensibility
+# ----------------------------------------------------
+# Make Members Virtual for Extensibility
+# Automatically makes members virtual to allow for overriding in derived classes
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.make_member_virtual.enabled = true
 
-# Enable merging attributes for cleaner code
+# ----------------------------------------------------
+# Merge Attributes for Cleaner Code
+# Automatically merges multiple attributes into a single declaration to simplify code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.merge_attributes.enabled = true
 
-# Enable merging multiple if statements into a single statement for simplicity
+# ----------------------------------------------------
+# Merge Multiple If Statements into a Single Statement for Simplicity
+# Combines multiple if statements into a single statement to reduce redundancy
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.merge_if_statements.enabled = true
 
-# Enable merging if statements with parent if statements for simplicity
+# ----------------------------------------------------
+# Merge If Statements with Parent If Statements for Simplicity
+# Combines nested if statements with parent if statements for streamlined logic
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.merge_if_with_parent_if.enabled = true
 
-# Enable merging local variable declarations for conciseness
+# ----------------------------------------------------
+# Merge Local Variable Declarations for Conciseness
+# Combines multiple local variable declarations into a single declaration for brevity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.merge_local_declarations.enabled = true
 
-# Enable merging switch sections with equivalent content for brevity
+# ----------------------------------------------------
+# Merge Switch Sections with Equivalent Content for Brevity
+# Combines switch sections that have identical content to reduce code duplication
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.merge_switch_sections.enabled = true
 
-# Enable moving unsafe contexts to containing declarations for better safety
+# ----------------------------------------------------
+# Move Unsafe Contexts to Containing Declarations for Better Safety
+# Automatically moves unsafe code blocks to their containing declarations to enhance safety
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.move_unsafe_context_to_containing_declaration.enabled = true
 
-# Enable notifying when properties change for better data binding
+# ----------------------------------------------------
+# Notify When Properties Change for Better Data Binding
+# Automatically adds notifications for property changes to support data binding scenarios
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.notify_when_property_changes.enabled = true
 
-# Enable parenthesizing expressions to maintain clarity
+# ----------------------------------------------------
+# Parenthesize Expressions to Maintain Clarity
+# Automatically adds parentheses to complex expressions to preserve intended logic and improve readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.parenthesize_expression.enabled = true
 
-# Enable promoting local variables to parameters for better API design
+# ----------------------------------------------------
+# Promote Local Variables to Parameters for Better API Design
+# Automatically promotes local variables to method parameters to enhance API design
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.promote_local_variable_to_parameter.enabled = true
 
-# Enable removing all comments from the code for cleanliness
+# ----------------------------------------------------
+# Remove All Comments from the Code for Cleanliness
+# Automatically removes all comments from the code to maintain a clean codebase
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_all_comments.enabled = true
 
-# Enable removing all comments except documentation comments for clarity
+# ----------------------------------------------------
+# Remove All Comments Except Documentation Comments for Clarity
+# Automatically removes all comments except for XML documentation comments to enhance code clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_all_comments_except_documentation_comments.enabled = true
 
-# Enable removing all documentation comments when not needed
+# ----------------------------------------------------
+# Remove All Documentation Comments When Not Needed
+# Automatically removes all XML documentation comments when they are not required
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_all_documentation_comments.enabled = false
 # Set to true only if documentation comments are being removed deliberately
 
-# Enable removing all member declarations when unnecessary
+# ----------------------------------------------------
+# Remove All Member Declarations When Unnecessary
+# Automatically removes member declarations that are unnecessary or unused
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_all_member_declarations.enabled = true
 
-# Enable removing all preprocessor directives when unnecessary
+# ----------------------------------------------------
+# Remove All Preprocessor Directives When Unnecessary
+# Automatically removes preprocessor directives that are unnecessary to simplify the code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_all_preprocessor_directives.enabled = true
 
-# Enable removing all region directives for simplicity
+# ----------------------------------------------------
+# Remove All Region Directives for Simplicity
+# Automatically removes all #region directives to simplify the code structure
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_all_region_directives.enabled = true
 
-# Enable removing all statements when unnecessary
+# ----------------------------------------------------
+# Remove All Statements When Unnecessary
+# Automatically removes statements that are unnecessary to clean up the code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_all_statements.enabled = true
 
-# Enable removing all switch sections when unnecessary
+# ----------------------------------------------------
+# Remove All Switch Sections When Unnecessary
+# Automatically removes switch sections that are unnecessary or redundant
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_all_switch_sections.enabled = true
 
-# Enable removing argument names from method calls when unnecessary
+# ----------------------------------------------------
+# Remove Argument Names from Method Calls When Unnecessary
+# Automatically removes named arguments from method calls when they are unnecessary
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_argument_name.enabled = true
 
-# Enable removing async and await keywords when redundant
+# ----------------------------------------------------
+# Remove Async and Await Keywords When Redundant
+# Automatically removes 'async' and 'await' keywords when they are redundant to simplify asynchronous code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_async_await.enabled = true
 
-# Enable removing braces from control statements when not needed
+# ----------------------------------------------------
+# Remove Braces from Control Statements When Not Needed
+# Automatically removes braces from control statements when they are not required for brevity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_braces_from_control_statements.enabled = true
 
-# Enable removing redundant assignment statements for clarity
+# ----------------------------------------------------
+# Remove Redundant Assignment Statements for Clarity
+# Automatically removes assignment statements that are redundant to enhance code clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.remove_redundant_assignment.enabled = true
 
-# Enable renaming methods according to type names for consistency
+# ----------------------------------------------------
+# Rename Methods According to Type Names for Consistency
+# Automatically renames methods to align with their type names for consistent naming conventions
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.rename_method_according_to_type_name.enabled = true
 
-# Enable renaming parameters according to type names for consistency
+# ----------------------------------------------------
+# Rename Parameters According to Type Names for Consistency
+# Automatically renames method parameters to align with their type names for consistent naming conventions
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.rename_parameter_according_to_type_name.enabled = true
 
-# Enable renaming properties according to type names for consistency
+# ----------------------------------------------------
+# Rename Properties According to Type Names for Consistency
+# Automatically renames properties to align with their type names for consistent naming conventions
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.rename_property_according_to_type_name.enabled = true
 
-# Enable replacing 'as' expressions with explicit casts when safe
+# ----------------------------------------------------
+# Replace 'as' Expressions with Explicit Casts When Safe
+# Automatically replaces 'as' expressions with explicit casts when it is safe to do so
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.replace_as_expression_with_explicit_cast.enabled = true
 
-# Enable replacing equality operators with string.Equals for better null handling
+# ----------------------------------------------------
+# Replace Equality Operators with string.Equals for Better Null Handling
+# Replaces equality operators with string.Equals method calls to handle nulls more gracefully
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.replace_equality_operator_with_string_equals.enabled = true
 
-# Enable replacing equality operators with string.IsNullOrEmpty for null checks
+# ----------------------------------------------------
+# Replace Equality Operators with string.IsNullOrEmpty for Null Checks
+# Replaces equality operators with string.IsNullOrEmpty method calls for improved null checks
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.replace_equality_operator_with_string_isnullorempty.enabled = true
 
-# Enable replacing equality operators with string.IsNullOrWhitespace for null and whitespace checks
+# ----------------------------------------------------
+# Replace Equality Operators with string.IsNullOrWhitespace for Null and Whitespace Checks
+# Replaces equality operators with string.IsNullOrWhitespace method calls for comprehensive null and whitespace checks
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.replace_equality_operator_with_string_isnullorwhitespace.enabled = true
 
-# Enable replacing explicit casts with 'as' expressions when appropriate
+# ----------------------------------------------------
+# Replace Explicit Casts with 'as' Expressions When Appropriate
+# Automatically replaces explicit casts with 'as' expressions when it is appropriate to do so
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.replace_explicit_cast_with_as_expression.enabled = true
 
-# Enable replacing interpolated strings with interpolation expressions for clarity
+# ----------------------------------------------------
+# Replace Interpolated Strings with Interpolation Expressions for Clarity
+# Automatically replaces interpolated strings with interpolation expressions to enhance clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.replace_interpolated_string_with_interpolation_expression.enabled = true
 
-# Enable replacing properties with methods when behavior changes are needed
+# ----------------------------------------------------
+# Replace Properties with Methods When Behavior Changes are Needed
+# Automatically replaces properties with methods when additional behavior is required
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.replace_property_with_method.enabled = true
 
-# Enable reversing for loop statements for specific iteration needs
+# ----------------------------------------------------
+# Reverse For Loop Statements for Specific Iteration Needs
+# Automatically reverses for loop statements to meet specific iteration requirements
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.reverse_for_statement.enabled = true
 
-# Enable simplifying if statements for better readability
+# ----------------------------------------------------
+# Simplify If Statements for Better Readability
+# Automatically simplifies complex if statements to enhance readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.simplify_if.enabled = true
 
-# Enable sorting case labels in switch statements for consistency
+# ----------------------------------------------------
+# Sort Case Labels in Switch Statements for Consistency
+# Automatically sorts case labels within switch statements to maintain consistency
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.sort_case_labels.enabled = true
 
-# Enable sorting member declarations in classes for consistency
+# ----------------------------------------------------
+# Sort Member Declarations in Classes for Consistency
+# Automatically sorts member declarations within classes to maintain a consistent order
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.sort_member_declarations.enabled = true
 
-# Enable splitting attributes into separate lines for clarity
+# ----------------------------------------------------
+# Split Attributes into Separate Lines for Clarity
+# Automatically splits multiple attributes into separate lines to enhance readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.split_attributes.enabled = true
 
-# Enable splitting if statements for better readability
+# ----------------------------------------------------
+# Split If Statements for Better Readability
+# Automatically splits complex if statements into simpler ones to improve readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.split_if.enabled = true
 
-# Enable splitting if-else statements for better readability
+# ----------------------------------------------------
+# Split If-Else Statements for Better Readability
+# Automatically splits complex if-else statements into simpler ones to improve readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.split_if_else.enabled = true
 
-# Enable splitting local variable declarations and assignments for clarity
+# ----------------------------------------------------
+# Split Local Variable Declarations and Assignments for Clarity
+# Automatically splits combined local variable declarations and assignments into separate statements for clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.split_local_declaration_and_assignment.enabled = true
 
-# Enable splitting switch labels into separate lines for clarity
+# ----------------------------------------------------
+# Split Switch Labels into Separate Lines for Clarity
+# Automatically splits multiple switch labels into separate lines to enhance readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.split_switch_labels.enabled = true
 
-# Enable splitting variable declarations into separate statements for clarity
+# ----------------------------------------------------
+# Split Variable Declarations into Separate Statements for Clarity
+# Automatically splits multiple variable declarations into separate statements to improve readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.split_variable_declaration.enabled = true
 
-# Enable swapping binary operands for better readability
+# ----------------------------------------------------
+# Swap Binary Operands for Better Readability
+# Automatically swaps the operands in binary expressions to enhance readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.swap_binary_operands.enabled = true
 
-# Enable swapping member declarations for logical grouping
+# ----------------------------------------------------
+# Swap Member Declarations for Logical Grouping
+# Automatically swaps the order of member declarations to group related members logically
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.swap_member_declarations.enabled = true
 
-# Enable synchronizing property names with backing field names for consistency
+# ----------------------------------------------------
+# Synchronize Property Names with Backing Field Names for Consistency
+# Automatically synchronizes property names with their corresponding backing field names to maintain consistency
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.sync_property_name_and_backing_field_name.enabled = true
 
-# Enable uncommenting multiline comments for code restoration
+# ----------------------------------------------------
+# Uncomment Multiline Comments for Code Restoration
+# Automatically uncomment multiline comments to restore previously commented-out code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.uncomment_multiline_comment.enabled = true
 
-# Enable uncommenting single-line comments for code restoration
+# ----------------------------------------------------
+# Uncomment Single-Line Comments for Code Restoration
+# Automatically uncomment single-line comments to restore previously commented-out code
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.uncomment_singleline_comment.enabled = true
 
-# Enable using coalesce expressions instead of if statements when appropriate
+# ----------------------------------------------------
+# Use Coalesce Expressions Instead of If Statements When Appropriate
+# Automatically replaces if statements with coalesce expressions when it simplifies null handling
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_coalesce_expression_instead_of_if.enabled = true
 
-# Enable using constants instead of readonly fields when appropriate
+# ----------------------------------------------------
+# Use Constants Instead of Readonly Fields When Appropriate
+# Automatically replaces readonly fields with constants when it is appropriate to enforce immutability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_constant_instead_of_readonly_field.enabled = true
 
-# Enable using element access instead of LINQ methods for performance
+# ----------------------------------------------------
+# Use Element Access Instead of LINQ Methods for Performance
+# Automatically replaces LINQ method calls with element access for improved performance
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_element_access_instead_of_linq_method.enabled = true
 
-# Enable explicitly using enumerators for clarity
+# ----------------------------------------------------
+# Explicitly Use Enumerators for Clarity
+# Automatically adds explicit enumerator usage to enhance code clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_enumerator_explicitly.enabled = true
 
-# Enable using explicit types instead of 'var' when type is not obvious
+# ----------------------------------------------------
+# Use Explicit Types Instead of 'var' When Type is Not Obvious
+# Automatically replaces 'var' with explicit types when the type is not clear from the assignment
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_explicit_type.enabled = true
 
-# Enable using implicit types ('var') when type is obvious for conciseness
+# ----------------------------------------------------
+# Use Implicit Types ('var') When Type is Obvious for Conciseness
+# Automatically replaces explicit types with 'var' when the type is obvious from the assignment for brevity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_implicit_type.enabled = true
 
-# Enable using index initializers for cleaner collection initialization
+# ----------------------------------------------------
+# Use Index Initializers for Cleaner Collection Initialization
+# Automatically uses index initializers to simplify collection initializations
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_index_initializer.enabled = true
 
-# Enable using lambda expressions instead of anonymous methods for simplicity
+# ----------------------------------------------------
+# Use Lambda Expressions Instead of Anonymous Methods for Simplicity
+# Automatically replaces anonymous methods with lambda expressions for simpler syntax
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_lambda_instead_of_anonymous_method.enabled = true
 
-# Enable using lists instead of yield statements for better performance
+# ----------------------------------------------------
+# Use Lists Instead of Yield Statements for Better Performance
+# Automatically replaces yield statements with list operations to improve performance
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_list_instead_of_yield.enabled = true
 
-# Enable using object initializers for cleaner object creation
+# ----------------------------------------------------
+# Use Object Initializers for Cleaner Object Creation
+# Automatically uses object initializers to make object creation more concise and readable
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_object_initializer.enabled = true
 
-# Enable using readonly fields instead of constants for better immutability
+# ----------------------------------------------------
+# Use Readonly Fields Instead of Constants for Better Immutability
+# Automatically replaces constants with readonly fields to enforce immutability where appropriate
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_readonly_field_instead_of_constant.enabled = true
 
-# Enable using StringBuilder instead of string concatenation for performance
+# ----------------------------------------------------
+# Use StringBuilder Instead of String Concatenation for Performance
+# Automatically replaces string concatenation with StringBuilder instances for better performance
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.use_stringbuilder_instead_of_concatenation.enabled = true
 
-# Enable wrapping arguments for better readability in long method calls
+# ----------------------------------------------------
+# Wrap Arguments for Better Readability in Long Method Calls
+# Automatically wraps method call arguments onto separate lines when they are too long
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_arguments.enabled = true
 
-# Enable wrapping binary expressions for better readability in complex conditions
+# ----------------------------------------------------
+# Wrap Binary Expressions for Better Readability in Complex Conditions
+# Automatically wraps binary expressions onto separate lines in complex conditions for clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_binary_expression.enabled = true
 
-# Enable wrapping call chains for better readability
+# ----------------------------------------------------
+# Wrap Call Chains for Better Readability
+# Automatically wraps long call chains onto separate lines to enhance readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_call_chain.enabled = true
 
-# Enable wrapping conditional expressions for better readability
+# ----------------------------------------------------
+# Wrap Conditional Expressions for Better Readability
+# Automatically wraps conditional expressions onto separate lines to improve clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_conditional_expression.enabled = true
 
-# Enable wrapping constraint clauses in generic type declarations for clarity
+# ----------------------------------------------------
+# Wrap Constraint Clauses in Generic Type Declarations for Clarity
+# Automatically wraps constraint clauses in generic type declarations onto separate lines for better readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_constraint_clauses.enabled = true
 
-# Enable wrapping initializer expressions for better readability
+# ----------------------------------------------------
+# Wrap Initializer Expressions for Better Readability
+# Automatically wraps initializer expressions onto separate lines to enhance readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_initializer_expressions.enabled = true
 
-# Enable wrapping lines in preprocessor directives for better readability
+# ----------------------------------------------------
+# Wrap Lines in Preprocessor Directives for Better Readability
+# Automatically wraps long lines within preprocessor directives onto separate lines for clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_lines_in_preprocessor_directive.enabled = true
 
-# Enable wrapping lines in region directives for better readability
+# ----------------------------------------------------
+# Wrap Lines in Region Directives for Better Readability
+# Automatically wraps long lines within #region directives onto separate lines to enhance readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_lines_in_region.enabled = true
 
-# Enable wrapping lines in try-catch blocks for better readability
+# ----------------------------------------------------
+# Wrap Lines in Try-Catch Blocks for Better Readability
+# Automatically wraps long lines within try-catch blocks onto separate lines to improve readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_lines_in_try_catch.enabled = true
 
-# Enable wrapping parameters in method declarations for better readability
+# ----------------------------------------------------
+# Wrap Parameters in Method Declarations for Better Readability
+# Automatically wraps method parameters onto separate lines when they are too long to enhance readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_parameters.enabled = true
 
-# Enable wrapping statements in conditions for better readability
+# ----------------------------------------------------
+# Wrap Statements in Conditions for Better Readability
+# Automatically wraps statements within conditions onto separate lines to improve clarity
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_statements_in_condition.enabled = true
 
-# Enable wrapping statements in using statements for better readability
+# ----------------------------------------------------
+# Wrap Statements in Using Statements for Better Readability
+# Automatically wraps statements within using blocks onto separate lines to enhance readability
+# Applicable Analyzer: Roslynator Refactoring
+# ----------------------------------------------------
 roslynator_refactoring.wrap_statements_in_using_statement.enabled = true
-
-# ----------------------------------------------------
-# Compiler Diagnostic Fixes
-# Enable Roslynator compiler diagnostic fixes to automatically resolve compiler issues
-# ----------------------------------------------------
-
-# Enable all Roslynator compiler diagnostic fixes
-# These settings automatically fix compiler errors and warnings
-# Ensure compatibility with your project's codebase before enabling all
-roslynator_compiler_diagnostic_fix.cs0019.enabled = true
-roslynator_compiler_diagnostic_fix.cs0021.enabled = true
-roslynator_compiler_diagnostic_fix.cs0023.enabled = true
-roslynator_compiler_diagnostic_fix.cs0029.enabled = true
-roslynator_compiler_diagnostic_fix.cs0030.enabled = true
-roslynator_compiler_diagnostic_fix.cs0037.enabled = true
-roslynator_compiler_diagnostic_fix.cs0069.enabled = true
-roslynator_compiler_diagnostic_fix.cs0077.enabled = true
-roslynator_compiler_diagnostic_fix.cs0080.enabled = true
-roslynator_compiler_diagnostic_fix.cs0101.enabled = true
-roslynator_compiler_diagnostic_fix.cs0102.enabled = true
-roslynator_compiler_diagnostic_fix.cs0103.enabled = true
-roslynator_compiler_diagnostic_fix.cs0106.enabled = true
-roslynator_compiler_diagnostic_fix.cs0107.enabled = true
-roslynator_compiler_diagnostic_fix.cs0108.enabled = true
-roslynator_compiler_diagnostic_fix.cs0109.enabled = true
-roslynator_compiler_diagnostic_fix.cs0112.enabled = true
-roslynator_compiler_diagnostic_fix.cs0114.enabled = true
-roslynator_compiler_diagnostic_fix.cs0115.enabled = true
-roslynator_compiler_diagnostic_fix.cs0119.enabled = true
-roslynator_compiler_diagnostic_fix.cs0120.enabled = true
-roslynator_compiler_diagnostic_fix.cs0123.enabled = true
-roslynator_compiler_diagnostic_fix.cs0126.enabled = true
-roslynator_compiler_diagnostic_fix.cs0127.enabled = true
-roslynator_compiler_diagnostic_fix.cs0128.enabled = true
-roslynator_compiler_diagnostic_fix.cs0131.enabled = true
-roslynator_compiler_diagnostic_fix.cs0132.enabled = true
-roslynator_compiler_diagnostic_fix.cs0133.enabled = true
-roslynator_compiler_diagnostic_fix.cs0136.enabled = true
-roslynator_compiler_diagnostic_fix.cs0139.enabled = true
-roslynator_compiler_diagnostic_fix.cs0152.enabled = true
-roslynator_compiler_diagnostic_fix.cs0161.enabled = true
-roslynator_compiler_diagnostic_fix.cs0162.enabled = true
-roslynator_compiler_diagnostic_fix.cs0163.enabled = true
-roslynator_compiler_diagnostic_fix.cs0164.enabled = true
-roslynator_compiler_diagnostic_fix.cs0165.enabled = true
-roslynator_compiler_diagnostic_fix.cs0168.enabled = true
-roslynator_compiler_diagnostic_fix.cs0173.enabled = true
-roslynator_compiler_diagnostic_fix.cs0177.enabled = true
-roslynator_compiler_diagnostic_fix.cs0191.enabled = true
-roslynator_compiler_diagnostic_fix.cs0192.enabled = true
-roslynator_compiler_diagnostic_fix.cs0201.enabled = true
-roslynator_compiler_diagnostic_fix.cs0214.enabled = true
-roslynator_compiler_diagnostic_fix.cs0216.enabled = true
-roslynator_compiler_diagnostic_fix.cs0219.enabled = true
-roslynator_compiler_diagnostic_fix.cs0221.enabled = true
-roslynator_compiler_diagnostic_fix.cs0225.enabled = true
-roslynator_compiler_diagnostic_fix.cs0238.enabled = true
-roslynator_compiler_diagnostic_fix.cs0246.enabled = true
-roslynator_compiler_diagnostic_fix.cs0260.enabled = true
-roslynator_compiler_diagnostic_fix.cs0262.enabled = true
-roslynator_compiler_diagnostic_fix.cs0266.enabled = true
-roslynator_compiler_diagnostic_fix.cs0267.enabled = true
-roslynator_compiler_diagnostic_fix.cs0272.enabled = true
-roslynator_compiler_diagnostic_fix.cs0275.enabled = true
-roslynator_compiler_diagnostic_fix.cs0305.enabled = true
-roslynator_compiler_diagnostic_fix.cs0401.enabled = true
-roslynator_compiler_diagnostic_fix.cs0403.enabled = true
-roslynator_compiler_diagnostic_fix.cs0405.enabled = true
-roslynator_compiler_diagnostic_fix.cs0407.enabled = true
-roslynator_compiler_diagnostic_fix.cs0409.enabled = true
-roslynator_compiler_diagnostic_fix.cs0428.enabled = true
-roslynator_compiler_diagnostic_fix.cs0441.enabled = true
-roslynator_compiler_diagnostic_fix.cs0442.enabled = true
-roslynator_compiler_diagnostic_fix.cs0449.enabled = true
-roslynator_compiler_diagnostic_fix.cs0450.enabled = true
-roslynator_compiler_diagnostic_fix.cs0451.enabled = true
-roslynator_compiler_diagnostic_fix.cs0472.enabled = true
-roslynator_compiler_diagnostic_fix.cs0500.enabled = true
-roslynator_compiler_diagnostic_fix.cs0501.enabled = true
-roslynator_compiler_diagnostic_fix.cs0507.enabled = true
-roslynator_compiler_diagnostic_fix.cs0508.enabled = true
-roslynator_compiler_diagnostic_fix.cs0513.enabled = true
-roslynator_compiler_diagnostic_fix.cs0515.enabled = true
-roslynator_compiler_diagnostic_fix.cs0524.enabled = true
-roslynator_compiler_diagnostic_fix.cs0525.enabled = true
-roslynator_compiler_diagnostic_fix.cs0527.enabled = true
-roslynator_compiler_diagnostic_fix.cs0531.enabled = true
-roslynator_compiler_diagnostic_fix.cs0539.enabled = true
-roslynator_compiler_diagnostic_fix.cs0541.enabled = true
-roslynator_compiler_diagnostic_fix.cs0549.enabled = true
-roslynator_compiler_diagnostic_fix.cs0558.enabled = true
-roslynator_compiler_diagnostic_fix.cs0567.enabled = true
-roslynator_compiler_diagnostic_fix.cs0568.enabled = true
-roslynator_compiler_diagnostic_fix.cs0573.enabled = true
-roslynator_compiler_diagnostic_fix.cs0574.enabled = true
-roslynator_compiler_diagnostic_fix.cs0575.enabled = true
-roslynator_compiler_diagnostic_fix.cs0579.enabled = true
-roslynator_compiler_diagnostic_fix.cs0592.enabled = true
-roslynator_compiler_diagnostic_fix.cs0621.enabled = true
-roslynator_compiler_diagnostic_fix.cs0628.enabled = true
-roslynator_compiler_diagnostic_fix.cs0659.enabled = true
-roslynator_compiler_diagnostic_fix.cs0660.enabled = true
-roslynator_compiler_diagnostic_fix.cs0661.enabled = true
-roslynator_compiler_diagnostic_fix.cs0678.enabled = true
-roslynator_compiler_diagnostic_fix.cs0693.enabled = true
-roslynator_compiler_diagnostic_fix.cs0708.enabled = true
-roslynator_compiler_diagnostic_fix.cs0710.enabled = true
-roslynator_compiler_diagnostic_fix.cs0713.enabled = true
-roslynator_compiler_diagnostic_fix.cs0714.enabled = true
-roslynator_compiler_diagnostic_fix.cs0718.enabled = true
-roslynator_compiler_diagnostic_fix.cs0750.enabled = true
-roslynator_compiler_diagnostic_fix.cs0751.enabled = true
-roslynator_compiler_diagnostic_fix.cs0753.enabled = true
-roslynator_compiler_diagnostic_fix.cs0756.enabled = true
-roslynator_compiler_diagnostic_fix.cs0759.enabled = true
-roslynator_compiler_diagnostic_fix.cs0766.enabled = true
-roslynator_compiler_diagnostic_fix.cs0815.enabled = true
-roslynator_compiler_diagnostic_fix.cs0819.enabled = true
-roslynator_compiler_diagnostic_fix.cs0822.enabled = true
-roslynator_compiler_diagnostic_fix.cs1002.enabled = true
-roslynator_compiler_diagnostic_fix.cs1003.enabled = true
-roslynator_compiler_diagnostic_fix.cs1004.enabled = true
-roslynator_compiler_diagnostic_fix.cs1012.enabled = true
-roslynator_compiler_diagnostic_fix.cs1023.enabled = true
-roslynator_compiler_diagnostic_fix.cs1031.enabled = true
-roslynator_compiler_diagnostic_fix.cs1057.enabled = true
-roslynator_compiler_diagnostic_fix.cs1061.enabled = true
-roslynator_compiler_diagnostic_fix.cs1100.enabled = true
-roslynator_compiler_diagnostic_fix.cs1105.enabled = true
-roslynator_compiler_diagnostic_fix.cs1106.enabled = true
-roslynator_compiler_diagnostic_fix.cs1503.enabled = true
-roslynator_compiler_diagnostic_fix.cs1522.enabled = true
-roslynator_compiler_diagnostic_fix.cs1526.enabled = true
-roslynator_compiler_diagnostic_fix.cs1527.enabled = true
-roslynator_compiler_diagnostic_fix.cs1591.enabled = true
-roslynator_compiler_diagnostic_fix.cs1597.enabled = true
-roslynator_compiler_diagnostic_fix.cs1609.enabled = true
-roslynator_compiler_diagnostic_fix.cs1615.enabled = true
-roslynator_compiler_diagnostic_fix.cs1620.enabled = true
-roslynator_compiler_diagnostic_fix.cs1621.enabled = true
-roslynator_compiler_diagnostic_fix.cs1622.enabled = true
-roslynator_compiler_diagnostic_fix.cs1623.enabled = true
-roslynator_compiler_diagnostic_fix.cs1624.enabled = true
-roslynator_compiler_diagnostic_fix.cs1643.enabled = true
-roslynator_compiler_diagnostic_fix.cs1674.enabled = true
-roslynator_compiler_diagnostic_fix.cs1689.enabled = true
-roslynator_compiler_diagnostic_fix.cs1715.enabled = true
-roslynator_compiler_diagnostic_fix.cs1717.enabled = true
-roslynator_compiler_diagnostic_fix.cs1722.enabled = true
-roslynator_compiler_diagnostic_fix.cs1737.enabled = true
-roslynator_compiler_diagnostic_fix.cs1741.enabled = true
-roslynator_compiler_diagnostic_fix.cs1743.enabled = true
-roslynator_compiler_diagnostic_fix.cs1750.enabled = true
-roslynator_compiler_diagnostic_fix.cs1751.enabled = true
-roslynator_compiler_diagnostic_fix.cs1955.enabled = true
-roslynator_compiler_diagnostic_fix.cs1983.enabled = true
-roslynator_compiler_diagnostic_fix.cs1988.enabled = true
-roslynator_compiler_diagnostic_fix.cs1994.enabled = true
-roslynator_compiler_diagnostic_fix.cs1997.enabled = true
-roslynator_compiler_diagnostic_fix.cs3000.enabled = true
-roslynator_compiler_diagnostic_fix.cs3001.enabled = true
-roslynator_compiler_diagnostic_fix.cs3002.enabled = true
-roslynator_compiler_diagnostic_fix.cs3003.enabled = true
-roslynator_compiler_diagnostic_fix.cs3005.enabled = true
-roslynator_compiler_diagnostic_fix.cs3006.enabled = true
-roslynator_compiler_diagnostic_fix.cs3007.enabled = true
-roslynator_compiler_diagnostic_fix.cs3008.enabled = true
-roslynator_compiler_diagnostic_fix.cs3009.enabled = true
-roslynator_compiler_diagnostic_fix.cs3016.enabled = true
-roslynator_compiler_diagnostic_fix.cs3024.enabled = true
-roslynator_compiler_diagnostic_fix.cs3027.enabled = true
-roslynator_compiler_diagnostic_fix.cs7036.enabled = true
-roslynator_compiler_diagnostic_fix.cs8050.enabled = true
-roslynator_compiler_diagnostic_fix.cs8070.enabled = true
-roslynator_compiler_diagnostic_fix.cs8112.enabled = true
-roslynator_compiler_diagnostic_fix.cs8139.enabled = true
-roslynator_compiler_diagnostic_fix.cs8340.enabled = true
-roslynator_compiler_diagnostic_fix.cs8403.enabled = true
-roslynator_compiler_diagnostic_fix.cs8600.enabled = true
-roslynator_compiler_diagnostic_fix.cs8602.enabled = true
-roslynator_compiler_diagnostic_fix.cs8604.enabled = true
-roslynator_compiler_diagnostic_fix.cs8610.enabled = true
-roslynator_compiler_diagnostic_fix.cs8618.enabled = true
-roslynator_compiler_diagnostic_fix.cs8625.enabled = true
-roslynator_compiler_diagnostic_fix.cs8632.enabled = true
-roslynator_compiler_diagnostic_fix.cs8765.enabled = true
-roslynator_compiler_diagnostic_fix.cs8767.enabled = true
