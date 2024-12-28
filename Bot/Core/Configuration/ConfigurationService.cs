@@ -9,16 +9,26 @@ public class ConfigurationService
     public ConfigurationService()
     {
         var environment =
-            Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+            Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")
+            ?? "Production";
 
-        var builder = new ConfigurationBuilder()
+        IConfigurationBuilder builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            .AddJsonFile(
+                "appsettings.json",
+                optional: false,
+                reloadOnChange: true
+            );
 
-        if (environment.Equals("Development", StringComparison.OrdinalIgnoreCase))
+        if (
+            environment.Equals(
+                "Development",
+                StringComparison.OrdinalIgnoreCase
+            )
+        )
         {
-            builder.AddJsonFile(
-                $"appsettings.Development.json",
+            _ = builder.AddJsonFile(
+                "appsettings.Development.json",
                 optional: true,
                 reloadOnChange: true
             );

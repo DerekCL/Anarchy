@@ -8,10 +8,13 @@ public static class Program
 {
     public static async Task Main()
     {
-        IServiceCollection services = new ServiceCollection().AddCore().AddDiscordBot();
+        IServiceCollection services = new ServiceCollection()
+            .AddCore()
+            .AddDiscordBot();
 
         ServiceProvider serviceProvider = services.BuildServiceProvider();
-        DiscordBotService botService = serviceProvider.GetRequiredService<DiscordBotService>();
+        DiscordBotService botService =
+            serviceProvider.GetRequiredService<DiscordBotService>();
         await botService.RunAsync().ConfigureAwait(false);
     }
 }

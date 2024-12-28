@@ -15,7 +15,9 @@ public static class DiscordMessageHandler
 
         if (message.Content.Equals("!ping", StringComparison.OrdinalIgnoreCase))
         {
-            _ = await message.Channel.SendMessageAsync("Pong! 🏓").ConfigureAwait(false);
+            _ = await message
+                .Channel.SendMessageAsync("Pong! 🏓")
+                .ConfigureAwait(false);
         }
     }
 }

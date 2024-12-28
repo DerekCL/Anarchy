@@ -31,7 +31,7 @@ public sealed class DiscordBotService : IDisposable
 
     public async Task RunAsync()
     {
-        string token = _configuration.GetValue("Discord", "Token");
+        var token = _configuration.GetValue("Discord", "Token");
 
         await _client.LoginAsync(TokenType.Bot, token).ConfigureAwait(false);
         await _client.StartAsync().ConfigureAwait(false);
