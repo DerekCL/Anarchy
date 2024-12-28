@@ -87,3 +87,35 @@ dotnet_naming_symbols.public_methods.required_modifiers =
 
 dotnet_naming_style.requires_xml_documentation.capitalization = none
 dotnet_naming_style.requires_xml_documentation.required_prefix = 
+
+# Roslynator Configuration
+
+# Accessibility Modifiers
+roslynator_accessibility_modifiers = explicit
+
+# Using Directives
+roslynator_blank_line_between_using_directives = separate_groups
+
+# Trailing Commas
+roslynator_trailing_comma_style = include
+
+# File-Scoped Namespace
+roslynator_blank_line_after_file_scoped_namespace_declaration = true
+
+# Equals Sign Placement
+roslynator_equals_token_new_line = before
+
+# Binary Operator Placement
+roslynator_binary_operator_new_line = before
+
+# Conditional Operator Placement
+roslynator_conditional_operator_new_line = before
+
+# Null Check Style
+roslynator_null_check_style = pattern_matching
+
+# Object Creation Parentheses
+roslynator_object_creation_parentheses_style = omit
+
+# Configure Await
+roslynator_configure_await = true
