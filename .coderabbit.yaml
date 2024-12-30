@@ -9,7 +9,6 @@ reviews:
   # File filters specific to C#
   path_filters:
     - "*.cs"       # C# source files
-    - "!*.md"      # Ignore documentation
     - "!assets/**" # Ignore asset files
     - "!addons/**" # Ignore third-party addons
     
