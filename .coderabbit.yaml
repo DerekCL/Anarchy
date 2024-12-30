@@ -1,0 +1,91 @@
+version: 1
+
+reviews:
+  request_changes_workflow: true
+  high_level_summary: true
+  review_status: true
+  collapse_walkthrough: true
+  
+  # File filters specific to C#
+  path_filters:
+    - "*.cs"       # C# source files
+    - "!*.md"      # Ignore documentation
+    - "!assets/**" # Ignore asset files
+    - "!addons/**" # Ignore third-party addons
+    
+  auto_review:
+    enabled: true
+    ignore_title_keywords:
+      - "WIP"
+      - "DO NOT MERGE"
+      - "DRAFT"
+    drafts: false
+    max_file_changes: 10  # Flags large PRs for manual review
+    min_approval_required: 1 # Requires at least 1 approval for merges
+
+# Analysis settings
+analysis:
+  languages:
+    - csharp
+  
+  checks:
+    - name: best-practices
+      enabled: true
+      options:
+        max_cognitive_complexity: 10
+        max_function_length: 50
+        enforce_explicit_variable_names: true # Avoids confusing "magic numbers"
+
+    - name: performance
+      enabled: true
+      options:
+        check_n_plus_one: true # Detects inefficient loops or calls
+        check_memory_leaks: true
+        check_concurrency_issues: true # Ensures safe use of async/await
+        
+    - name: security
+      enabled: true
+      options:
+        validate_input_sanitization: true
+        check_dependency_versions: true # Flags outdated or vulnerable packages
+
+    - name: coverage
+      enabled: true
+      options:
+        coverage_threshold_csharp: 85  # % of lines covered for C# code
+
+# Style settings
+style:
+  csharp:
+    indent_size: 4
+    max_line_length: 100
+    quote_type: double
+    enforce_namespaces: true
+
+# Custom rules
+custom_rules:
+  discord_bot:
+    max_function_length: 50
+    required_comments: true
+    cyclomatic_complexity: 10
+    # Encourages a TDD approach by checking if tests exist for new modules
+    require_tests_for_new_features: true
+
+# Notifications & Additional Reporting
+notifications:
+  pull_request_summary: true
+  custom_alerts:
+    - alert: "High Cognitive Complexity Detected"
+      trigger: "checks.best-practices.max_cognitive_complexity"
+    - alert: "Memory Leak Risk Identified"
+      trigger: "checks.performance.check_memory_leaks"
+    - alert: "Low Test Coverage"
+      trigger: "checks.coverage"
+
+# TDD Guidance
+tdd:
+  default_test_framework: "NUnit"  # Common test framework for C#
+  enforce_minimum_tests_per_feature: true
+  suggest_test_patterns:
+    - "Arrange-Act-Assert"
+    - "Given-When-Then"
