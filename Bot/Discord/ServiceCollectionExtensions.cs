@@ -6,9 +6,7 @@ namespace Bot.Discord;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddDiscordBot(
-        this IServiceCollection services
-    )
+    public static IServiceCollection AddDiscordBot(this IServiceCollection services)
     {
         // Core Discord services
         _ = services.AddSingleton<DiscordSocketClient>();
