@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Refined .editorconfig C# coding standards:
+  - Disabled SA1009 (closing parenthesis spacing) and SA1111 (closing parenthesis placement)
+  - Modified severity of namespace declarations and using directive placements to warning
+  - Changed SA1200 severity to none
+  - Adjusted various diagnostic severity levels for improved developer experience
+
 ### Added
 
 - Enhanced C# coding standards in .editorconfig
@@ -15,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Expanded linting and analyzer configurations
   - Modern C# feature support
   - Improved whitespace and indentation rules
-  - Standardized accessibility modifier requirements,
+  - Standardized accessibility modifier requirements
 
 ### Fixed
 
