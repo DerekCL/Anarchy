@@ -15,7 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Expanded linting and analyzer configurations
   - Modern C# feature support
   - Improved whitespace and indentation rules
-  - Standardized accessibility modifier requirements
+  - Standardized accessibility modifier requirements,
+
+### Fixed
+
+- Removed unnecessary async/await in Program.Main method
 
 ## [0.1.0] - 2024-03-21
 
