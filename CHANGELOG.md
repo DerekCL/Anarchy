@@ -7,13 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
+### Added
 
-- Upgraded to .NET 9:
-  - Updated target framework
-  - Updated Docker base images
-  - Updated NuGet package versions
-  - Enabled latest C# language features
+- Added Dockerfile.tests for running tests in Linux containers:
+  - Uses .NET 9 SDK base image
+  - Configures test environment
+  - Runs tests with detailed console logging
 - Fixed linting issues in DiscordReadyHandler:
   - Added XML documentation
   - Renamed fields to follow naming convention
@@ -52,22 +51,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added factory method for default configuration setup
   - Updated test mocking approach for better readability
 
-### Added
+### Changed
 
-- Enhanced C# coding standards in .editorconfig
-  - Consistent section header formatting
-  - Consolidated naming conventions
-  - Expanded linting and analyzer configurations
-  - Modern C# feature support
-  - Improved whitespace and indentation rules
-  - Standardized accessibility modifier requirements
-- XML documentation for ServiceCollectionExtensions class and methods
-- XML documentation for DiscordBotService class and methods
-- Testing infrastructure:
-  - Unit tests for core services
-  - Integration tests for Discord handlers
-  - Mock implementations for Discord client
-  - Test utilities and helpers
+- Upgraded to .NET 9:
+  - Updated target framework
+  - Updated Docker base images
+  - Updated NuGet package versions
+  - Enabled latest C# language features
 
 ### Fixed
 

@@ -1,0 +1,11 @@
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+
+WORKDIR /src
+COPY ["Bot.csproj", "."]
+RUN dotnet restore "./Bot.csproj"
+
+COPY . .
+RUN dotnet build "./Bot.csproj" -c Release
+
+# Run tests
+ENTRYPOINT ["dotnet", "test", "--no-build", "-c", "Release", "--logger", "console;verbosity=detailed"] 
