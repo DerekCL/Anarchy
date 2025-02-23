@@ -15,18 +15,15 @@ public class ConfigurationServiceTests
         }
     }";
 
-    private MockFileSystem fileSystem;
-    private string baseDir;
-
     /// <summary>
     /// Sets up the test environment before each test.
     /// </summary>
     [SetUp]
     public void Setup()
     {
-        this.baseDir = AppContext.BaseDirectory;
-        this.fileSystem = new MockFileSystem();
-        this.fileSystem.AddFile(Path.Combine(this.baseDir, "appsettings.json"), new MockFileData(TestAppSettings));
+        var baseDir = AppContext.BaseDirectory;
+        var fileSystem = new MockFileSystem();
+        fileSystem.AddFile(Path.Combine(baseDir, "appsettings.json"), new MockFileData(TestAppSettings));
     }
 
     /// <summary>
