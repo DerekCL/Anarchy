@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Upgraded to .NET 9:
+  - Updated target framework
+  - Updated Docker base images
+  - Updated NuGet package versions
+  - Enabled latest C# language features
 - Fixed linting issues in DiscordReadyHandler:
   - Added XML documentation
   - Renamed fields to follow naming convention
@@ -34,6 +39,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added XML documentation
   - Renamed fields to follow naming convention
   - Added this prefix to local calls
+- Reorganized test structure:
+  - Moved tests next to their implementation files
+  - Removed separate test project
+  - Integrated test infrastructure into main project
+- Fixed test file naming:
+  - Renamed test files to match class names
+  - ConfigurationService.Tests.cs → ConfigurationServiceTests.cs
+  - DiscordMessageHandler.Tests.cs → DiscordMessageHandlerTests.cs
 
 ### Added
 
@@ -46,10 +59,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Standardized accessibility modifier requirements
 - XML documentation for ServiceCollectionExtensions class and methods
 - XML documentation for DiscordBotService class and methods
+- Testing infrastructure:
+  - Unit tests for core services
+  - Integration tests for Discord handlers
+  - Mock implementations for Discord client
+  - Test utilities and helpers
 
 ### Fixed
 
 - Removed unnecessary async/await in Program.Main method
+- Fixed linting errors in DiscordMessageHandlerTests:
+  - Resolved expression tree issues with optional arguments in SendMessageAsync mocks
 
 ## [0.1.0] - 2024-03-21
 
