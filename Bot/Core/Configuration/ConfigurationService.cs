@@ -12,10 +12,19 @@ public class ConfigurationService
     /// <summary>
     /// Initializes a new instance of the <see cref="ConfigurationService"/> class.
     /// </summary>
-    public ConfigurationService()
+    /// <param name="configuration">The configuration instance to use.</param>
+    public ConfigurationService(IConfiguration configuration)
     {
-        var environment =
-            Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+        this.configuration = configuration;
+    }
+
+    /// <summary>
+    /// Creates a new instance of ConfigurationService with the default configuration setup.
+    /// </summary>
+    /// <returns>A new instance of ConfigurationService.</returns>
+    public static ConfigurationService CreateDefault()
+    {
+        var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
 
         IConfigurationBuilder builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
@@ -30,7 +39,7 @@ public class ConfigurationService
             );
         }
 
-        this.configuration = builder.Build();
+        return new ConfigurationService(builder.Build());
     }
 
     /// <summary>

@@ -47,6 +47,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Renamed test files to match class names
   - ConfigurationService.Tests.cs → ConfigurationServiceTests.cs
   - DiscordMessageHandler.Tests.cs → DiscordMessageHandlerTests.cs
+- Improved test configuration and maintainability:
+  - Made ConfigurationService more testable through dependency injection
+  - Added factory method for default configuration setup
+  - Updated test mocking approach for better readability
 
 ### Added
 

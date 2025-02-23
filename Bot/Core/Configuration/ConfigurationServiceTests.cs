@@ -1,4 +1,4 @@
-using System.IO.Abstractions.TestingHelpers;
+using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 
 namespace Bot.Core.Configuration;
@@ -9,11 +9,7 @@ namespace Bot.Core.Configuration;
 [TestFixture]
 public class ConfigurationServiceTests
 {
-    private const string TestAppSettings = @"{
-        ""Discord"": {
-            ""Token"": ""test-token""
-        }
-    }";
+    private IConfiguration configuration;
 
     /// <summary>
     /// Sets up the test environment before each test.
@@ -21,9 +17,14 @@ public class ConfigurationServiceTests
     [SetUp]
     public void Setup()
     {
-        var baseDir = AppContext.BaseDirectory;
-        var fileSystem = new MockFileSystem();
-        fileSystem.AddFile(Path.Combine(baseDir, "appsettings.json"), new MockFileData(TestAppSettings));
+        var inMemorySettings = new Dictionary<string, string?>(StringComparer.Ordinal)
+        {
+            { "Discord:Token", "test-token" },
+        };
+
+        this.configuration = new ConfigurationBuilder()
+            .AddInMemoryCollection(inMemorySettings)
+            .Build();
     }
 
     /// <summary>
@@ -33,7 +34,7 @@ public class ConfigurationServiceTests
     public void ShouldReturnValueWhenKeyExists()
     {
         // Arrange
-        var service = new ConfigurationService();
+        var service = new ConfigurationService(this.configuration);
 
         // Act
         var token = service.GetValue("Discord", "Token");
@@ -50,7 +51,7 @@ public class ConfigurationServiceTests
     public void ShouldThrowExceptionWhenKeyDoesNotExist()
     {
         // Arrange
-        var service = new ConfigurationService();
+        var service = new ConfigurationService(this.configuration);
 
         // Act & Assert
         Assert.Throws<InvalidOperationException>(() => service.GetValue("NonExistent", "Key"));
