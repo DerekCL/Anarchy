@@ -10,9 +10,9 @@ namespace Bot.Discord;
 /// </summary>
 public sealed class DiscordBotService : IDisposable
 {
-    private readonly DiscordSocketClient client;
-    private readonly ConfigurationService configuration;
-    private bool disposed;
+    private readonly DiscordSocketClient _client;
+    private readonly ConfigurationService _configuration;
+    private bool _disposed;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DiscordBotService"/> class.
@@ -31,12 +31,12 @@ public sealed class DiscordBotService : IDisposable
         ArgumentNullException.ThrowIfNull(configuration);
         ArgumentNullException.ThrowIfNull(readyHandler);
 
-        this.client = client;
-        this.configuration = configuration;
+        _client = client;
+        _configuration = configuration;
 
-        this.client.Log += DiscordLoggingHandler.HandleLogAsync;
-        this.client.Ready += readyHandler.HandleReadyAsync;
-        this.client.MessageReceived += DiscordMessageHandler.HandleMessageAsync;
+        _client.Log += DiscordLoggingHandler.HandleLogAsync;
+        _client.Ready += readyHandler.HandleReadyAsync;
+        _client.MessageReceived += DiscordMessageHandler.HandleMessageAsync;
     }
 
     /// <summary>
@@ -45,10 +45,10 @@ public sealed class DiscordBotService : IDisposable
     /// <returns>A task representing the asynchronous operation.</returns>
     public async Task RunAsync()
     {
-        var token = this.configuration.GetValue("Discord", "Token");
+        var token = _configuration.GetValue("Discord", "Token");
 
-        await this.client.LoginAsync(TokenType.Bot, token).ConfigureAwait(false);
-        await this.client.StartAsync().ConfigureAwait(false);
+        await _client.LoginAsync(TokenType.Bot, token).ConfigureAwait(false);
+        await _client.StartAsync().ConfigureAwait(false);
 
         // Keep the service running
         await Task.Delay(Timeout.Infinite).ConfigureAwait(false);
@@ -60,20 +60,20 @@ public sealed class DiscordBotService : IDisposable
     public void Dispose()
     {
         // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-        this.Dispose(disposing: true);
+        Dispose(disposing: true);
         GC.SuppressFinalize(this);
     }
 
     private void Dispose(bool disposing)
     {
-        if (!this.disposed)
+        if (!_disposed)
         {
             if (disposing)
             {
-                this.client?.Dispose();
+                _client?.Dispose();
             }
 
-            this.disposed = true;
+            _disposed = true;
         }
     }
 }

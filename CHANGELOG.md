@@ -123,6 +123,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed unnecessary async/await in Program.Main method
 - Fixed linting errors in DiscordMessageHandlerTests:
   - Resolved expression tree issues with optional arguments in SendMessageAsync mocks
+  - Added 'Async' suffix to async test methods to follow naming convention
+  - Replaced 'var' with explicit types for collection variables
+  - Fixed unused expression values using discard operator
+  - Improved parameter naming in lambda expressions for better readability
+  - Used named parameters in Returns method calls
+  - Converted to file-scoped namespace
+  - Added ConfigureAwait to awaited tasks
+- Fixed naming rule violation in ConfigurationService by adding underscore prefix to private fields
+- Fixed ConfigurationService linting issues:
+  - Added underscore prefix to private fields to follow naming convention
+  - Converted to use primary constructor
+  - Simplified name references in methods
+- Fixed ConfigurationServiceTests linting issues:
+  - Added underscore prefix to private fields to follow naming convention
+  - Simplified name references by removing unnecessary 'this.' prefixes
+  - Fixed unused expression value warning by using discard operator
+- Fixed DiscordBotService linting issues:
+  - Added underscore prefix to private fields to follow naming convention
+  - Simplified name references by removing unnecessary 'this.' prefixes
+- Fixed DiscordReadyHandler linting issues:
+  - Added underscore prefix to private fields to follow naming convention
+  - Simplified name references by removing unnecessary 'this.' prefixes
+- Fixed SendMessageAsyncWrapper method in DiscordMessageHandlerTests to match Discord.Net API by simplifying the method signature
+- Fixed namespace declaration in Program.cs by moving using directives outside the namespace
 
 ## [0.1.0] - 2024-03-21
 

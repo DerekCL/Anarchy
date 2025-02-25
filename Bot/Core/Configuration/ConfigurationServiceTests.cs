@@ -9,7 +9,7 @@ namespace Bot.Core.Configuration;
 [TestFixture]
 public class ConfigurationServiceTests
 {
-    private IConfiguration configuration;
+    private IConfiguration _configuration;
 
     /// <summary>
     /// Sets up the test environment before each test.
@@ -22,7 +22,7 @@ public class ConfigurationServiceTests
             { "Discord:Token", "test-token" },
         };
 
-        this.configuration = new ConfigurationBuilder()
+        _configuration = new ConfigurationBuilder()
             .AddInMemoryCollection(inMemorySettings)
             .Build();
     }
@@ -34,7 +34,7 @@ public class ConfigurationServiceTests
     public void ShouldReturnValueWhenKeyExists()
     {
         // Arrange
-        var service = new ConfigurationService(this.configuration);
+        var service = new ConfigurationService(_configuration);
 
         // Act
         var token = service.GetValue("Discord", "Token");
@@ -51,9 +51,9 @@ public class ConfigurationServiceTests
     public void ShouldThrowExceptionWhenKeyDoesNotExist()
     {
         // Arrange
-        var service = new ConfigurationService(this.configuration);
+        var service = new ConfigurationService(_configuration);
 
         // Act & Assert
-        Assert.Throws<InvalidOperationException>(() => service.GetValue("NonExistent", "Key"));
+        _ = Assert.Throws<InvalidOperationException>(() => service.GetValue("NonExistent", "Key"));
     }
 }

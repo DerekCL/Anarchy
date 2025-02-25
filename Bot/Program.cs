@@ -2,11 +2,11 @@
 // Copyright (c) {year} DerekCL. All rights reserved.
 // </copyright>
 
-namespace Bot;
-
 using Bot.Core;
 using Bot.Discord;
 using Microsoft.Extensions.DependencyInjection;
+
+namespace Bot;
 
 /// <summary>
 /// Entry point for the Discord bot application.

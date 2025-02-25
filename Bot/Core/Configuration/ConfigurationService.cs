@@ -5,18 +5,9 @@ namespace Bot.Core.Configuration;
 /// <summary>
 /// Manages application configuration settings from appsettings.json files.
 /// </summary>
-public class ConfigurationService
+public class ConfigurationService(IConfiguration configuration)
 {
-    private readonly IConfiguration configuration;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ConfigurationService"/> class.
-    /// </summary>
-    /// <param name="configuration">The configuration instance to use.</param>
-    public ConfigurationService(IConfiguration configuration)
-    {
-        this.configuration = configuration;
-    }
+    private readonly IConfiguration _configuration = configuration;
 
     /// <summary>
     /// Creates a new instance of ConfigurationService with the default configuration setup.
@@ -51,7 +42,7 @@ public class ConfigurationService
     /// <exception cref="InvalidOperationException">Thrown when the configuration value is not found.</exception>
     public string GetValue(string section, string key)
     {
-        return this.configuration.GetSection(section)[key]
+        return _configuration.GetSection(section)[key]
             ?? throw new InvalidOperationException(
                 $"{section}:{key} is not configured in appsettings.json"
             );

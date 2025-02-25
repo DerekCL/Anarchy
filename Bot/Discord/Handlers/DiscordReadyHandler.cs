@@ -9,7 +9,7 @@ namespace Bot.Discord.Handlers;
 /// <param name="client">The Discord client instance.</param>
 public class DiscordReadyHandler(DiscordSocketClient client)
 {
-    private readonly DiscordSocketClient discordClient = client;
+    private readonly DiscordSocketClient _discordClient = client;
 
     /// <summary>
     /// Handles the Discord ready event by logging the connected user.
@@ -17,6 +17,6 @@ public class DiscordReadyHandler(DiscordSocketClient client)
     /// <returns>A task representing the asynchronous operation.</returns>
     public Task HandleReadyAsync()
     {
-        return LoggingHandler.LogAsync($"{this.discordClient.CurrentUser} is connected!");
+        return LoggingHandler.LogAsync($"{_discordClient.CurrentUser} is connected!");
     }
 }
