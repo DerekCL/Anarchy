@@ -9,6 +9,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Significantly enhanced .editorconfig to focus on modern C# practices:
+  - Added comprehensive modern C# 12 features section with stronger enforcement
+  - Added support for required members, index/range operators, and method group conversion
+  - Added pattern matching preferences with warning severity
+  - Enhanced expression-bodied member rules to cover all member types
+  - Added comprehensive control flow pattern preferences
+  - Added type & value preferences for modern coding styles
+  - Removed redundant StyleCop suppressions and conflicting settings
+  - Consolidated primary constructor rules into a dedicated section
+  - Added detailed explanatory comments for each rule
+  - Added dedicated Discord.Net specific rules section
+  - Promoted key C# 12 features from suggestion to warning level
+  - Enforced immutability with readonly field warnings
+  - Added warnings for async/await best practices
+  - Improved record type usage recommendations
+  - Enhanced rules for collection expressions and pattern matching
+- Added example classes demonstrating C# 12 primary constructor usage:
+  - Created ModernDiscordHandler showing preferred primary constructor pattern
+  - Created OldStyleDiscordHandler showing traditional constructor approach
+  - Created ModernDiscordService demonstrating primary constructors with calculated properties
+  - Added DiscordHandlerExample with practical event handling implementations
+  - All examples include full XML documentation and follow modern C# best practices
 - Added Dockerfile.tests for running tests in Linux containers:
   - Uses .NET 9 SDK base image
   - Configures test environment
@@ -26,6 +48,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Modified severity of namespace declarations and using directive placements to warning
   - Changed SA1200 severity to none
   - Adjusted various diagnostic severity levels for improved developer experience
+  - Added Discord.Net specific best practices
+  - Added Serilog logging best practices
+  - Increased severity level of naming rules to warning
+  - Added specific AsyncFixer configuration
+  - Consolidated Roslynator configuration
+  - Added SonarAnalyzer specific rules
+  - Enhanced primary constructor support with dedicated section and warnings
 - Fixed linting issues in DiscordMessageHandler:
   - Added XML documentation for class and methods
 - Fixed linting issues in DiscordLoggingHandler:
@@ -50,6 +79,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Made ConfigurationService more testable through dependency injection
   - Added factory method for default configuration setup
   - Updated test mocking approach for better readability
+- Comprehensive logging infrastructure with Serilog
+- Microsoft.Extensions.Hosting for improved service management
+- Specific Serilog sinks for console and file logging
+- Added CodeRabbit configuration based on official schema:
+  - Implemented path-specific instructions for Discord.Net components
+  - Added style instructions for C# 12 and .NET 9 patterns
+  - Configured analysis for best practices, performance, and security
+  - Added SonarQube and Semgrep tool integrations
+  - Set up web search knowledge base for improved context
 
 ### Changed
 
@@ -58,6 +96,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Updated Docker base images
   - Updated NuGet package versions
   - Enabled latest C# language features
+- Optimized project dependencies by removing redundancies and organizing into logical categories
+- Removed StyleCop.Analyzers (redundant with other analyzers)
+- Removed redundant Roslynator packages, keeping only core Roslynator.Analyzers
+- Removed Menees.Analyzers to reduce overlap
+- Reduced Discord.Net packages, keeping only the meta-package and essential components
+- Moved AsyncFixer from Database category to Analysis & Code Quality
+- Updated .editorconfig to align with dependency changes:
+  - Removed StyleCop specific rules and configurations
+  - Added modern C# 12 and .NET 9 coding standards
+  - Simplified Roslynator configuration to match reduced packages
+  - Upgraded primary constructor rule from suggestion to warning
+- Fixed CodeRabbit configuration to comply with official schema:
+  - Moved Discord.Net specific rules into style_instructions
+  - Replaced custom rules with schema-compliant structure
+  - Adjusted analysis configuration to match CodeRabbit capabilities
+  - Set appropriate test framework and coverage thresholds
+  - Emphasized primary constructor usage in style instructions
+- Enhanced build configuration for code style enforcement:
+  - Added EnforceCodeStyleInBuild property set to true
+  - Added AnalysisMode set to All for comprehensive analysis
+  - Explicitly included .editorconfig in build process
 
 ### Fixed
 

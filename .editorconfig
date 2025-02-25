@@ -1,6 +1,10 @@
 # ====================================================
 # Root EditorConfig File
 # ====================================================
+# Modern C# & .NET 9 Coding Standards for Discord.Net Applications
+# This file enforces modern C# 12 patterns and Discord.Net best practices
+# with an emphasis on primary constructors, pattern matching, and async patterns.
+# ====================================================
 root = true
 
 # ====================================================
@@ -39,24 +43,64 @@ csharp_indent_case_contents = true
 csharp_indent_case_contents_when_block = true
 
 # Nullable Reference Types
-csharp_style_nullable_reference_types = true:suggestion
+csharp_style_nullable_reference_types = true:warning
 dotnet_analyzer_diagnostic.category-NullableReferenceTypes.severity = warning
 
-# Modern C# Features (C# 12)
-csharp_style_namespace_declarations = file_scoped:warning
-csharp_style_global_using_directives = true:suggestion
-csharp_style_target_typed_new = true:suggestion
-csharp_style_prefer_nameof = true:suggestion
-csharp_style_prefer_using_static = true:suggestion
-csharp_style_prefer_primary_constructors = true:suggestion
-csharp_style_prefer_unnamed_patterns = true:suggestion
+# ====================================================
+# Modern C# Features (C# 12 & .NET 9)
+# ====================================================
+# Primary Constructors - Critical Feature for Modern C#
+csharp_style_prefer_primary_constructors = true:warning
+dotnet_diagnostic.IDE0290.severity = warning
 
-# .NET 8 Enhancements
-dotnet_style_prefer_record_types = true:suggestion
-dotnet_style_prefer_minimal_api = true:suggestion
-dotnet_style_prefer_async_methods = true:suggestion
-csharp_style_prefer_switch_expression = true:suggestion
-csharp_style_prefer_nullable_annotations = true:suggestion
+# Modern Type Declaration & Member Features
+csharp_style_namespace_declarations = file_scoped:warning          # Use file-scoped namespaces
+csharp_style_global_using_directives = true:suggestion            # Prefer global usings for shared imports
+csharp_style_prefer_index_operator = true:warning                 # Use ^1 instead of Length - 1
+csharp_style_prefer_range_operator = true:warning                 # Use .. for ranges
+csharp_style_prefer_method_group_conversion = true:suggestion     # Prefer method groups over lambdas when applicable
+csharp_style_prefer_top_level_statements = true:suggestion        # For console applications
+csharp_style_prefer_utf8_string_literals = true:suggestion        # Use utf8 string literals for performance
+csharp_style_prefer_readonly_struct = true:warning                # Make structs readonly for safety
+csharp_style_prefer_readonly_struct_member = true:warning         # Use readonly members for better performance
+csharp_style_prefer_required_members = true:warning               # Prefer required modifier for initialization
+
+# Modern Pattern Matching & Expression Syntax - Key C# 12 Feature
+csharp_style_prefer_pattern_matching = true:warning               # Prefer pattern matching over explicit typecasts 
+csharp_style_pattern_matching_over_is_with_cast_check = true:warning
+csharp_style_pattern_matching_over_as_with_null_check = true:warning
+csharp_style_prefer_not_pattern = true:warning                    # Use 'is not' pattern
+csharp_style_prefer_extended_property_pattern = true:warning      # Use extended property patterns
+csharp_style_prefer_unnamed_patterns = true:suggestion            # Use unnamed patterns where appropriate
+
+# Object & Collection Features
+csharp_style_prefer_tuple_swap = true:suggestion                  # Prefer tuple deconstruction
+csharp_style_inlined_variable_declaration = true:suggestion      
+csharp_style_deconstructed_variable_declaration = true:suggestion
+csharp_style_prefer_collection_expression = true:warning          # Use collection expressions [1, 2, 3]
+csharp_style_prefer_null_check_over_type_check = true:warning     # Use 'is null' over 'is object'
+csharp_style_implicit_object_creation_when_type_is_apparent = true:suggestion
+csharp_style_target_typed_new = true:suggestion                   # Use target-typed new expressions
+
+# Expression-Bodied Members - More Concise Code
+csharp_style_expression_bodied_methods = when_possible:suggestion
+csharp_style_expression_bodied_constructors = when_possible:suggestion
+csharp_style_expression_bodied_operators = when_possible:suggestion
+csharp_style_expression_bodied_properties = true:warning           # Always use expression bodies for properties
+csharp_style_expression_bodied_indexers = true:warning             # Always use expression bodies for indexers
+csharp_style_expression_bodied_accessors = true:warning            # Always use expression bodies for accessors
+csharp_style_expression_bodied_lambdas = when_possible:suggestion
+csharp_style_expression_bodied_local_functions = when_possible:suggestion
+
+# Type & Value Preference
+dotnet_style_prefer_record_types = true:warning                    # Use records for immutable data
+dotnet_style_prefer_inferred_tuple_names = true:suggestion
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
+dotnet_style_prefer_auto_properties = true:warning                 # Use auto properties over backing fields
+dotnet_style_prefer_conditional_expression_over_assignment = true:suggestion
+dotnet_style_prefer_conditional_expression_over_return = true:suggestion
+dotnet_style_prefer_foreach_explicit_cast_in_source = true:suggestion
+dotnet_style_prefer_compound_assignment = true:suggestion
 
 # Additional Formatting
 dotnet_style_prefer_var_elsewhere = true:suggestion
@@ -64,41 +108,19 @@ dotnet_style_prefer_var_when_type_is_apparent = true:suggestion
 csharp_style_var_for_built_in_types = true:suggestion
 csharp_style_var_when_type_is_apparent = true:suggestion
 
-# Expression-Bodied Members
-csharp_style_expression_bodied_methods = when_possible:suggestion
-csharp_style_expression_bodied_properties = when_possible:suggestion
-csharp_style_expression_bodied_indexers = when_possible:suggestion
-csharp_style_expression_bodied_accessors = when_possible:suggestion
-
-# Modifier Ordering
-csharp_ordering_of_modifiers = default
+# Control Flow Patterns
+csharp_style_prefer_switch_expression = true:warning              # Prefer switch expressions over switch statements
+csharp_style_throw_expression = true:suggestion
+csharp_style_conditional_delegate_call = true:warning             # Use ?. operator for conditional calls
+csharp_style_prefer_local_over_anonymous_function = true:suggestion
+csharp_style_prefer_static_local_function = true:suggestion
 
 # Quote Preferences
 csharp_prefer_single_quotes = true:suggestion
 
-# Redundant Casts and Null Checks
-csharp_style_remove_redundant_casts = true:suggestion
-csharp_style_prefer_is_not_null = true:suggestion
-csharp_style_prefer_is_null = true:suggestion
-
 # Using Declarations and Foreach
-csharp_prefer_using_declarations = true:suggestion
+csharp_prefer_using_declarations = true:warning                   # Prefer using declarations over statements
 csharp_prefer_foreach = true:suggestion
-
-# Static Local Functions
-csharp_style_prefer_static_local_functions = true:suggestion
-
-# Object Creation Preferences
-csharp_style_object_creation = new_expression_only:suggestion
-
-# Pattern Matching and Null Coalescing
-csharp_style_pattern_matching_over_type_cast = true:suggestion
-csharp_style_prefer_is_not_pattern = true:suggestion
-csharp_style_prefer_null_coalescing_assignment = true:suggestion
-csharp_style_prefer_collection_expressions = true:suggestion
-
-# LINQ Syntax Preference
-csharp_style_prefer_method_syntax_over_query_syntax = true:suggestion
 
 # ====================================================
 # Naming Conventions
@@ -153,112 +175,119 @@ dotnet_naming_symbols.async_method_symbols.applicable_accessibilities = *
 dotnet_naming_symbols.async_method_symbols.required_modifiers = async
 
 # Naming Styles
-dotnet_naming_style.pascal_case_style.capitalization = PascalCase
-dotnet_naming_style.camel_case_style.capitalization = camelCase
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+dotnet_naming_style.camel_case_style.capitalization = camel_case
 dotnet_naming_style.private_field_style.required_prefix = _
 dotnet_naming_style.private_field_style.capitalization = camel_case
-dotnet_naming_style.event_style.capitalization = PascalCase
+dotnet_naming_style.event_style.capitalization = pascal_case
 dotnet_naming_style.event_style.required_suffix = Event
-dotnet_naming_style.delegate_style.capitalization = PascalCase
+dotnet_naming_style.delegate_style.capitalization = pascal_case
 dotnet_naming_style.delegate_style.required_suffix = Delegate
-dotnet_naming_style.generic_type_parameter_style.capitalization = PascalCase
+dotnet_naming_style.generic_type_parameter_style.capitalization = pascal_case
 dotnet_naming_style.generic_type_parameter_style.required_prefix = T
-dotnet_naming_style.async_methods_style.capitalization = PascalCase
+dotnet_naming_style.async_methods_style.capitalization = pascal_case
 dotnet_naming_style.async_methods_style.required_suffix = Async
 
-# Naming Rules
+# Naming Rules - Critical for Discord.Net Code
 dotnet_naming_rule.async_methods_suffix.symbols = async_method_symbols
 dotnet_naming_rule.async_methods_suffix.style = async_methods_style
-dotnet_naming_rule.async_methods_suffix.severity = suggestion
+dotnet_naming_rule.async_methods_suffix.severity = warning
 
 dotnet_naming_rule.constants_pascal_case.symbols = constant_symbols
 dotnet_naming_rule.constants_pascal_case.style = pascal_case_style
-dotnet_naming_rule.constants_pascal_case.severity = suggestion
+dotnet_naming_rule.constants_pascal_case.severity = warning
 
 dotnet_naming_rule.delegates_pascal_case.symbols = delegate_symbols
 dotnet_naming_rule.delegates_pascal_case.style = delegate_style
-dotnet_naming_rule.delegates_pascal_case.severity = suggestion
+dotnet_naming_rule.delegates_pascal_case.severity = warning
 
 dotnet_naming_rule.events_pascal_case.symbols = event_symbols
 dotnet_naming_rule.events_pascal_case.style = event_style
-dotnet_naming_rule.events_pascal_case.severity = suggestion
+dotnet_naming_rule.events_pascal_case.severity = warning
 
 dotnet_naming_rule.generic_type_parameters.symbols = generic_type_parameter_symbols
 dotnet_naming_rule.generic_type_parameters.style = generic_type_parameter_style
-dotnet_naming_rule.generic_type_parameters.severity = suggestion
+dotnet_naming_rule.generic_type_parameters.severity = warning
 
 dotnet_naming_rule.local_variables_camel_case.symbols = local_variable_symbols
 dotnet_naming_rule.local_variables_camel_case.style = camel_case_style
-dotnet_naming_rule.local_variables_camel_case.severity = suggestion
+dotnet_naming_rule.local_variables_camel_case.severity = warning
 
 dotnet_naming_rule.methods_pascal_case.symbols = method_symbols
 dotnet_naming_rule.methods_pascal_case.style = pascal_case_style
-dotnet_naming_rule.methods_pascal_case.severity = suggestion
+dotnet_naming_rule.methods_pascal_case.severity = warning
 
 dotnet_naming_rule.namespace_pascal_case.symbols = namespace_symbols
 dotnet_naming_rule.namespace_pascal_case.style = pascal_case_style
-dotnet_naming_rule.namespace_pascal_case.severity = suggestion
+dotnet_naming_rule.namespace_pascal_case.severity = warning
 
 dotnet_naming_rule.parameters_camel_case.symbols = parameter_symbols
 dotnet_naming_rule.parameters_camel_case.style = camel_case_style
-dotnet_naming_rule.parameters_camel_case.severity = suggestion
+dotnet_naming_rule.parameters_camel_case.severity = warning
 
 dotnet_naming_rule.private_fields_camel_case.symbols = private_field_symbols
 dotnet_naming_rule.private_fields_camel_case.style = private_field_style
-dotnet_naming_rule.private_fields_camel_case.severity = suggestion
+dotnet_naming_rule.private_fields_camel_case.severity = warning
 
 dotnet_naming_rule.properties_pascal_case.symbols = property_symbols
 dotnet_naming_rule.properties_pascal_case.style = pascal_case_style
-dotnet_naming_rule.properties_pascal_case.severity = suggestion
+dotnet_naming_rule.properties_pascal_case.severity = warning
 
 dotnet_naming_rule.types_pascal_case.symbols = type_symbols
 dotnet_naming_rule.types_pascal_case.style = pascal_case_style
-dotnet_naming_rule.types_pascal_case.severity = suggestion
+dotnet_naming_rule.types_pascal_case.severity = warning
 
 # ====================================================
 # Analyzer Category Severity
 # ====================================================
 dotnet_analyzer_diagnostic.category-Design.severity = warning
 dotnet_analyzer_diagnostic.category-Maintainability.severity = warning
-dotnet_analyzer_diagnostic.category-Naming.severity = suggestion
-dotnet_analyzer_diagnostic.category-Style.severity = suggestion
+dotnet_analyzer_diagnostic.category-Naming.severity = warning
+dotnet_analyzer_diagnostic.category-Style.severity = warning
 dotnet_analyzer_diagnostic.category-Security.severity = warning
+dotnet_analyzer_diagnostic.category-Performance.severity = warning
+dotnet_analyzer_diagnostic.category-Reliability.severity = warning
 
 # ====================================================
 # Code Analysis and Quality Rules
 # ====================================================
 # Performance & Security
-dotnet_diagnostic.AwaitTask_AsyncVoid.severity = error
-dotnet_diagnostic.SecureCoding.severity = warning
-dotnet_analyzer_diagnostic.category-Security.severity = warning
+dotnet_diagnostic.CA2007.severity = warning   # Consider calling ConfigureAwait
+dotnet_diagnostic.CA1822.severity = warning   # Mark members as static
+dotnet_diagnostic.CA1848.severity = suggestion # Use LoggerMessage delegates
+dotnet_diagnostic.CA2254.severity = warning   # Template should be static expression
 
-# Readonly Preferences
-dotnet_style_prefer_readonly_fields = true:suggestion
-dotnet_style_prefer_readonly_structs = true:suggestion
+# Readonly Preferences - Critical for Immutability
+dotnet_style_prefer_readonly_fields = true:warning
+dotnet_style_prefer_readonly_structs = true:warning
+dotnet_style_readonly_field = true:warning 
 
-# Memory and Span Preferences
+# Memory and Span Preferences - Important for .NET 9 Performance
 dotnet_style_prefer_memory_over_span = true:suggestion
-dotnet_style_prefer_span_over_array = true:suggestion
+dotnet_style_prefer_span_over_array = true:warning                # Always prefer Span<T> over arrays for APIs
 dotnet_style_prefer_inlined_span_methods = true:suggestion
 
 # ====================================================
 # Exception Handling Rules
 # ====================================================
-dotnet_diagnostic.EXC0001.severity = error
-dotnet_diagnostic.EXC0002.severity = warning
-dotnet_diagnostic.EXC0003.severity = suggestion
+dotnet_diagnostic.CA1031.severity = suggestion # Do not catch general exception types
+dotnet_diagnostic.RCS1075.severity = warning   # Avoid empty catch clause that catches System.Exception
+dotnet_diagnostic.CA2200.severity = warning    # Rethrow to preserve stack details
 
 # ====================================================
 # LINQ Optimization Rules
 # ====================================================
-dotnet_diagnostic.LINQ0001.severity = suggestion
-dotnet_diagnostic.LINQ0002.severity = suggestion
+dotnet_diagnostic.CA1826.severity = warning    # Do not use Enumerable methods on indexable collections
+dotnet_diagnostic.CA1827.severity = warning    # Do not use Count() when Any() can be used
+dotnet_diagnostic.CA1829.severity = warning    # Use Length/Count property instead of Count()
+dotnet_diagnostic.CA1841.severity = warning    # Prefer Dictionary.Contains methods
+dotnet_diagnostic.CA1851.severity = warning    # Possible multiple enumeration of IEnumerable
 
 # ====================================================
 # Dependency Injection Best Practices
 # ====================================================
-dotnet_diagnostic.DI0001.severity = warning
-dotnet_diagnostic.DI0002.severity = error
+dotnet_diagnostic.CA2000.severity = warning    # Dispose objects before losing scope
+dotnet_diagnostic.CA2213.severity = warning    # Disposable fields should be disposed
 
 # ====================================================
 # Disposal and Resource Management
@@ -266,24 +295,50 @@ dotnet_diagnostic.DI0002.severity = error
 dotnet_diagnostic.IDISP001.severity = warning  # Dispose created
 dotnet_diagnostic.IDISP002.severity = warning  # Dispose member
 dotnet_diagnostic.IDISP004.severity = warning  # Don't ignore created IDisposable
+dotnet_diagnostic.CA2215.severity = warning    # Dispose methods should call base class dispose
 
 # ====================================================
 # Member Ordering
-# (Requires StyleCop.Analyzers or similar)
 # ====================================================
 dotnet_sort_system_directives_first = true
 dotnet_style_using_directive_placement = outside_namespace:warning
 
 # ====================================================
+# Logging and Diagnostics Rules - For Discord Bot Logging
+# ====================================================
+# Serilog best practices
+dotnet_diagnostic.Serilog001.severity = suggestion # Use constants for log message templates
+dotnet_diagnostic.Serilog002.severity = warning    # Destructure complex types explicitly
+dotnet_diagnostic.Serilog003.severity = warning    # Arguments should be properties of the event
+dotnet_diagnostic.Serilog004.severity = suggestion # Constants for event IDs
+
+# ====================================================
 # Accessibility Modifiers Enforcement
 # ====================================================
-csharp_style_require_accessibility_modifiers = always:suggestion
+csharp_style_require_accessibility_modifiers = always:warning
 
 # ====================================================
 # XML Documentation Rules
 # ====================================================
 dotnet_diagnostic.CS1591.severity = warning   # Warn for missing XML comments
-csharp_style_documentation_comments = true:suggestion
+csharp_style_documentation_comments = true:warning
+
+# ====================================================
+# Class Design Rules
+# ====================================================
+dotnet_diagnostic.CA1052.severity = warning     # Static holder types should be Static or NotInheritable
+dotnet_diagnostic.CA1054.severity = warning     # URI parameters should not be strings
+dotnet_diagnostic.CA1056.severity = warning     # URI properties should not be strings
+
+# ====================================================
+# Discord.Net Specific Rules
+# ====================================================
+# Configure Task/Async patterns required for Discord API
+dotnet_diagnostic.DN0001.severity = warning    # Use asynchronous event handlers
+dotnet_diagnostic.DN0002.severity = warning    # Prefer Task-returning command handlers
+dotnet_diagnostic.DN0003.severity = warning    # Cache Discord entities appropriately
+csharp_style_prefer_task_await = true:warning  # Always use Task/await for async code
+csharp_style_proper_task_return = true:warning # Return Task directly from async methods
 
 # ====================================================
 # Roslynator Configuration
@@ -310,83 +365,42 @@ roslynator_use_block_body_when_declaration_spans_over_multiple_lines = true
 roslynator_use_block_body_when_expression_spans_over_multiple_lines = true
 roslynator_use_collection_expression = true
 
-# Refactorings
-roslynator_refactoring.convert_if_to_switch.enabled = true
-roslynator_refactoring.convert_switch_to_if.enabled = true
-roslynator_refactoring.convert_local_variable_to_var.enabled = true
-roslynator_refactoring.convert_property_to_auto_property.enabled = true
-roslynator_refactoring.convert_var_to_explicit_type.enabled = true
-roslynator_refactoring.extract_interface.enabled = true
-roslynator_refactoring.extract_method.enabled = true
-roslynator_refactoring.extract_property.enabled = true
-roslynator_refactoring.inline_local.enabled = true
-roslynator_refactoring.introduce_variable.enabled = true
-roslynator_refactoring.optimize_braces.enabled = true
-roslynator_refactoring.remove_unused_usings.enabled = true
-roslynator_refactoring.remove_unnecessary_usings.enabled = true
-roslynator_refactoring.sort_usings.enabled = true
-roslynator_refactoring.reduce_to_conditional_expression.enabled = false # Disabled to prevent if/else -> ternary
-roslynator_refactoring.use_expression_body_for_accessors.enabled = true
-roslynator_refactoring.use_expression_body_for_indexers.enabled = true
-roslynator_refactoring.use_expression_body_for_methods.enabled = true
-roslynator_refactoring.use_expression_body_for_properties.enabled = true
-
-# Linting Rules
-roslynator_linting.prefer_auto_properties = true
-roslynator_linting.prefer_expression_bodied_members = false # Disabled to prefer if/else
-roslynator_linting.prefer_inferred_tuple_names = true
-roslynator_linting.prefer_is_null_over_comparisons = true
-roslynator_linting.prefer_null_coalescing = true
-roslynator_linting.prefer_null_propagation = true
-roslynator_linting.prefer_pattern_matching = true
-roslynator_linting.prefer_readonly_fields = true
-roslynator_linting.prefer_single_line_comments = true
-roslynator_linting.prefer_static_methods = true
-roslynator_linting.prefer_string_interpolation = true
-roslynator_linting.prefer_throw_expression = true
+# Analyzers
+roslynator_analyzers.enabled_by_default = true
+roslynator_compiler_diagnostic_fixes.enabled = true
+roslynator_formatting_analyzers.enabled_by_default = true
+roslynator_refactorings.enabled = true
 
 # ====================================================
-# StyleCop Analyzers Configuration
+# Sonar Analyzer Configuration
 # ====================================================
-# SA1200: Using directives should be placed correctly
-dotnet_diagnostic.SA1200.severity = none
-
-# SA1201: Elements should appear in the correct order
-dotnet_diagnostic.SA1201.severity = suggestion
-
-# SA1111: Closing parenthesis should be on line of last parameter
-dotnet_diagnostic.SA1111.severity = none
-
-# SA1633: File header should not be followed by a blank line
-dotnet_diagnostic.SA1633.severity = none
-
-# SA1636: File header copyright text should match
-dotnet_diagnostic.SA1636.severity = none
-
-# SA1009: Closing parenthesis should be spaced correctly
-dotnet_diagnostic.SA1009.severity = none
-
-# SA1124: Do not use regions
-dotnet_diagnostic.SA1124.severity = none
-
-# SA1008: 
-dotnet_diagnostic.SA1008.severity = none
+dotnet_diagnostic.S125.severity = suggestion  # Remove commented out code
+dotnet_diagnostic.S1135.severity = suggestion # Complete TODO comments
+dotnet_diagnostic.S1075.severity = warning    # Hardcoded URIs should not be used
+dotnet_diagnostic.S107.severity = suggestion  # Methods should not have too many parameters
+dotnet_diagnostic.S3776.severity = warning    # Cognitive complexity should not be too high
+dotnet_diagnostic.S1118.severity = warning    # Utility classes should not have public constructors
+dotnet_diagnostic.S2326.severity = warning    # Unused type parameters should be removed
+dotnet_diagnostic.S3881.severity = warning    # IDisposable should be implemented correctly
+dotnet_diagnostic.S2259.severity = warning    # Null pointers should not be dereferenced
+dotnet_diagnostic.S1854.severity = warning    # Unused assignments should be removed
 
 # ====================================================
-# Disable Specific Analyzer Rules
+# Specific Analyzer Rule Adjustments
 # ====================================================
-# IDE Rules
-dotnet_diagnostic.IDE0046.severity = none    # Convert to conditional expression
+dotnet_diagnostic.IDE0046.severity = suggestion # Convert to conditional expression
 dotnet_diagnostic.IDE0050.severity = suggestion # Make member readonly
 dotnet_diagnostic.IDE0060.severity = warning   # Remove unused parameter
 dotnet_diagnostic.IDE0079.severity = warning   # Remove unnecessary suppression
-dotnet_diagnostic.IDE0290.severity = suggestion # Use 'new(...)'
-dotnet_diagnostic.IDE1006.severity = none      # Naming rule violations
-dotnet_diagnostic.IDE1008.severity = suggestion # Variable declaration can be simplified
-dotnet_diagnostic.IDE0090.severity = suggestion # Use 'new(...)' expression
+dotnet_diagnostic.IDE0090.severity = warning   # Use 'new(...)' expression - C# 9 feature
 
-# CA Rules
-dotnet_diagnostic.CA1305.severity = none      # Specify IFormatProvider
+# ====================================================
+# AsyncFixer Configuration - Critical for Discord Bots
+# ====================================================
+dotnet_diagnostic.AsyncFixer01.severity = warning # Unnecessary async/await usage
+dotnet_diagnostic.AsyncFixer02.severity = warning # Long-running or blocking operations inside an async method
+dotnet_diagnostic.AsyncFixer03.severity = warning # Fire & forget async void methods
+dotnet_diagnostic.AsyncFixer04.severity = warning # Fire & forget async call inside a using block
 
 # ====================================================
 # End of EditorConfig
