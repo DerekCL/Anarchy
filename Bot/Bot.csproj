@@ -120,9 +120,4 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-  <ItemGroup>
-    <EditorConfigFiles Include="$(MSBuildThisFileDirectory)..\.editorconfig" />
-  </ItemGroup>
-
 </Project>
