@@ -5,86 +5,111 @@ reviews:
   high_level_summary: true
   review_status: true
   collapse_walkthrough: true
-  
-  # File filters specific to C#
+
+  # File filters specific to Python
   path_filters:
-    - "*.cs"       # C# source files
-    - "!assets/**" # Ignore asset files
-    - "!addons/**" # Ignore third-party addons
-    
+    - "**/*.py"
+    - "!legacy/**"
+    - "!tests/legacy/**"
+
   auto_review:
     enabled: true
     ignore_title_keywords:
-      - "WIP"
-      - "DO NOT MERGE"
-      - "DRAFT"
-    drafts: false
-    max_file_changes: 10  # Flags large PRs for manual review
-    min_approval_required: 1 # Requires at least 1 approval for merges
+      - WIP
+      - DO NOT MERGE
+      - DRAFT
+    drafts: true
+    max_file_changes: 20
+    min_approval_required: 1
 
 # Analysis settings
 analysis:
   languages:
-    - csharp
-  
+    - python
+
   checks:
     - name: best-practices
       enabled: true
       options:
         max_cognitive_complexity: 10
-        max_function_length: 50
-        enforce_explicit_variable_names: true # Avoids confusing "magic numbers"
+        max_function_length: 40
+        enforce_explicit_variable_names: true
+        discourage_global_variables: true
 
     - name: performance
       enabled: true
       options:
-        check_n_plus_one: true # Detects inefficient loops or calls
-        check_memory_leaks: true
-        check_concurrency_issues: true # Ensures safe use of async/await
-        
+        check_n_plus_one: true
+        detect_unnecessary_list_comprehensions: true
+        check_async_contexts: true
+
     - name: security
       enabled: true
       options:
         validate_input_sanitization: true
-        check_dependency_versions: true # Flags outdated or vulnerable packages
+        check_dependency_versions: true
+        prevent_eval_exec_usage: true
 
     - name: coverage
       enabled: true
       options:
-        coverage_threshold_csharp: 85  # % of lines covered for C# code
+        coverage_threshold_python: 85
 
 # Style settings
 style:
-  csharp:
+  python:
     indent_size: 4
-    max_line_length: 100
-    quote_type: double
-    enforce_namespaces: true
+    max_line_length: 88
+    quote_type: single
+    enforce_pep8: true
+    enforce_type_hints: true
+    enforce_docstrings: true
 
 # Custom rules
 custom_rules:
-  discord_bot:
-    max_function_length: 50
-    required_comments: true
-    cyclomatic_complexity: 10
-    # Encourages a TDD approach by checking if tests exist for new modules
+  trading_sim_engine:
+    max_function_length: 35
+    cyclomatic_complexity: 8
     require_tests_for_new_features: true
+    strict_type_checking: true
+    allow_data_classes: true
+    prohibited_patterns:
+      - from typing import Any
+      - assert False
 
 # Notifications & Additional Reporting
 notifications:
   pull_request_summary: true
   custom_alerts:
-    - alert: "High Cognitive Complexity Detected"
-      trigger: "checks.best-practices.max_cognitive_complexity"
-    - alert: "Memory Leak Risk Identified"
-      trigger: "checks.performance.check_memory_leaks"
-    - alert: "Low Test Coverage"
-      trigger: "checks.coverage"
+    - alert: Cognitive Complexity Too High
+      trigger: checks.best-practices.max_cognitive_complexity
+    - alert: Blocking eval/exec usage
+      trigger: checks.security.prevent_eval_exec_usage
+    - alert: Test Coverage Below Threshold
+      trigger: checks.coverage.coverage_threshold_python
 
 # TDD Guidance
 tdd:
-  default_test_framework: "NUnit"  # Common test framework for C#
+  default_test_framework: pytest
   enforce_minimum_tests_per_feature: true
   suggest_test_patterns:
-    - "Arrange-Act-Assert"
-    - "Given-When-Then"
+    - Arrange-Act-Assert
+    - Given-When-Then
+
+# Tools
+tools:
+  ruff:
+    enabled: true
+  pylint:
+    enabled: true
+  mypy:
+    enabled: true
+    config_file: pyproject.toml
+  markdownlint:
+    enabled: true
+  yamllint:
+    enabled: true
+  gitleaks:
+    enabled: true
+  dotenvLint:
+    enabled: true
